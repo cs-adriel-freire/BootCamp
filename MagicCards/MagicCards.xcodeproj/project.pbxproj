@@ -1,0 +1,793 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5A13F07B241D31B000276862 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A13F07A241D31B000276862 /* Card.swift */; };
+		5A13F07D241D31CA00276862 /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A13F07C241D31CA00276862 /* CardSet.swift */; };
+		5AC398C9241C44C5006FCDE4 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC398C8241C44C5006FCDE4 /* ViewCode.swift */; };
+		5AC398CB241C44F8006FCDE4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC398CA241C44F8006FCDE4 /* Coordinator.swift */; };
+		5AD28BA1241C3D4D0072BBEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD28BA0241C3D4C0072BBEB /* AppDelegate.swift */; };
+		5AD28BAA241C3D520072BBEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD28BA9241C3D520072BBEB /* Assets.xcassets */; };
+		5AD28BAD241C3D520072BBEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD28BAB241C3D520072BBEB /* LaunchScreen.storyboard */; };
+		65584E7F166B5C625A96D9B7 /* Pods_MagicCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 314ACA793FC97EA9D8B93FE9 /* Pods_MagicCards.framework */; };
+		8F5DE2515B50D5445C6407E3 /* libPods-MagicCardsSnapshotTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C2E1AFBC908EE82DFCC3D2 /* libPods-MagicCardsSnapshotTests.a */; };
+		F7A2686AB63F6438AFEE7437 /* libPods-MagicCardsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C88C42F46895B622E285AEB /* libPods-MagicCardsTests.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5A6E8FF7241C42B400C5EC53 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AD28B95241C3D4C0072BBEB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AD28B9C241C3D4C0072BBEB;
+			remoteInfo = MagicCards;
+		};
+		5AD28BB4241C3D530072BBEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AD28B95241C3D4C0072BBEB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AD28B9C241C3D4C0072BBEB;
+			remoteInfo = MagicCards;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		18AACB8879566E0B9B73096D /* Pods-MagicCardsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsTests.release.xcconfig"; path = "Target Support Files/Pods-MagicCardsTests/Pods-MagicCardsTests.release.xcconfig"; sourceTree = "<group>"; };
+		21FBED51FDA52A0E3908D1CE /* Pods-MagicCardsSnapshotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsSnapshotTests.debug.xcconfig"; path = "Target Support Files/Pods-MagicCardsSnapshotTests/Pods-MagicCardsSnapshotTests.debug.xcconfig"; sourceTree = "<group>"; };
+		22C2E1AFBC908EE82DFCC3D2 /* libPods-MagicCardsSnapshotTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MagicCardsSnapshotTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		314ACA793FC97EA9D8B93FE9 /* Pods_MagicCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MagicCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		41C558B83C610F5583F274D6 /* Pods-MagicCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCards.release.xcconfig"; path = "Target Support Files/Pods-MagicCards/Pods-MagicCards.release.xcconfig"; sourceTree = "<group>"; };
+		5A13F07A241D31B000276862 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		5A13F07C241D31CA00276862 /* CardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSet.swift; sourceTree = "<group>"; };
+		5A6E8FF2241C42B400C5EC53 /* MagicCardsSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicCardsSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A6E8FF6241C42B400C5EC53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AC398C8241C44C5006FCDE4 /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
+		5AC398CA241C44F8006FCDE4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		5AD28B9D241C3D4C0072BBEB /* MagicCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AD28BA0241C3D4C0072BBEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5AD28BA9241C3D520072BBEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5AD28BAC241C3D520072BBEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5AD28BAE241C3D520072BBEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AD28BB3241C3D530072BBEB /* MagicCardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicCardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AD28BB9241C3D530072BBEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C88C42F46895B622E285AEB /* libPods-MagicCardsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MagicCardsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E105FA3BA762F775A21B8AD7 /* Pods-MagicCardsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsTests.debug.xcconfig"; path = "Target Support Files/Pods-MagicCardsTests/Pods-MagicCardsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E6A3884CDF3EFE75F2D33A96 /* Pods-MagicCards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCards.debug.xcconfig"; path = "Target Support Files/Pods-MagicCards/Pods-MagicCards.debug.xcconfig"; sourceTree = "<group>"; };
+		ED108DF496D2A464928A2F89 /* Pods-MagicCardsSnapshotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsSnapshotTests.release.xcconfig"; path = "Target Support Files/Pods-MagicCardsSnapshotTests/Pods-MagicCardsSnapshotTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5A6E8FEF241C42B400C5EC53 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F5DE2515B50D5445C6407E3 /* libPods-MagicCardsSnapshotTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AD28B9A241C3D4C0072BBEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65584E7F166B5C625A96D9B7 /* Pods_MagicCards.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AD28BB0241C3D530072BBEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7A2686AB63F6438AFEE7437 /* libPods-MagicCardsTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0493669217FA48933A3F8C8C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				314ACA793FC97EA9D8B93FE9 /* Pods_MagicCards.framework */,
+				22C2E1AFBC908EE82DFCC3D2 /* libPods-MagicCardsSnapshotTests.a */,
+				7C88C42F46895B622E285AEB /* libPods-MagicCardsTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5A6E8FF3241C42B400C5EC53 /* MagicCardsSnapshotTests */ = {
+			isa = PBXGroup;
+			children = (
+				5A6E8FFC241C42C100C5EC53 /* Application */,
+			);
+			path = MagicCardsSnapshotTests;
+			sourceTree = "<group>";
+		};
+		5A6E8FFC241C42C100C5EC53 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				5A6E8FF6241C42B400C5EC53 /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		5AD28B94241C3D4C0072BBEB = {
+			isa = PBXGroup;
+			children = (
+				5AD28B9F241C3D4C0072BBEB /* MagicCards */,
+				5AD28BB6241C3D530072BBEB /* MagicCardsTests */,
+				5A6E8FF3241C42B400C5EC53 /* MagicCardsSnapshotTests */,
+				5AD28B9E241C3D4C0072BBEB /* Products */,
+				7AA996474318A7984B177B4D /* Pods */,
+				0493669217FA48933A3F8C8C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5AD28B9E241C3D4C0072BBEB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5AD28B9D241C3D4C0072BBEB /* MagicCards.app */,
+				5AD28BB3241C3D530072BBEB /* MagicCardsTests.xctest */,
+				5A6E8FF2241C42B400C5EC53 /* MagicCardsSnapshotTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5AD28B9F241C3D4C0072BBEB /* MagicCards */ = {
+			isa = PBXGroup;
+			children = (
+				5AD28BC7241C40D80072BBEB /* Application */,
+				5AD28BC2241C3E980072BBEB /* Modules */,
+				5AD28BC9241C41660072BBEB /* Protocols */,
+				5AD28BA9241C3D520072BBEB /* Assets.xcassets */,
+				5AD28BAB241C3D520072BBEB /* LaunchScreen.storyboard */,
+			);
+			path = MagicCards;
+			sourceTree = "<group>";
+		};
+		5AD28BB6241C3D530072BBEB /* MagicCardsTests */ = {
+			isa = PBXGroup;
+			children = (
+				5AD28BC8241C41090072BBEB /* Application */,
+			);
+			path = MagicCardsTests;
+			sourceTree = "<group>";
+		};
+		5AD28BC2241C3E980072BBEB /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				5AD28BC3241C3F070072BBEB /* Model */,
+				5AD28BC4241C3F0E0072BBEB /* View */,
+				5AD28BC5241C3F310072BBEB /* ViewModel */,
+				5AD28BC6241C3F380072BBEB /* Coordinator */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		5AD28BC3241C3F070072BBEB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5A13F07A241D31B000276862 /* Card.swift */,
+				5A13F07C241D31CA00276862 /* CardSet.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5AD28BC4241C3F0E0072BBEB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5AD28BC5241C3F310072BBEB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5AD28BC6241C3F380072BBEB /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		5AD28BC7241C40D80072BBEB /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				5AD28BA0241C3D4C0072BBEB /* AppDelegate.swift */,
+				5AD28BAE241C3D520072BBEB /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		5AD28BC8241C41090072BBEB /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				5AD28BB9241C3D530072BBEB /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		5AD28BC9241C41660072BBEB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5AC398C8241C44C5006FCDE4 /* ViewCode.swift */,
+				5AC398CA241C44F8006FCDE4 /* Coordinator.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7AA996474318A7984B177B4D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E6A3884CDF3EFE75F2D33A96 /* Pods-MagicCards.debug.xcconfig */,
+				41C558B83C610F5583F274D6 /* Pods-MagicCards.release.xcconfig */,
+				21FBED51FDA52A0E3908D1CE /* Pods-MagicCardsSnapshotTests.debug.xcconfig */,
+				ED108DF496D2A464928A2F89 /* Pods-MagicCardsSnapshotTests.release.xcconfig */,
+				E105FA3BA762F775A21B8AD7 /* Pods-MagicCardsTests.debug.xcconfig */,
+				18AACB8879566E0B9B73096D /* Pods-MagicCardsTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5A6E8FF1241C42B400C5EC53 /* MagicCardsSnapshotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A6E8FFB241C42B400C5EC53 /* Build configuration list for PBXNativeTarget "MagicCardsSnapshotTests" */;
+			buildPhases = (
+				88CCCED159232CD8D86AA262 /* [CP] Check Pods Manifest.lock */,
+				5A6E8FEE241C42B400C5EC53 /* Sources */,
+				5A6E8FEF241C42B400C5EC53 /* Frameworks */,
+				5A6E8FF0241C42B400C5EC53 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A6E8FF8241C42B400C5EC53 /* PBXTargetDependency */,
+			);
+			name = MagicCardsSnapshotTests;
+			productName = MagicCardsSnapshotTests;
+			productReference = 5A6E8FF2241C42B400C5EC53 /* MagicCardsSnapshotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5AD28B9C241C3D4C0072BBEB /* MagicCards */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AD28BBC241C3D530072BBEB /* Build configuration list for PBXNativeTarget "MagicCards" */;
+			buildPhases = (
+				A2488A1786F98496DA61B47F /* [CP] Check Pods Manifest.lock */,
+				5AD28B99241C3D4C0072BBEB /* Sources */,
+				5AD28B9A241C3D4C0072BBEB /* Frameworks */,
+				5AD28B9B241C3D4C0072BBEB /* Resources */,
+				DE046A7D58CB8CBCD4508FE2 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MagicCards;
+			productName = MagicCards;
+			productReference = 5AD28B9D241C3D4C0072BBEB /* MagicCards.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5AD28BB2241C3D530072BBEB /* MagicCardsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AD28BBF241C3D530072BBEB /* Build configuration list for PBXNativeTarget "MagicCardsTests" */;
+			buildPhases = (
+				A51843795600C71519D3398F /* [CP] Check Pods Manifest.lock */,
+				5AD28BAF241C3D530072BBEB /* Sources */,
+				5AD28BB0241C3D530072BBEB /* Frameworks */,
+				5AD28BB1241C3D530072BBEB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5AD28BB5241C3D530072BBEB /* PBXTargetDependency */,
+			);
+			name = MagicCardsTests;
+			productName = MagicCardsTests;
+			productReference = 5AD28BB3241C3D530072BBEB /* MagicCardsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5AD28B95241C3D4C0072BBEB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = Concrete;
+				TargetAttributes = {
+					5A6E8FF1241C42B400C5EC53 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 5AD28B9C241C3D4C0072BBEB;
+					};
+					5AD28B9C241C3D4C0072BBEB = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					5AD28BB2241C3D530072BBEB = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 5AD28B9C241C3D4C0072BBEB;
+					};
+				};
+			};
+			buildConfigurationList = 5AD28B98241C3D4C0072BBEB /* Build configuration list for PBXProject "MagicCards" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5AD28B94241C3D4C0072BBEB;
+			productRefGroup = 5AD28B9E241C3D4C0072BBEB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5AD28B9C241C3D4C0072BBEB /* MagicCards */,
+				5AD28BB2241C3D530072BBEB /* MagicCardsTests */,
+				5A6E8FF1241C42B400C5EC53 /* MagicCardsSnapshotTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5A6E8FF0241C42B400C5EC53 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AD28B9B241C3D4C0072BBEB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AD28BAD241C3D520072BBEB /* LaunchScreen.storyboard in Resources */,
+				5AD28BAA241C3D520072BBEB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AD28BB1241C3D530072BBEB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		88CCCED159232CD8D86AA262 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MagicCardsSnapshotTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2488A1786F98496DA61B47F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MagicCards-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A51843795600C71519D3398F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MagicCardsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE046A7D58CB8CBCD4508FE2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MagicCards/Pods-MagicCards-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MagicCards/Pods-MagicCards-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MagicCards/Pods-MagicCards-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5A6E8FEE241C42B400C5EC53 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AD28B99241C3D4C0072BBEB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AD28BA1241C3D4D0072BBEB /* AppDelegate.swift in Sources */,
+				5A13F07D241D31CA00276862 /* CardSet.swift in Sources */,
+				5AC398C9241C44C5006FCDE4 /* ViewCode.swift in Sources */,
+				5AC398CB241C44F8006FCDE4 /* Coordinator.swift in Sources */,
+				5A13F07B241D31B000276862 /* Card.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AD28BAF241C3D530072BBEB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5A6E8FF8241C42B400C5EC53 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AD28B9C241C3D4C0072BBEB /* MagicCards */;
+			targetProxy = 5A6E8FF7241C42B400C5EC53 /* PBXContainerItemProxy */;
+		};
+		5AD28BB5241C3D530072BBEB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AD28B9C241C3D4C0072BBEB /* MagicCards */;
+			targetProxy = 5AD28BB4241C3D530072BBEB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5AD28BAB241C3D520072BBEB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5AD28BAC241C3D520072BBEB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5A6E8FF9241C42B400C5EC53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21FBED51FDA52A0E3908D1CE /* Pods-MagicCardsSnapshotTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G4S93827H3;
+				INFOPLIST_FILE = MagicCardsSnapshotTests/Application/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Concrete.Team1.MagicCardsSnapshotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MagicCards.app/MagicCards";
+			};
+			name = Debug;
+		};
+		5A6E8FFA241C42B400C5EC53 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED108DF496D2A464928A2F89 /* Pods-MagicCardsSnapshotTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G4S93827H3;
+				INFOPLIST_FILE = MagicCardsSnapshotTests/Application/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Concrete.Team1.MagicCardsSnapshotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MagicCards.app/MagicCards";
+			};
+			name = Release;
+		};
+		5AD28BBA241C3D530072BBEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5AD28BBB241C3D530072BBEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5AD28BBD241C3D530072BBEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6A3884CDF3EFE75F2D33A96 /* Pods-MagicCards.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G4S93827H3;
+				INFOPLIST_FILE = MagicCards/Application/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Concrete.Team1.MagicCards;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5AD28BBE241C3D530072BBEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41C558B83C610F5583F274D6 /* Pods-MagicCards.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G4S93827H3;
+				INFOPLIST_FILE = MagicCards/Application/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Concrete.Team1.MagicCards;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5AD28BC0241C3D530072BBEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E105FA3BA762F775A21B8AD7 /* Pods-MagicCardsTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G4S93827H3;
+				INFOPLIST_FILE = MagicCardsTests/Application/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Concrete.Team1.MagicCardsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MagicCards.app/MagicCards";
+			};
+			name = Debug;
+		};
+		5AD28BC1241C3D530072BBEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18AACB8879566E0B9B73096D /* Pods-MagicCardsTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G4S93827H3;
+				INFOPLIST_FILE = MagicCardsTests/Application/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Concrete.Team1.MagicCardsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MagicCards.app/MagicCards";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5A6E8FFB241C42B400C5EC53 /* Build configuration list for PBXNativeTarget "MagicCardsSnapshotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A6E8FF9241C42B400C5EC53 /* Debug */,
+				5A6E8FFA241C42B400C5EC53 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AD28B98241C3D4C0072BBEB /* Build configuration list for PBXProject "MagicCards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AD28BBA241C3D530072BBEB /* Debug */,
+				5AD28BBB241C3D530072BBEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AD28BBC241C3D530072BBEB /* Build configuration list for PBXNativeTarget "MagicCards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AD28BBD241C3D530072BBEB /* Debug */,
+				5AD28BBE241C3D530072BBEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AD28BBF241C3D530072BBEB /* Build configuration list for PBXNativeTarget "MagicCardsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AD28BC0241C3D530072BBEB /* Debug */,
+				5AD28BC1241C3D530072BBEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5AD28B95241C3D4C0072BBEB /* Project object */;
+}
