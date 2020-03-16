@@ -18,6 +18,7 @@
 		5AD28BAD241C3D520072BBEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD28BAB241C3D520072BBEB /* LaunchScreen.storyboard */; };
 		65584E7F166B5C625A96D9B7 /* Pods_MagicCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 314ACA793FC97EA9D8B93FE9 /* Pods_MagicCards.framework */; };
 		EDC392ACAFE8AA31584F1635 /* Pods_MagicCardsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86F810F4E12862F3BF45E99F /* Pods_MagicCardsTests.framework */; };
+		FC6035CA24200D6F00AD7320 /* TestContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC6035C824200D6F00AD7320 /* TestContainer.xcdatamodeld */; };
 		FCFBBCD2241FFE7B00293275 /* StorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBBCD1241FFE7B00293275 /* StorageProvider.swift */; };
 		FCFBBCD4241FFE8B00293275 /* CardsStorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBBCD3241FFE8B00293275 /* CardsStorageProvider.swift */; };
 		FCFBBCD7241FFE9700293275 /* CardsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCFBBCD5241FFE9700293275 /* CardsDataModel.xcdatamodeld */; };
@@ -64,6 +65,7 @@
 		E105FA3BA762F775A21B8AD7 /* Pods-MagicCardsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsTests.debug.xcconfig"; path = "Target Support Files/Pods-MagicCardsTests/Pods-MagicCardsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E6A3884CDF3EFE75F2D33A96 /* Pods-MagicCards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCards.debug.xcconfig"; path = "Target Support Files/Pods-MagicCards/Pods-MagicCards.debug.xcconfig"; sourceTree = "<group>"; };
 		ED108DF496D2A464928A2F89 /* Pods-MagicCardsSnapshotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsSnapshotTests.release.xcconfig"; path = "Target Support Files/Pods-MagicCardsSnapshotTests/Pods-MagicCardsSnapshotTests.release.xcconfig"; sourceTree = "<group>"; };
+		FC6035C924200D6F00AD7320 /* TestContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestContainer.xcdatamodel; sourceTree = "<group>"; };
 		FCFBBCD1241FFE7B00293275 /* StorageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageProvider.swift; sourceTree = "<group>"; };
 		FCFBBCD3241FFE8B00293275 /* CardsStorageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsStorageProvider.swift; sourceTree = "<group>"; };
 		FCFBBCD6241FFE9700293275 /* CardsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CardsDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 		5AD28BB6241C3D530072BBEB /* MagicCardsTests */ = {
 			isa = PBXGroup;
 			children = (
+				FC6035C724200D1B00AD7320 /* StorageManager */,
 				5A13F07E241FDEB000276862 /* Modules */,
 				5AD28BC8241C41090072BBEB /* Application */,
 			);
@@ -293,6 +296,14 @@
 				18AACB8879566E0B9B73096D /* Pods-MagicCardsTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FC6035C724200D1B00AD7320 /* StorageManager */ = {
+			isa = PBXGroup;
+			children = (
+				FC6035C824200D6F00AD7320 /* TestContainer.xcdatamodeld */,
+			);
+			path = StorageManager;
 			sourceTree = "<group>";
 		};
 		FCFBBCD0241FFE5700293275 /* StorageManager */ = {
@@ -586,6 +597,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A13F084241FDFAB00276862 /* CardSetTest.swift in Sources */,
+				FC6035CA24200D6F00AD7320 /* TestContainer.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -903,6 +915,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		FC6035C824200D6F00AD7320 /* TestContainer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FC6035C924200D6F00AD7320 /* TestContainer.xcdatamodel */,
+			);
+			currentVersion = FC6035C924200D6F00AD7320 /* TestContainer.xcdatamodel */;
+			path = TestContainer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		FCFBBCD5241FFE9700293275 /* CardsDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
