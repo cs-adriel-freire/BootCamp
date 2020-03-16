@@ -1,0 +1,17 @@
+disabled_rules:
+  - leading_whitespace
+  
+variable_name:
+  excluded:
+  - id
+  
+line_length:
+  ignores_comments: true
+  warning: 150
+
+opt_in_rules:
+  - empty_count
+  - comma
+
+excluded:
+  - Pods/
