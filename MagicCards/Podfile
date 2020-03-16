@@ -6,15 +6,21 @@ target 'MagicCards' do
   pod 'SnapKit', '~> 5.0.0'
   pod 'SwiftLint'
 
+  target 'MagicCardsTests' do
+    inherit! :search_paths
+  end
+
+  target 'MagicCardsSnapshotTests' do
+    inherit! :search_paths
+
+    pod 'Nimble-Snapshots'
+
+  end
+
 end
 
-target 'MagicCardsSnapshotTests' do
-  inherit! :search_paths
 
-  pod 'Nimble-Snapshots'
 
-end
 
-target 'MagicCardsTests' do
-  inherit! :search_paths
-end
+
+
