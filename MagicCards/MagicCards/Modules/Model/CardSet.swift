@@ -6,6 +6,12 @@
 //  Copyright © 2020 Concrete. All rights reserved.
 //
 
+import Foundation
+
 struct CardSet {
+    
+    let id: String
+    let name: String
+    let releaseDate: Date
     
 }
