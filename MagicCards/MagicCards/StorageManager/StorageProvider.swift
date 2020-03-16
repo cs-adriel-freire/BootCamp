@@ -6,13 +6,14 @@
 //  Copyright © 2020 Concrete. All rights reserved.
 //
 
-
 import Foundation
 import CoreData
 protocol StorageProvider {
-    func save()
-    func fetch()
+    associatedtype Object
+    func save(objects: [Object])
+    func fetch() -> [Object]
     func reset()
+    func delete(objects: [Object])
     init(container: NSPersistentContainer)
     var context: NSManagedObjectContext {get}
 }
