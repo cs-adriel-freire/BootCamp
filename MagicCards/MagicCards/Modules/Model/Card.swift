@@ -6,7 +6,9 @@
 //  Copyright © 2020 Concrete. All rights reserved.
 //
 
-struct Card {
+import Foundation
+
+struct Card: Codable {
     
     let id: String
     let name: String
