@@ -58,7 +58,7 @@ class CardSetTest: XCTestCase {
         let isoDate = "2007-07-13"
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        let date = dateFormatter.date(from:isoDate)!
+        let date = dateFormatter.date(from: isoDate)!
         
         XCTAssert(sut.releaseDate == date)
     }
