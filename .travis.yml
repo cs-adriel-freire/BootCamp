@@ -4,6 +4,6 @@ os: osx
 before_install:
 - gem install xcpretty
 osx_image: xcode11
-xcode_workspace: MagicCards.xcworkspace
+xcode_workspace: MagicCards.xcodeproj
 xcode_scheme: MagicCards
 xcode_destination: platform=iOS Simulator,OS=10.0,name=iPhone 11
