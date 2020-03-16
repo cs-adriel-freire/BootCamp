@@ -8,4 +8,9 @@
 
 struct Card {
     
+    let id: String
+    let name: String
+    let imageUrl: String?
+    let types: [String]
+
 }
