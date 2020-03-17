@@ -24,6 +24,10 @@ protocol StorageProvider {
 
 ///////////////////////////////
 
+enum CardsRepositoryError: Error {
+    case setNotFound
+}
+
 class CardsRepository {
 
     // MARK: - Variables
@@ -50,6 +54,48 @@ class CardsRepository {
         self.cards = [:]
         self.favoriteCards = [:]
     }
+
+    // MARK: Helpers
+
+    private func fetchCards(fromSet set: CardSet, completion: @escaping (Result<[Card], Error>) -> Void) {
+        self.sessionProvider.fetchCards(withSet: set.id) { [weak self] result in
+            switch result {
+            case let .success(cards):
+                self?.cards[set] = cards
+                completion(.success(cards))
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    private func getCardSet(withIndex setIndex: Int, completion: @escaping (Result<CardSet, Error>) -> Void) {
+
+        // If the cardSets are not stored locally, fetch them
+
+        guard !self.cardSets.isEmpty else {
+            self.sessionProvider.fetchCardSets { [weak self] result in
+                switch result {
+                case let .success(cardSets):
+                    self?.cardSets = cardSets
+                    self?.getCardSet(withIndex: setIndex, completion: completion)
+                case let .failure(error):
+                    completion(.failure(error))
+                }
+            }
+
+            return
+        }
+
+        // Validate index
+
+        guard setIndex < self.cardSets.count else {
+            completion(.failure(CardsRepositoryError.setNotFound))
+            return
+        }
+
+        completion(.success(self.cardSets[setIndex]))
+    }
 }
 
 // MARK: - CardsRepositoryProtocol
@@ -57,7 +103,21 @@ class CardsRepository {
 extension CardsRepository: CardsRepositoryProtocol {
 
     func getCards(fromSet setIndex: Int, completion: @escaping (Result<[Card], Error>) -> Void) {
-        //
+
+        self.getCardSet(withIndex: setIndex) { result in
+            switch result {
+            case let .success(cardSet):
+
+                guard let cards = self.cards[cardSet] else {
+                    self.fetchCards(fromSet: cardSet, completion: completion)
+                    return
+                }
+
+                completion(.success(cards))
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
     }
 
     func getCards(fromSet setIndex: Int, withName: String, completion: @escaping (Result<[Card], Error>) -> Void) {
