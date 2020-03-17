@@ -77,7 +77,7 @@ class CardsRepository {
             self.sessionProvider.fetchCardSets { [weak self] result in
                 switch result {
                 case let .success(cardSets):
-                    self?.cardSets = cardSets
+                    self?.cardSets = cardSets.sorted(by: { $0.releaseDate > $1.releaseDate })
                     self?.getCardSet(withIndex: setIndex, completion: completion)
                 case let .failure(error):
                     completion(.failure(error))
