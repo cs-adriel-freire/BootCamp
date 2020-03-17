@@ -16,29 +16,27 @@ import CoreData
 class CardsStorageProvideTest: XCTestCase {
     
     var sut: CardsStorageProvider!
+    
     lazy var mockPersistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "CardsDataModel", managedObjectModel: mockManagedObject)
         return container
     }()
+    
     lazy var mockManagedObject: NSManagedObjectModel = {
         let managedObject = NSManagedObjectModel.mergedModel(from: [Bundle(for: type(of: self))])!
         return managedObject
     }()
     
-    
     override func setUp() {
         super.setUp()
         sut = CardsStorageProvider(container: mockPersistentContainer)
         insertInitialItens()
-        
-        
     }
+    
     override func tearDown() {
-        
         removeAllItens()
         super.tearDown()
     }
-    
     
     func testSave() {
         let oldItensCount = numberOfItemsInPersistentStore()
@@ -70,10 +68,9 @@ class CardsStorageProvideTest: XCTestCase {
         let card = Card(id: "01", name: "First Object", imageUrl: "imageurl.com.br", types: ["agua", "fogo", "terra", "ar"])
         sut.delete(objects: [card])
         let newItensCount = numberOfItemsInPersistentStore()
+        
         assert(oldItensCount - 1 == newItensCount)
     }
-    
-    
     
     private func insertInitialItens() {
         let obj1 = NSEntityDescription.insertNewObject(forEntityName: "CDCard", into: mockPersistentContainer.viewContext)
