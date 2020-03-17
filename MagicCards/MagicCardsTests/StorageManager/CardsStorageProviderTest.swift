@@ -65,7 +65,7 @@ class CardsStorageProvideTest: XCTestCase {
     
     func testDelete() {
         let oldItensCount = numberOfItemsInPersistentStore()
-        let card = Card(id: "01", name: "First Object", imageUrl: "imageurl.com.br", types: ["agua", "fogo", "terra", "ar"])
+        let card = Card(id: "01", name: "First Object", imageUrl: nil, imageData: nil, types: ["agua", "fogo", "terra", "ar"])
         sut.delete(objects: [card])
         let newItensCount = numberOfItemsInPersistentStore()
         
@@ -76,7 +76,7 @@ class CardsStorageProvideTest: XCTestCase {
         let obj1 = NSEntityDescription.insertNewObject(forEntityName: "CDCard", into: mockPersistentContainer.viewContext)
         obj1.setValue("First Object", forKey: "name")
         obj1.setValue("01", forKey: "id")
-        obj1.setValue("imageurl.com.br", forKey: "imageUrl")
+        obj1.setValue(nil, forKey: "imageData")
         obj1.setValue(["agua", "fogo", "terra", "ar"], forKey: "types")
         
         let obj2 = NSEntityDescription.insertNewObject(forEntityName: "CDCard", into: mockPersistentContainer.viewContext)

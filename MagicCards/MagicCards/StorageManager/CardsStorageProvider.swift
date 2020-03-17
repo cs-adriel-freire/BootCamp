@@ -16,7 +16,7 @@ final class CardsStorageProvider: StorageProvider {
             let card = CDCard(context: context)
             card.id = $0.id
             card.name = $0.name
-            card.imageUrl = $0.imageUrl
+            card.imageData = $0.imageData
             card.types = $0.types
             saveContext()
         })
@@ -26,7 +26,7 @@ final class CardsStorageProvider: StorageProvider {
         var cards = [Card]()
         let fetchedCards = fetchCDCards()
         fetchedCards.forEach({
-            let card = Card(id: $0.id ?? "", name: $0.name ?? "", imageUrl: $0.imageUrl, types: $0.types ?? [""])
+            let card = Card(id: $0.id ?? "", name: $0.name ?? "", imageUrl: nil, imageData: $0.imageData, types:  $0.types ?? [""])
             cards.append(card)
         })
         return cards
