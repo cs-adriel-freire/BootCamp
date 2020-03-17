@@ -34,14 +34,14 @@ class CardsRepository {
 
     // MARK: Data
 
-    var cardSets: [CardSet]
-    var cards: [CardSet: [Card]]
-    var favoriteCards: [CardSet: [Card]]
+    private var cardSets: [CardSet]
+    private var cards: [CardSet: [Card]]
+    private var favoriteCards: [CardSet: [Card]]
 
     // MARK: Providers
 
-    let sessionProvider: SessionProvider
-    let storageProvider: StorageProvider
+    private let sessionProvider: SessionProvider
+    private let storageProvider: StorageProvider
 
     // MARK: - Methods
 
