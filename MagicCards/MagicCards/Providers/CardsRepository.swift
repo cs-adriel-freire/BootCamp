@@ -26,6 +26,7 @@ protocol StorageProvider {
 
 enum CardsRepositoryError: Error {
     case setNotFound
+    case cardNotFound
 }
 
 class CardsRepository {
@@ -143,6 +144,20 @@ extension CardsRepository: FavoriteCardsRepositoryProtocol {
 extension CardsRepository: CardDetailsRepositoryProtocol {
 
     func getCard(fromSet setIndex: Int, withIndex cardIndex: Int, completion: @escaping (Result<Card, Error>) -> Void) {
-        //
+
+        self.getCards(fromSet: setIndex) { result in
+            switch result {
+            case let .success(cards):
+
+                guard cardIndex < cards.count else {
+                    completion(.failure(CardsRepositoryError.cardNotFound))
+                    return
+                }
+
+                completion(.success(cards[cardIndex]))
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
     }
 }
