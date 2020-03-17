@@ -8,9 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		00A8FE758E31C2060B4AEAE5 /* Pods_MagicCardsSnapshotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F92AD5549A92796F6324B5 /* Pods_MagicCardsSnapshotTests.framework */; };
+		23E118DD241FF99200CC6E61 /* CardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118DA241FF99200CC6E61 /* CardDetailsViewController.swift */; };
+		23E118DE241FF99200CC6E61 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118DB241FF99200CC6E61 /* FavoritesViewController.swift */; };
+		23E118DF241FF99200CC6E61 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118DC241FF99200CC6E61 /* CardsViewController.swift */; };
+		23E118E3241FF99A00CC6E61 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118E0241FF99A00CC6E61 /* AppCoordinator.swift */; };
+		23E118E4241FF99A00CC6E61 /* CardsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118E1241FF99A00CC6E61 /* CardsCoordinator.swift */; };
+		23E118E5241FF99A00CC6E61 /* FavoritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118E2241FF99A00CC6E61 /* FavoritesCoordinator.swift */; };
+		23E118E9241FFA6500CC6E61 /* AppCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118E8241FFA6500CC6E61 /* AppCoordinatorTest.swift */; };
+		23E118EB2420065900CC6E61 /* CardsCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118EA2420065900CC6E61 /* CardsCoordinatorTest.swift */; };
+		23E118ED2420087C00CC6E61 /* FavoritesCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118EC2420087C00CC6E61 /* FavoritesCoordinatorTest.swift */; };
+		23E118F124200DD500CC6E61 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118F024200DD500CC6E61 /* CardCell.swift */; };
+		23E118F324200F7E00CC6E61 /* CardCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118F224200F7D00CC6E61 /* CardCellViewModel.swift */; };
+		23E118F624201A3300CC6E61 /* CardCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118F524201A3300CC6E61 /* CardCellTest.swift */; };
 		5A13F07B241D31B000276862 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A13F07A241D31B000276862 /* Card.swift */; };
 		5A13F07D241D31CA00276862 /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A13F07C241D31CA00276862 /* CardSet.swift */; };
 		5A13F084241FDFAB00276862 /* CardSetTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A13F083241FDFAB00276862 /* CardSetTest.swift */; };
+		5A753621241FFD7F0098C08D /* SessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A753620241FFD7F0098C08D /* SessionProtocol.swift */; };
 		5AC398C9241C44C5006FCDE4 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC398C8241C44C5006FCDE4 /* ViewCode.swift */; };
 		5AC398CB241C44F8006FCDE4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC398CA241C44F8006FCDE4 /* Coordinator.swift */; };
 		5AD28BA1241C3D4D0072BBEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD28BA0241C3D4C0072BBEB /* AppDelegate.swift */; };
@@ -45,6 +58,18 @@
 /* Begin PBXFileReference section */
 		18AACB8879566E0B9B73096D /* Pods-MagicCardsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsTests.release.xcconfig"; path = "Target Support Files/Pods-MagicCardsTests/Pods-MagicCardsTests.release.xcconfig"; sourceTree = "<group>"; };
 		21FBED51FDA52A0E3908D1CE /* Pods-MagicCardsSnapshotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsSnapshotTests.debug.xcconfig"; path = "Target Support Files/Pods-MagicCardsSnapshotTests/Pods-MagicCardsSnapshotTests.debug.xcconfig"; sourceTree = "<group>"; };
+		23E118DA241FF99200CC6E61 /* CardDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailsViewController.swift; sourceTree = "<group>"; };
+		23E118DB241FF99200CC6E61 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		23E118DC241FF99200CC6E61 /* CardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
+		23E118E0241FF99A00CC6E61 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		23E118E1241FF99A00CC6E61 /* CardsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsCoordinator.swift; sourceTree = "<group>"; };
+		23E118E2241FF99A00CC6E61 /* FavoritesCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinator.swift; sourceTree = "<group>"; };
+		23E118E8241FFA6500CC6E61 /* AppCoordinatorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTest.swift; sourceTree = "<group>"; };
+		23E118EA2420065900CC6E61 /* CardsCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCoordinatorTest.swift; sourceTree = "<group>"; };
+		23E118EC2420087C00CC6E61 /* FavoritesCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinatorTest.swift; sourceTree = "<group>"; };
+		23E118F024200DD500CC6E61 /* CardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		23E118F224200F7D00CC6E61 /* CardCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardCellViewModel.swift; path = MagicCards/Modules/View/CardCellViewModel.swift; sourceTree = SOURCE_ROOT; };
+		23E118F524201A3300CC6E61 /* CardCellTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellTest.swift; sourceTree = "<group>"; };
 		314ACA793FC97EA9D8B93FE9 /* Pods_MagicCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MagicCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41C558B83C610F5583F274D6 /* Pods-MagicCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCards.release.xcconfig"; path = "Target Support Files/Pods-MagicCards/Pods-MagicCards.release.xcconfig"; sourceTree = "<group>"; };
 		5A13F07A241D31B000276862 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -52,6 +77,7 @@
 		5A13F083241FDFAB00276862 /* CardSetTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetTest.swift; sourceTree = "<group>"; };
 		5A6E8FF2241C42B400C5EC53 /* MagicCardsSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicCardsSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A6E8FF6241C42B400C5EC53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A753620241FFD7F0098C08D /* SessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionProtocol.swift; sourceTree = "<group>"; };
 		5AC398C8241C44C5006FCDE4 /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		5AC398CA241C44F8006FCDE4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		5AD28B9D241C3D4C0072BBEB /* MagicCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +136,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		230F400D2420335F00E2BA74 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				23E118DA241FF99200CC6E61 /* CardDetailsViewController.swift */,
+				23E118DC241FF99200CC6E61 /* CardsViewController.swift */,
+				23E118DB241FF99200CC6E61 /* FavoritesViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		23E118F424201A0F00CC6E61 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				23E118F524201A3300CC6E61 /* CardCellTest.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		5A13F07E241FDEB000276862 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +190,9 @@
 		5A13F082241FDF2E00276862 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				23E118E8241FFA6500CC6E61 /* AppCoordinatorTest.swift */,
+				23E118EA2420065900CC6E61 /* CardsCoordinatorTest.swift */,
+				23E118EC2420087C00CC6E61 /* FavoritesCoordinatorTest.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -162,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				5A6E8FFC241C42C100C5EC53 /* Application */,
+				23E118F424201A0F00CC6E61 /* View */,
 			);
 			path = MagicCardsSnapshotTests;
 			sourceTree = "<group>";
@@ -213,8 +261,8 @@
 			isa = PBXGroup;
 			children = (
 				FC6035C724200D1B00AD7320 /* StorageManager */,
-				5A13F07E241FDEB000276862 /* Modules */,
 				5AD28BC8241C41090072BBEB /* Application */,
+				5A13F07E241FDEB000276862 /* Modules */,
 			);
 			path = MagicCardsTests;
 			sourceTree = "<group>";
@@ -242,6 +290,8 @@
 		5AD28BC4241C3F0E0072BBEB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				23E118F024200DD500CC6E61 /* CardCell.swift */,
+				230F400D2420335F00E2BA74 /* Controllers */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -249,6 +299,7 @@
 		5AD28BC5241C3F310072BBEB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				23E118F224200F7D00CC6E61 /* CardCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -256,6 +307,9 @@
 		5AD28BC6241C3F380072BBEB /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				23E118E0241FF99A00CC6E61 /* AppCoordinator.swift */,
+				23E118E1241FF99A00CC6E61 /* CardsCoordinator.swift */,
+				23E118E2241FF99A00CC6E61 /* FavoritesCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -282,6 +336,7 @@
 			children = (
 				5AC398C8241C44C5006FCDE4 /* ViewCode.swift */,
 				5AC398CA241C44F8006FCDE4 /* Coordinator.swift */,
+				5A753620241FFD7F0098C08D /* SessionProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -391,6 +446,7 @@
 				TargetAttributes = {
 					5A6E8FF1241C42B400C5EC53 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 						TestTargetID = 5AD28B9C241C3D4C0072BBEB;
 					};
 					5AD28B9C241C3D4C0072BBEB = {
@@ -575,6 +631,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23E118F624201A3300CC6E61 /* CardCellTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,11 +639,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23E118E4241FF99A00CC6E61 /* CardsCoordinator.swift in Sources */,
+				23E118DF241FF99200CC6E61 /* CardsViewController.swift in Sources */,
+				23E118F324200F7E00CC6E61 /* CardCellViewModel.swift in Sources */,
+				23E118F124200DD500CC6E61 /* CardCell.swift in Sources */,
 				5AD28BA1241C3D4D0072BBEB /* AppDelegate.swift in Sources */,
+				23E118DD241FF99200CC6E61 /* CardDetailsViewController.swift in Sources */,
+				23E118DE241FF99200CC6E61 /* FavoritesViewController.swift in Sources */,
 				5A13F07D241D31CA00276862 /* CardSet.swift in Sources */,
+				5A753621241FFD7F0098C08D /* SessionProtocol.swift in Sources */,
 				5AC398C9241C44C5006FCDE4 /* ViewCode.swift in Sources */,
 				FC0F94DD24211C9600E9BA08 /* CardsDataModel.xcdatamodeld in Sources */,
 				FCFBBCD4241FFE8B00293275 /* CardsStorageProvider.swift in Sources */,
+				23E118E5241FF99A00CC6E61 /* FavoritesCoordinator.swift in Sources */,
+				23E118E3241FF99A00CC6E61 /* AppCoordinator.swift in Sources */,
 				5AC398CB241C44F8006FCDE4 /* Coordinator.swift in Sources */,
 				FCFBBCD2241FFE7B00293275 /* StorageProvider.swift in Sources */,
 				5A13F07B241D31B000276862 /* Card.swift in Sources */,
@@ -597,6 +663,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23E118ED2420087C00CC6E61 /* FavoritesCoordinatorTest.swift in Sources */,
+				23E118E9241FFA6500CC6E61 /* AppCoordinatorTest.swift in Sources */,
+				23E118EB2420065900CC6E61 /* CardsCoordinatorTest.swift in Sources */,
 				5A13F084241FDFAB00276862 /* CardSetTest.swift in Sources */,
 				FC66666624213E5C00833F83 /* CardsDataModel.xcdatamodeld in Sources */,
 				FC6035CE24206E8400AD7320 /* CardsStorageProviderTest.swift in Sources */,
@@ -635,6 +704,7 @@
 			baseConfigurationReference = 21FBED51FDA52A0E3908D1CE /* Pods-MagicCardsSnapshotTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G4S93827H3;
 				INFOPLIST_FILE = MagicCardsSnapshotTests/Application/Info.plist;
@@ -646,6 +716,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Concrete.Team1.MagicCardsSnapshotTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MagicCards.app/MagicCards";
@@ -657,6 +728,7 @@
 			baseConfigurationReference = ED108DF496D2A464928A2F89 /* Pods-MagicCardsSnapshotTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G4S93827H3;
 				INFOPLIST_FILE = MagicCardsSnapshotTests/Application/Info.plist;
