@@ -13,6 +13,7 @@ struct Card: Codable {
     let id: String
     let name: String
     let imageUrl: String?
+    var imageData: Data?
     let types: [String]
 
 }

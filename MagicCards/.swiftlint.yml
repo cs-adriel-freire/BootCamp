@@ -7,7 +7,7 @@ variable_name:
   
 line_length:
   ignores_comments: true
-  warning: 150
+  warning: 160
 
 opt_in_rules:
   - empty_count
