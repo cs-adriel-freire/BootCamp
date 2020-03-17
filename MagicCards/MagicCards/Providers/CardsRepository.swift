@@ -29,7 +29,7 @@ enum CardsRepositoryError: Error {
     case cardNotFound
 }
 
-class CardsRepository {
+final class CardsRepository {
 
     // MARK: - Variables
 
@@ -78,7 +78,9 @@ class CardsRepository {
             self.sessionProvider.fetchCardSets { [weak self] result in
                 switch result {
                 case let .success(cardSets):
-                    self?.cardSets = cardSets.sorted(by: { $0.releaseDate > $1.releaseDate })
+                    self?.cardSets = cardSets.sorted(by: { (lhs, rhs) in
+                        lhs.releaseDate > rhs.releaseDate
+                    })
                     self?.getCardSet(withIndex: setIndex, completion: completion)
                 case let .failure(error):
                     completion(.failure(error))
