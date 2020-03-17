@@ -7,12 +7,17 @@
 //
 
 import CoreData
-final class CardsStorageProvide: StorageProvider {
+final class CardsStorageProvider: StorageProvider {
+    
+    let context: NSManagedObjectContext
+    
     func save(objects: [Card]) {
         objects.forEach({
             let card = CDCard(context: context)
             card.id = $0.id
             card.name = $0.name
+            card.imageUrl = $0.imageUrl
+            card.types = $0.types
             saveContext()
         })
     }
@@ -21,7 +26,7 @@ final class CardsStorageProvide: StorageProvider {
         var cards = [Card]()
         let fetchedCards = fetchCDCards()
         fetchedCards.forEach({
-            let card = Card(id: $0.id ?? "", name: $0.name ?? "", imageUrl: "", types: [""])
+            let card = Card(id: $0.id ?? "", name: $0.name ?? "", imageUrl: $0.imageUrl, types: $0.types ?? [""])
             cards.append(card)
         })
         return cards
@@ -43,8 +48,6 @@ final class CardsStorageProvide: StorageProvider {
         }
         
     }
-    
-    let context: NSManagedObjectContext
     
     private func fetchCDCards() -> [CDCard] {
         let cardsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CDCard")
