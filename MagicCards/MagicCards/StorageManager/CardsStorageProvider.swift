@@ -41,7 +41,7 @@ final class CardsStorageProvider: StorageProvider {
     func delete(objects: [Card]) {
         let cards = fetchCDCards()
         cards.forEach { (card) in
-            if objects.contains(where: {$0.name == card.name}) {
+            if objects.contains(where: {$0.id == card.id}) {
                 context.delete(card)
                 saveContext()
             }
