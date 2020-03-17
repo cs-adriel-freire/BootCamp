@@ -19,7 +19,7 @@ DEPENDENCIES:
   - SwiftLint
 
 SPEC REPOS:
-  trunk:
+  https://github.com/cocoapods/specs.git:
     - iOSSnapshotTestCase
     - Nimble
     - Nimble-Snapshots
@@ -35,4 +35,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: a5fa819d8a7b9855e9f6ac388447e53919257bb6
 
-COCOAPODS: 1.9.0
+COCOAPODS: 1.7.5
