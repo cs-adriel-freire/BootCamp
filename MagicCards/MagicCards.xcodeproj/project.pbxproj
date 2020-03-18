@@ -31,6 +31,7 @@
 		5AD28BAD241C3D520072BBEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD28BAB241C3D520072BBEB /* LaunchScreen.storyboard */; };
 		65584E7F166B5C625A96D9B7 /* Pods_MagicCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 314ACA793FC97EA9D8B93FE9 /* Pods_MagicCards.framework */; };
 		EDC392ACAFE8AA31584F1635 /* Pods_MagicCardsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86F810F4E12862F3BF45E99F /* Pods_MagicCardsTests.framework */; };
+		FC738F3F2422820E00404227 /* CardDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC738F3E2422820E00404227 /* CardDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		E105FA3BA762F775A21B8AD7 /* Pods-MagicCardsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsTests.debug.xcconfig"; path = "Target Support Files/Pods-MagicCardsTests/Pods-MagicCardsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E6A3884CDF3EFE75F2D33A96 /* Pods-MagicCards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCards.debug.xcconfig"; path = "Target Support Files/Pods-MagicCards/Pods-MagicCards.debug.xcconfig"; sourceTree = "<group>"; };
 		ED108DF496D2A464928A2F89 /* Pods-MagicCardsSnapshotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsSnapshotTests.release.xcconfig"; path = "Target Support Files/Pods-MagicCardsSnapshotTests/Pods-MagicCardsSnapshotTests.release.xcconfig"; sourceTree = "<group>"; };
+		FC738F3E2422820E00404227 /* CardDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				23E118F024200DD500CC6E61 /* CardCell.swift */,
+				FC738F3E2422820E00404227 /* CardDetailsView.swift */,
 				230F400D2420335F00E2BA74 /* Controllers */,
 			);
 			path = View;
@@ -617,6 +620,7 @@
 				5AD28BA1241C3D4D0072BBEB /* AppDelegate.swift in Sources */,
 				23E118DD241FF99200CC6E61 /* CardDetailsViewController.swift in Sources */,
 				23E118DE241FF99200CC6E61 /* FavoritesViewController.swift in Sources */,
+				FC738F3F2422820E00404227 /* CardDetailsView.swift in Sources */,
 				5A13F07D241D31CA00276862 /* CardSet.swift in Sources */,
 				5A753621241FFD7F0098C08D /* SessionProtocol.swift in Sources */,
 				5AC398C9241C44C5006FCDE4 /* ViewCode.swift in Sources */,
