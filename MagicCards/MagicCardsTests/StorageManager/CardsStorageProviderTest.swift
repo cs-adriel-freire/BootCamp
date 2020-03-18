@@ -43,24 +43,24 @@ final class CardsStorageProvideTest: XCTestCase {
         sut.save(objects: [Card(id: "b", name: "test", imageUrl: "", types: [""])])
         let newItensCount = numberOfItemsInPersistentStore()
         
-        assert(oldItensCount == (newItensCount - 1))
+        XCTAssertEqual(oldItensCount, newItensCount - 1)
     }
     
     private func testFetch() {
         let itens = sut.fetch()
-        assert(itens.count == 2)
+        XCTAssertEqual(itens.count, 2)
     }
     
     private func testfetchedObjectValue() {
         let card = Card(id: "01", name: "First Object", imageUrl: "imageurl.com.br", types: ["agua", "fogo", "terra", "ar"])
         let fetchedCards = sut.fetch()
-        assert(fetchedCards.contains(where: {$0.name == card.name})) 
+        XCTAssertTrue(fetchedCards.contains(where: {$0.name == card.name}))
     }
     
     private func testReset() {
         sut.reset()
         let countItens = numberOfItemsInPersistentStore()
-        assert(countItens == 0)
+        XCTAssertEqual(countItens, 0)
     }
     
     private func testDelete() {
@@ -69,7 +69,7 @@ final class CardsStorageProvideTest: XCTestCase {
         sut.delete(objects: [card])
         let newItensCount = numberOfItemsInPersistentStore()
         
-        assert(oldItensCount - 1 == newItensCount)
+        XCTAssertEqual(oldItensCount - 1, newItensCount)
     }
     
     private func insertInitialItens() {
