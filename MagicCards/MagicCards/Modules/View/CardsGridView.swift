@@ -80,7 +80,7 @@ extension CardsGridView: ViewCode {
         }
 
         self.collectionView.snp.makeConstraints { maker in
-            maker.topMargin.bottomMargin.leadingMargin.trailingMargin.equalToSuperview()
+            maker.top.bottom.leading.trailing.equalToSuperview()
         }
     }
 

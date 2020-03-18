@@ -60,7 +60,7 @@ extension GridCollectionHeaderView: ViewCode {
 
     func setupContraints() {
         self.titleLabel.snp.makeConstraints { maker in
-            maker.top.bottom.leading.trailing.equalToSuperview()
+            maker.top.bottom.leading.trailing.equalToSuperview().inset(16)
         }
     }
 
