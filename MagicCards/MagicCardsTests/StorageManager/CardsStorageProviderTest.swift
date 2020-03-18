@@ -29,7 +29,9 @@ final class CardsStorageProvideTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        sut = CardsStorageProvider(container: mockPersistentContainer)
+        sut = CardsStorageProvider(container: mockPersistentContainer, onError: {
+            XCTFail()
+        })
         insertInitialItens()
     }
     
