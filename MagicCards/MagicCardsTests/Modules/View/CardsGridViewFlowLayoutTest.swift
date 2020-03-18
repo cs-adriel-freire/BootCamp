@@ -18,6 +18,7 @@ class CardsGridViewFlowLayoutTest: XCTestCase {
     var cellSize: CGSize!
     var minimumMargin: CGFloat!
     var scrollDirection: UICollectionView.ScrollDirection!
+    var headerHeight: CGFloat!
     
     // MARK: - Methods
 
@@ -27,7 +28,8 @@ class CardsGridViewFlowLayoutTest: XCTestCase {
         cellSize = CGSize(width: 80, height: 100)
         minimumMargin = 16.0
         scrollDirection = .vertical
-        sut = CardsGridViewFlowLayout(cellSize: cellSize, minimumMargin: minimumMargin, scrollDirection: scrollDirection)
+        headerHeight = 82.0
+        sut = CardsGridViewFlowLayout(cellSize: cellSize, minimumMargin: minimumMargin, scrollDirection: .vertical, headerHeight: headerHeight)
     }
     
     // MARK: Tear down
@@ -42,6 +44,7 @@ class CardsGridViewFlowLayoutTest: XCTestCase {
         XCTAssert(sut.cellSize == cellSize)
         XCTAssert(sut.minimumMargin == minimumMargin)
         XCTAssert(sut.scrollDirection == scrollDirection)
+        XCTAssert(sut.headerHeight == headerHeight)
     }
     
     func testMarginForFrame() {

@@ -12,12 +12,15 @@ class CardsGridViewFlowLayout: UICollectionViewFlowLayout {
     
     let cellSize: CGSize
     let minimumMargin: CGFloat
+    let headerHeight: CGFloat
     
     required init(cellSize: CGSize = CGSize(width: 85.0, height: 118.0),
                   minimumMargin: CGFloat = 16.0,
-                  scrollDirection: UICollectionView.ScrollDirection = .vertical) {
+                  scrollDirection: UICollectionView.ScrollDirection = .vertical,
+                  headerHeight: CGFloat = 82.0) {
         self.cellSize = cellSize
         self.minimumMargin = minimumMargin
+        self.headerHeight = headerHeight
         super.init()
         self.scrollDirection = scrollDirection
         self.itemSize = cellSize
@@ -27,6 +30,7 @@ class CardsGridViewFlowLayout: UICollectionViewFlowLayout {
         let margin = marginFor(frame: collectionView?.frame ?? .zero)
         self.minimumInteritemSpacing = margin
         self.minimumLineSpacing = margin
+        self.headerReferenceSize = CGSize(width: collectionView?.frame.width ?? 0, height: self.headerHeight)
     }
     
     func marginFor(frame: CGRect) -> CGFloat {
