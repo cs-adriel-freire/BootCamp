@@ -36,6 +36,10 @@ class CardsGridViewFlowLayoutTest: XCTestCase {
 
     override func tearDown() {
         sut = nil
+        cellSize = nil
+        minimumMargin = nil
+        scrollDirection = nil
+        headerHeight = nil
     }
     
     // MARK: Tests
@@ -49,7 +53,7 @@ class CardsGridViewFlowLayoutTest: XCTestCase {
     
     func testMarginForFrame() {
         let frame = CGRect(x: 0, y: 0, width: 430, height: 900)
-        var dummyCollectionView: UICollectionView = UICollectionView(frame: frame, collectionViewLayout: sut)
+        let dummyCollectionView: UICollectionView = UICollectionView(frame: frame, collectionViewLayout: sut)
         dummyCollectionView.collectionViewLayout.invalidateLayout()
         XCTAssert(sut.minimumLineSpacing == 22)
         XCTAssert(sut.minimumInteritemSpacing == 22)
