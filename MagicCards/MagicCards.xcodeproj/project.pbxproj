@@ -42,6 +42,7 @@
 		5AEAB8992422B7BA00084472 /* CardDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEAB8982422B7BA00084472 /* CardDTO.swift */; };
 		5AEAB89B2422B7EF00084472 /* CardSetDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEAB89A2422B7EF00084472 /* CardSetDTO.swift */; };
 		5AEAB89D2422B86300084472 /* SessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEAB89C2422B86300084472 /* SessionProvider.swift */; };
+		5AEAB8A12422B95000084472 /* SessionRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEAB8A02422B95000084472 /* SessionRequestBuilder.swift */; };
 		65584E7F166B5C625A96D9B7 /* Pods_MagicCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 314ACA793FC97EA9D8B93FE9 /* Pods_MagicCards.framework */; };
 		EDC392ACAFE8AA31584F1635 /* Pods_MagicCardsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86F810F4E12862F3BF45E99F /* Pods_MagicCardsTests.framework */; };
 /* End PBXBuildFile section */
@@ -108,6 +109,7 @@
 		5AEAB8982422B7BA00084472 /* CardDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDTO.swift; sourceTree = "<group>"; };
 		5AEAB89A2422B7EF00084472 /* CardSetDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetDTO.swift; sourceTree = "<group>"; };
 		5AEAB89C2422B86300084472 /* SessionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionProvider.swift; sourceTree = "<group>"; };
+		5AEAB8A02422B95000084472 /* SessionRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRequestBuilder.swift; sourceTree = "<group>"; };
 		86F810F4E12862F3BF45E99F /* Pods_MagicCardsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MagicCardsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5F92AD5549A92796F6324B5 /* Pods_MagicCardsSnapshotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MagicCardsSnapshotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E105FA3BA762F775A21B8AD7 /* Pods-MagicCardsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsTests.debug.xcconfig"; path = "Target Support Files/Pods-MagicCardsTests/Pods-MagicCardsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -388,7 +390,7 @@
 		5AEAB8962422B77E00084472 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
-				5AEAB8972422B79500084472 /* DTO */,
+				5AEAB89F2422B93200084472 /* SessionProvider */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -400,6 +402,15 @@
 				5AEAB89A2422B7EF00084472 /* CardSetDTO.swift */,
 			);
 			path = DTO;
+			sourceTree = "<group>";
+		};
+		5AEAB89F2422B93200084472 /* SessionProvider */ = {
+			isa = PBXGroup;
+			children = (
+				5AEAB8972422B79500084472 /* DTO */,
+				5AEAB8A02422B95000084472 /* SessionRequestBuilder.swift */,
+			);
+			path = SessionProvider;
 			sourceTree = "<group>";
 		};
 		7AA996474318A7984B177B4D /* Pods */ = {
@@ -687,6 +698,7 @@
 				23778D422422B54400AFCB36 /* CardsGridViewFlowLayout.swift in Sources */,
 				239614302423A76000177FB2 /* CardsStorageProvider.swift in Sources */,
 				5AEAB89D2422B86300084472 /* SessionProvider.swift in Sources */,
+				5AEAB8A12422B95000084472 /* SessionRequestBuilder.swift in Sources */,
 				23E118DF241FF99200CC6E61 /* CardsViewController.swift in Sources */,
 				23E118F124200DD500CC6E61 /* CardCell.swift in Sources */,
 				5AD28BA1241C3D4D0072BBEB /* AppDelegate.swift in Sources */,
