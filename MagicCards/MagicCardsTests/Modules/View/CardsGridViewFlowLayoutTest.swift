@@ -8,26 +8,48 @@
 
 import XCTest
 
+@testable import MagicCards
+
 class CardsGridViewFlowLayoutTest: XCTestCase {
 
+    // MARK: - Variables
+    
+    var sut: CardsGridViewFlowLayout!
+    var cellSize: CGSize!
+    var minimumMargin: CGFloat!
+    var scrollDirection: UICollectionView.ScrollDirection!
+    
+    // MARK: - Methods
+
+    // MARK: Set up
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        cellSize = CGSize(width: 80, height: 100)
+        minimumMargin = 16.0
+        scrollDirection = .vertical
+        sut = CardsGridViewFlowLayout(cellSize: cellSize, minimumMargin: minimumMargin, scrollDirection: scrollDirection)
     }
+    
+    // MARK: Tear down
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut = nil
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    // MARK: Tests
+    
+    func testInitialization() {
+        XCTAssert(sut.cellSize == cellSize)
+        XCTAssert(sut.minimumMargin == minimumMargin)
+        XCTAssert(sut.scrollDirection == scrollDirection)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testMarginForFrame() {
+        let frame = CGRect(x: 0, y: 0, width: 430, height: 900)
+        var dummyCollectionView: UICollectionView = UICollectionView(frame: frame, collectionViewLayout: sut)
+        dummyCollectionView.collectionViewLayout.invalidateLayout()
+        XCTAssert(sut.minimumLineSpacing == 22)
+        XCTAssert(sut.minimumInteritemSpacing == 22)
     }
 
 }
