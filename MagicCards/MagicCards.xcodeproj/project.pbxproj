@@ -11,6 +11,7 @@
 		23684CB024219B170081042C /* CardCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23684CAF24219B170081042C /* CardCellViewModel.swift */; };
 		23684CB224219B290081042C /* CardsGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23684CB124219B290081042C /* CardsGridViewModel.swift */; };
 		23684CB624225FAC0081042C /* CardsGridViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23684CB524225FAC0081042C /* CardsGridViewModelTest.swift */; };
+		23684CBE2422B3650081042C /* GridCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23684CBD2422B3650081042C /* GridCollectionHeaderView.swift */; };
 		23E118DD241FF99200CC6E61 /* CardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118DA241FF99200CC6E61 /* CardDetailsViewController.swift */; };
 		23E118DE241FF99200CC6E61 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118DB241FF99200CC6E61 /* FavoritesViewController.swift */; };
 		23E118DF241FF99200CC6E61 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118DC241FF99200CC6E61 /* CardsViewController.swift */; };
@@ -60,6 +61,7 @@
 		23684CAF24219B170081042C /* CardCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCellViewModel.swift; sourceTree = "<group>"; };
 		23684CB124219B290081042C /* CardsGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridViewModel.swift; sourceTree = "<group>"; };
 		23684CB524225FAC0081042C /* CardsGridViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridViewModelTest.swift; sourceTree = "<group>"; };
+		23684CBD2422B3650081042C /* GridCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionHeaderView.swift; sourceTree = "<group>"; };
 		23E118DA241FF99200CC6E61 /* CardDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailsViewController.swift; sourceTree = "<group>"; };
 		23E118DB241FF99200CC6E61 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		23E118DC241FF99200CC6E61 /* CardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,15 @@
 				23E118DB241FF99200CC6E61 /* FavoritesViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		23684CBC2422B3400081042C /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				5AD8B14F2422605100398D83 /* CardsGridViewFlowLayout.swift */,
+				23684CBD2422B3650081042C /* GridCollectionHeaderView.swift */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		23E118F424201A0F00CC6E61 /* View */ = {
@@ -249,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				5AD28BC7241C40D80072BBEB /* Application */,
+				23684CBC2422B3400081042C /* CollectionView */,
 				5AD28BC2241C3E980072BBEB /* Modules */,
 				5AD28BC9241C41660072BBEB /* Protocols */,
 				5AD28BA9241C3D520072BBEB /* Assets.xcassets */,
@@ -289,9 +301,8 @@
 		5AD28BC4241C3F0E0072BBEB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				230F400D2420335F00E2BA74 /* Controllers */,
 				23E118F024200DD500CC6E61 /* CardCell.swift */,
-				5AD8B14F2422605100398D83 /* CardsGridViewFlowLayout.swift */,
+				230F400D2420335F00E2BA74 /* Controllers */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -335,9 +346,9 @@
 		5AD28BC9241C41660072BBEB /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				5AC398C8241C44C5006FCDE4 /* ViewCode.swift */,
 				5AC398CA241C44F8006FCDE4 /* Coordinator.swift */,
 				5A753620241FFD7F0098C08D /* SessionProtocol.swift */,
+				5AC398C8241C44C5006FCDE4 /* ViewCode.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -635,6 +646,7 @@
 				5AD8B1502422605100398D83 /* CardsGridViewFlowLayout.swift in Sources */,
 				5AC398C9241C44C5006FCDE4 /* ViewCode.swift in Sources */,
 				23E118E5241FF99A00CC6E61 /* FavoritesCoordinator.swift in Sources */,
+				23684CBE2422B3650081042C /* GridCollectionHeaderView.swift in Sources */,
 				23E118E3241FF99A00CC6E61 /* AppCoordinator.swift in Sources */,
 				5AC398CB241C44F8006FCDE4 /* Coordinator.swift in Sources */,
 				5A13F07B241D31B000276862 /* Card.swift in Sources */,
