@@ -86,6 +86,7 @@ final class CardsStorageProvideTest: XCTestCase {
             try mockPersistentContainer.viewContext.save()
         }  catch {
             print("Create initial itens failed: \(error)")
+            XCTFail()
         }
     }
     
