@@ -9,7 +9,8 @@
 import CoreData
 final class CardsStorageProvider: StorageProvider {
     
-    let context: NSManagedObjectContext
+    private let context: NSManagedObjectContext
+    var dealWithErrors: () -> Void
     
     func save(objects: [Card]) {
         objects.forEach { (cardToSave) in
@@ -44,19 +45,28 @@ final class CardsStorageProvider: StorageProvider {
     
     private func fetchCDCards() -> [CDCard] {
         let cardsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CDCard")
-        if let fetchedCards = try? context.fetch(cardsFetch) as? [CDCard] {
-            return fetchedCards
+        guard let fetchedCards = try? context.fetch(cardsFetch) as? [CDCard] else {
+            return []
         }
-        return []
+        return fetchedCards
+    }
+    
+    func saveContext() {
+        do {
+            try context.save()
+        } catch {
+            dealWithErrors()
+        }
     }
 
-    init(container: NSPersistentContainer = NSPersistentContainer(name: "CardsDataModel")) {
+    init(container: NSPersistentContainer = NSPersistentContainer(name: "CardsDataModel"), onError errorTreatment: @escaping () -> Void) {
         container.loadPersistentStores(completionHandler: { (_, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+            if error != nil {
+                errorTreatment()
             }
         })
         context = container.viewContext
+        dealWithErrors = errorTreatment
         
     }
     
