@@ -48,8 +48,11 @@ final class CardDetailsView: UIView {
     }()
     
     private let cardsCollection: UICollectionView = {
-        let collection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 190, height: 264)
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.register(CardCell.self, forCellWithReuseIdentifier: CardCell.reuseIdentifier)
+        collection.backgroundColor = .clear
         return collection
     }()
     
