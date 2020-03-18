@@ -12,14 +12,14 @@ final class CardsStorageProvider: StorageProvider {
     let context: NSManagedObjectContext
     
     func save(objects: [Card]) {
-        objects.forEach({
+        objects.forEach { (cardToSave) in
             let card = CDCard(context: context)
-            card.id = $0.id
-            card.name = $0.name
-            card.imageData = $0.imageData
-            card.types = $0.types
+            card.id = cardToSave.id
+            card.name = cardToSave.name
+            card.imageData = cardToSave.imageData
+            card.types = cardToSave.types
             saveContext()
-        })
+        }
     }
     
     func fetch() -> [Card] {
