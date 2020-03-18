@@ -27,17 +27,14 @@ final class CardsGridViewModelTest: XCTestCase {
         self.abominationCard = Card(id: "aef2b3de-ed09-591e-ac6b-ecf62bac4a6b",
                                     name: "Abomination of Gudul",
                                     imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=386463&type=card",
-                                    imageData: nil,
                                     types: ["Creature"])
         self.abundanceCard = Card(id: "1669af17-d287-5094-b005-4b143441442f",
                                     name: "Abundance",
                                     imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130483&type=card",
-                                    imageData: nil,
                                     types: ["Enchantment"])
         self.academyCard = Card(id: "047d5499-a21c-5f5c-9679-1599fcaf9815",
                                 name: "Academy Researchers",
                                 imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=132072&type=card",
-                                imageData: nil,
                                 types: ["Creature"])
 
         let referenceDate = Date()

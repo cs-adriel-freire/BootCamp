@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavoritesCoordinator {
+final class FavoritesCoordinator {
 
     // MARK: - Variables
 

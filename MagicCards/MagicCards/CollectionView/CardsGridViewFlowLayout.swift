@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CardsGridViewFlowLayout: UICollectionViewFlowLayout {
+final class CardsGridViewFlowLayout: UICollectionViewFlowLayout {
     
     // MARK: - Variables
     

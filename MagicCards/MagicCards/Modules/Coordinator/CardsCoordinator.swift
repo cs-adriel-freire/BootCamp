@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CardsCoordinator {
+final class CardsCoordinator {
 
     // MARK: - Variables
 
