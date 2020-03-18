@@ -86,6 +86,7 @@ final class CardsStorageProvideTest: XCTestCase {
             try mockPersistentContainer.viewContext.save()
         }  catch {
             print("Create initial itens failed: \(error)")
+            XCTFail()
         }
     }
     
@@ -96,7 +97,11 @@ final class CardsStorageProvideTest: XCTestCase {
             mockPersistentContainer.viewContext.delete(obj)
         }
         
-        try! mockPersistentContainer.viewContext.save()
+        do {
+            try mockPersistentContainer.viewContext.save()
+        } catch {
+            XCTFail()
+        }
     }
     
     private func numberOfItemsInPersistentStore() -> Int {
