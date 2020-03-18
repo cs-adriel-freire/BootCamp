@@ -13,16 +13,16 @@ import XCTest
 import Foundation
 import CoreData
 
-class CardsStorageProvideTest: XCTestCase {
+final class CardsStorageProvideTest: XCTestCase {
     
-    var sut: CardsStorageProvider!
+    private var sut: CardsStorageProvider!
     
-    lazy var mockPersistentContainer: NSPersistentContainer = {
+    private lazy var mockPersistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "CardsDataModel", managedObjectModel: mockManagedObject)
         return container
     }()
     
-    lazy var mockManagedObject: NSManagedObjectModel = {
+    private lazy var mockManagedObject: NSManagedObjectModel = {
         let managedObject = NSManagedObjectModel.mergedModel(from: [Bundle(for: type(of: self))])!
         return managedObject
     }()
@@ -38,7 +38,7 @@ class CardsStorageProvideTest: XCTestCase {
         super.tearDown()
     }
     
-    func testSave() {
+    private func testSave() {
         let oldItensCount = numberOfItemsInPersistentStore()
         sut.save(objects: [Card(id: "b", name: "test", imageUrl: "", types: [""])])
         let newItensCount = numberOfItemsInPersistentStore()
@@ -46,24 +46,24 @@ class CardsStorageProvideTest: XCTestCase {
         assert(oldItensCount == (newItensCount - 1))
     }
     
-    func testFetch() {
+    private func testFetch() {
         let itens = sut.fetch()
         assert(itens.count == 2)
     }
     
-    func testfetchedObjectValue() {
+    private func testfetchedObjectValue() {
         let card = Card(id: "01", name: "First Object", imageUrl: "imageurl.com.br", types: ["agua", "fogo", "terra", "ar"])
         let fetchedCards = sut.fetch()
         assert(fetchedCards.contains(where: {$0.name == card.name})) 
     }
     
-    func testReset() {
+    private func testReset() {
         sut.reset()
         let countItens = numberOfItemsInPersistentStore()
         assert(countItens == 0)
     }
     
-    func testDelete() {
+    private func testDelete() {
         let oldItensCount = numberOfItemsInPersistentStore()
         let card = Card(id: "01", name: "First Object", imageUrl: nil, imageData: nil, types: ["agua", "fogo", "terra", "ar"])
         sut.delete(objects: [card])
@@ -99,7 +99,7 @@ class CardsStorageProvideTest: XCTestCase {
         try! mockPersistentContainer.viewContext.save()
     }
     
-    func numberOfItemsInPersistentStore() -> Int {
+    private func numberOfItemsInPersistentStore() -> Int {
         let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CDCard")
         let results = try! mockPersistentContainer.viewContext.fetch(request)
         return results.count
