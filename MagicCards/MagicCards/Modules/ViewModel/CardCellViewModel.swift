@@ -26,3 +26,5 @@ struct CardCellViewModel {
         }
     }
 }
+
+extension CardCellViewModel: Equatable { }
