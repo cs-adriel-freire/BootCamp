@@ -10,7 +10,7 @@ import XCTest
 
 @testable import MagicCards
 
-class CardsGridViewFlowLayoutTest: XCTestCase {
+final class CardsGridViewFlowLayoutTest: XCTestCase {
 
     // MARK: - Variables
     

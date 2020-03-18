@@ -13,7 +13,7 @@ import XCTest
 
 @testable import MagicCards
 
-class CardCellTest: XCTestCase {
+final class CardCellTest: XCTestCase {
 
     // MARK: - Variables
 
