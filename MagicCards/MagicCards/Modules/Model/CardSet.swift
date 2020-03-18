@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CardSet: Codable {
+class CardSet: Codable {
     
     let id: String
     let name: String
