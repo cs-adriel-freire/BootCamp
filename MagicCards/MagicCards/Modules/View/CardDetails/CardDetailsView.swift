@@ -12,8 +12,14 @@ final class CardDetailsView: UIView {
     
     // MARK: - Properties
     public weak var delegate: CardDetailsViewDelegate?
+    var collectionDataSource: CardDetailsCollectionDataSource
     
-    private let cards: [Card]
+    public var viewModel: CardDetailsViewModel {
+        didSet(newViewModel) {
+            collectionDataSource.cards = newViewModel.cards
+            cardsCollection.reloadData()
+        }
+    }
     
     private let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
@@ -43,17 +49,19 @@ final class CardDetailsView: UIView {
     
     private let cardsCollection: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        collection.register(CardCell.self, forCellWithReuseIdentifier: CardCell.reuseIdentifier)
         return collection
     }()
     
     // MARK: - Initializers
     
-    convenience init(cards: [Card]) {
-        self.init(frame: .zero, cards: cards)
+    convenience init(viewModel: CardDetailsViewModel) {
+        self.init(frame: .zero, viewModel: viewModel)
     }
     
-    init(frame: CGRect, cards: [Card]) {
-        self.cards = cards
+    init(frame: CGRect, viewModel: CardDetailsViewModel) {
+        self.viewModel = viewModel
+        self.collectionDataSource = CardDetailsCollectionDataSource(cards: viewModel.cards)
         super.init(frame: frame)
         setupView()
     }
@@ -125,6 +133,6 @@ extension CardDetailsView: ViewCode {
     }
        
     func setupAdditionalConfiguration() {
-        
+        cardsCollection.dataSource = collectionDataSource
     }
 }
