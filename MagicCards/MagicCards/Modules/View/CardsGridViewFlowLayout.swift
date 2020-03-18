@@ -10,9 +10,15 @@ import UIKit
 
 class CardsGridViewFlowLayout: UICollectionViewFlowLayout {
     
+    // MARK: - Variables
+    
     let cellSize: CGSize
     let minimumMargin: CGFloat
     let headerHeight: CGFloat
+    
+    // MARK: - Methods
+    
+    // MARK: Initializers
     
     required init(cellSize: CGSize = CGSize(width: 85.0, height: 118.0),
                   minimumMargin: CGFloat = 16.0,
@@ -26,6 +32,17 @@ class CardsGridViewFlowLayout: UICollectionViewFlowLayout {
         self.itemSize = cellSize
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: Functions
+    
+    override func invalidateLayout() {
+        super.invalidateLayout()
+        self.setLayout()
+    }
+    
     private func setLayout() {
         let margin = marginFor(frame: collectionView?.frame ?? .zero)
         self.minimumInteritemSpacing = margin
@@ -33,7 +50,7 @@ class CardsGridViewFlowLayout: UICollectionViewFlowLayout {
         self.headerReferenceSize = CGSize(width: collectionView?.frame.width ?? 0, height: self.headerHeight)
     }
     
-    func marginFor(frame: CGRect) -> CGFloat {
+    private func marginFor(frame: CGRect) -> CGFloat {
         let totalWidth = frame.width
         var numberOfCells = (totalWidth / cellSize.width).rounded(.down)
         
@@ -47,15 +64,6 @@ class CardsGridViewFlowLayout: UICollectionViewFlowLayout {
         }
         let totalMargin = totalWidth - cellSize.width
         return (totalMargin / 2)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func invalidateLayout() {
-        super.invalidateLayout()
-        self.setLayout()
     }
     
 }
