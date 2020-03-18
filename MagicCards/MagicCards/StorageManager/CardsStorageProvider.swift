@@ -23,13 +23,9 @@ final class CardsStorageProvider: StorageProvider {
     }
     
     func fetch() -> [Card] {
-        var cards = [Card]()
-        let fetchedCards = fetchCDCards()
-        fetchedCards.forEach({
-            let card = Card(id: $0.id ?? "", name: $0.name ?? "", imageUrl: nil, imageData: $0.imageData, types:  $0.types ?? [""])
-            cards.append(card)
+        return fetchCDCards().map({ card in
+            return Card(id: card.id ?? "", name: card.name ?? "", imageUrl: nil, imageData: card.imageData, types: card.types ?? [])
         })
-        return cards
     }
     
     func reset() {
