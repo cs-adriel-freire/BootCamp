@@ -29,3 +29,5 @@ struct CardSet: Codable {
     }
     
 }
+
+extension CardSet: Hashable { }

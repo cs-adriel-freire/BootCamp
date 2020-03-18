@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		00A8FE758E31C2060B4AEAE5 /* Pods_MagicCardsSnapshotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F92AD5549A92796F6324B5 /* Pods_MagicCardsSnapshotTests.framework */; };
+		23684CB024219B170081042C /* CardCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23684CAF24219B170081042C /* CardCellViewModel.swift */; };
+		23684CB224219B290081042C /* CardsGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23684CB124219B290081042C /* CardsGridViewModel.swift */; };
 		23E118DD241FF99200CC6E61 /* CardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118DA241FF99200CC6E61 /* CardDetailsViewController.swift */; };
 		23E118DE241FF99200CC6E61 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118DB241FF99200CC6E61 /* FavoritesViewController.swift */; };
 		23E118DF241FF99200CC6E61 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118DC241FF99200CC6E61 /* CardsViewController.swift */; };
@@ -18,7 +20,6 @@
 		23E118EB2420065900CC6E61 /* CardsCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118EA2420065900CC6E61 /* CardsCoordinatorTest.swift */; };
 		23E118ED2420087C00CC6E61 /* FavoritesCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118EC2420087C00CC6E61 /* FavoritesCoordinatorTest.swift */; };
 		23E118F124200DD500CC6E61 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118F024200DD500CC6E61 /* CardCell.swift */; };
-		23E118F324200F7E00CC6E61 /* CardCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118F224200F7D00CC6E61 /* CardCellViewModel.swift */; };
 		23E118F624201A3300CC6E61 /* CardCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118F524201A3300CC6E61 /* CardCellTest.swift */; };
 		5A13F07B241D31B000276862 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A13F07A241D31B000276862 /* Card.swift */; };
 		5A13F07D241D31CA00276862 /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A13F07C241D31CA00276862 /* CardSet.swift */; };
@@ -53,6 +54,8 @@
 /* Begin PBXFileReference section */
 		18AACB8879566E0B9B73096D /* Pods-MagicCardsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsTests.release.xcconfig"; path = "Target Support Files/Pods-MagicCardsTests/Pods-MagicCardsTests.release.xcconfig"; sourceTree = "<group>"; };
 		21FBED51FDA52A0E3908D1CE /* Pods-MagicCardsSnapshotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsSnapshotTests.debug.xcconfig"; path = "Target Support Files/Pods-MagicCardsSnapshotTests/Pods-MagicCardsSnapshotTests.debug.xcconfig"; sourceTree = "<group>"; };
+		23684CAF24219B170081042C /* CardCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCellViewModel.swift; sourceTree = "<group>"; };
+		23684CB124219B290081042C /* CardsGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridViewModel.swift; sourceTree = "<group>"; };
 		23E118DA241FF99200CC6E61 /* CardDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailsViewController.swift; sourceTree = "<group>"; };
 		23E118DB241FF99200CC6E61 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		23E118DC241FF99200CC6E61 /* CardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
@@ -63,7 +66,6 @@
 		23E118EA2420065900CC6E61 /* CardsCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCoordinatorTest.swift; sourceTree = "<group>"; };
 		23E118EC2420087C00CC6E61 /* FavoritesCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinatorTest.swift; sourceTree = "<group>"; };
 		23E118F024200DD500CC6E61 /* CardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
-		23E118F224200F7D00CC6E61 /* CardCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardCellViewModel.swift; path = MagicCards/Modules/View/CardCellViewModel.swift; sourceTree = SOURCE_ROOT; };
 		23E118F524201A3300CC6E61 /* CardCellTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellTest.swift; sourceTree = "<group>"; };
 		314ACA793FC97EA9D8B93FE9 /* Pods_MagicCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MagicCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41C558B83C610F5583F274D6 /* Pods-MagicCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCards.release.xcconfig"; path = "Target Support Files/Pods-MagicCards/Pods-MagicCards.release.xcconfig"; sourceTree = "<group>"; };
@@ -288,7 +290,8 @@
 		5AD28BC5241C3F310072BBEB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				23E118F224200F7D00CC6E61 /* CardCellViewModel.swift */,
+				23684CAF24219B170081042C /* CardCellViewModel.swift */,
+				23684CB124219B290081042C /* CardsGridViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -612,12 +615,13 @@
 			files = (
 				23E118E4241FF99A00CC6E61 /* CardsCoordinator.swift in Sources */,
 				23E118DF241FF99200CC6E61 /* CardsViewController.swift in Sources */,
-				23E118F324200F7E00CC6E61 /* CardCellViewModel.swift in Sources */,
 				23E118F124200DD500CC6E61 /* CardCell.swift in Sources */,
 				5AD28BA1241C3D4D0072BBEB /* AppDelegate.swift in Sources */,
+				23684CB024219B170081042C /* CardCellViewModel.swift in Sources */,
 				23E118DD241FF99200CC6E61 /* CardDetailsViewController.swift in Sources */,
 				23E118DE241FF99200CC6E61 /* FavoritesViewController.swift in Sources */,
 				5A13F07D241D31CA00276862 /* CardSet.swift in Sources */,
+				23684CB224219B290081042C /* CardsGridViewModel.swift in Sources */,
 				5A753621241FFD7F0098C08D /* SessionProtocol.swift in Sources */,
 				5AC398C9241C44C5006FCDE4 /* ViewCode.swift in Sources */,
 				23E118E5241FF99A00CC6E61 /* FavoritesCoordinator.swift in Sources */,
