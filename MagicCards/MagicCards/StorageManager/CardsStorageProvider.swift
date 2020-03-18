@@ -29,8 +29,7 @@ final class CardsStorageProvider: StorageProvider {
     }
     
     func reset() {
-        let cards = fetchCDCards()
-        cards.forEach({context.delete($0)})
+        fetchCDCards().forEach(context.delete)
         saveContext()
     }
     
