@@ -37,12 +37,13 @@ final class AppCoordinator {
 extension AppCoordinator: Coordinator {
 
     func start() {
+        let cardsRepository = CardsRepository()
 
         // All cards' tab
 
         let cardsNavigationController = UINavigationController()
         cardsNavigationController.tabBarItem = UITabBarItem(title: "Cards", image: nil, tag: 0)
-        let cardsCoordinator = CardsCoordinator(navigationController: cardsNavigationController)
+        let cardsCoordinator = CardsCoordinator(navigationController: cardsNavigationController, repository: cardsRepository)
 
         cardsCoordinator.start()
 

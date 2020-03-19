@@ -10,6 +10,11 @@
 
 // TODO: remove this
 
+protocol CardDetailsRepositoryProtocol {
+
+    func getCard(fromSet setIndex: Int, withIndex cardIndex: Int, completion: @escaping (Result<Card, Error>) -> Void)
+}
+
 protocol CardsRepositoryProtocol {
 
     func getCards(untilSet setIndex: Int, completion: @escaping (Result<[CardSet: [Card]], Error>) -> Void)
@@ -46,11 +51,16 @@ class CardsRepository: CardsRepositoryProtocol {
     }
 }
 
+extension CardsRepository: CardDetailsRepositoryProtocol {
+    func getCard(fromSet setIndex: Int, withIndex cardIndex: Int, completion: @escaping (Result<Card, Error>) -> Void) { }
+}
+
 ////////////////////////
 
 import UIKit
 
 final class CardsViewController: UIViewController {
+    typealias Repository = CardsRepositoryProtocol & CardDetailsRepositoryProtocol
 
     // MARK: - Variables
 
@@ -68,13 +78,13 @@ final class CardsViewController: UIViewController {
 
     // MARK: Data
 
-    let cardsRepository: CardsRepositoryProtocol
+    let cardsRepository: Repository
 
     // MARK: - Methods
 
     // MARK: Initializers
 
-    init(repository: CardsRepositoryProtocol = CardsRepository()) {
+    init(repository: Repository) {
         self.cardsRepository = repository
         super.init(nibName: nil, bundle: nil)
     }
