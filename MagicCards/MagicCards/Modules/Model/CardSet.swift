@@ -16,14 +16,6 @@ final class CardSet: Codable {
     let name: String
     let releaseDate: Date
     
-    static var decoder: JSONDecoder {
-        let decoder = JSONDecoder()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        decoder.dateDecodingStrategy = .formatted(dateFormatter)
-        return decoder
-    }
-    
     // MARK: - Methods
 
     // MARK: Initializers
