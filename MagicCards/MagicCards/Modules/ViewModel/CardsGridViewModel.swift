@@ -14,6 +14,8 @@ struct CardsGridViewModel {
     let numberOfItemsBySection: [Int]
     let headerTitleBySection: [String]
     let viewModelBySection: [[CardCellViewModel]]
+    let nextSectionIndex: Int
+    let lastSectionCount: Int
 
     // MARK: - Methods
 
@@ -42,5 +44,8 @@ struct CardsGridViewModel {
                 CardCellViewModel(card: card)
             }
         }
+
+        self.nextSectionIndex = self.numberOfSections
+        self.lastSectionCount = self.numberOfItemsBySection.last ?? 0
     }
 }
