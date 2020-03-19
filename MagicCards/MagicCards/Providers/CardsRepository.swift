@@ -26,7 +26,7 @@ final class CardsRepository {
 
     // MARK: Initializers
 
-    init(cardsProvider: CardsProvider, storageProvider: StorageProvider = CardsStorageProvider(onError: { })) {  // TODO: set SessionProvider default value
+    init(cardsProvider: CardsProvider = MagicAPIProvider(), storageProvider: StorageProvider = CardsStorageProvider(onError: { })) {
         self.cardsProvider = cardsProvider
         self.storageProvider = storageProvider
         self.cardSets = []
