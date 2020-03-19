@@ -17,13 +17,6 @@ protocol SessionProvider {
     func fetchCardSets(completion: @escaping (Result<[CardSet], Error>) -> Void)
 }
 
-protocol StorageProvider {
-
-    func save(objects: [Card])
-    func fetch() -> [Card]
-    func delete(objects: [Card])
-}
-
 ///////////////////////////////
 
 enum CardsRepositoryError: Error {
@@ -51,7 +44,7 @@ final class CardsRepository {
 
     // MARK: Initializers
 
-    init(sessionProvider: SessionProvider, storageProvider: StorageProvider) {  // TODO: set default values
+    init(sessionProvider: SessionProvider, storageProvider: StorageProvider = CardsStorageProvider(onError: { })) {  // TODO: set SessionProvider default value
         self.sessionProvider = sessionProvider
         self.storageProvider = storageProvider
         self.cardSets = []

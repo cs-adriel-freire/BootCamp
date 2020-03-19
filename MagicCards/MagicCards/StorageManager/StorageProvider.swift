@@ -8,10 +8,9 @@
 
 import Foundation
 protocol StorageProvider {
-    associatedtype Object
-    func save(objects: [Object])
-    func fetch() -> [Object]
+    func save(objects: [Card])
+    func fetch() -> [Card]
     func reset()
-    func delete(objects: [Object])
+    func delete(objects: [Card])
     var dealWithErrors: () -> Void {get set}
 }
