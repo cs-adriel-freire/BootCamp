@@ -16,14 +16,16 @@ final class FavoritesCoordinator {
 
     var rootController: UINavigationController
     var childCoordinators: [Coordinator]
-
+    let repository: FavoriteCardsRepositoryProtocol
+    
     // MARK: - Methods
 
     // MARK: Initializers
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, repository: FavoriteCardsRepositoryProtocol) {
         self.rootController = navigationController
         self.childCoordinators = []
+        self.repository = repository
     }
 }
 

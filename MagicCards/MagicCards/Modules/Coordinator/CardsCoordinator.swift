@@ -16,14 +16,16 @@ final class CardsCoordinator {
 
     var rootController: UINavigationController
     var childCoordinators: [Coordinator]
+    let repository: CardsRepository
 
     // MARK: - Methods
 
     // MARK: Initializers
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, repository: CardsRepository) {
         self.rootController = navigationController
         self.childCoordinators = []
+        self.repository = repository
     }
 }
 
