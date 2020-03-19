@@ -16,6 +16,7 @@ final class CardsCoordinatorTest: XCTestCase {
 
     var sut: CardsCoordinator!
     var navigationController: UINavigationController!
+    var cardsRepositoryDummy: CardsRepositoryDummy!
 
     // MARK: - Methods
 
@@ -23,7 +24,7 @@ final class CardsCoordinatorTest: XCTestCase {
 
     override func setUp() {
         self.navigationController = UINavigationController()
-        self.sut = CardsCoordinator(navigationController: self.navigationController)
+        self.sut = CardsCoordinator(navigationController: self.navigationController, repository: CardsRepositoryDummy())
     }
 
     // MARK: Tear down

@@ -9,6 +9,7 @@
 import UIKit
 
 final class FavoritesViewController: UIViewController {
+    typealias Repository = FavoriteCardsRepositoryProtocol & FavoriteCardDetailsRepositoryProtocol
     
     // MARK: - Variables
     
@@ -16,21 +17,23 @@ final class FavoritesViewController: UIViewController {
      private lazy var gridView = FavoritesCardsGridView(viewModel: self.viewModel, collectionDelegate: self)
 
     // MARK: ViewModel
-    private var viewModel: CardsFavoritesGridViewModel {
+    private var viewModel: CardsFavoritesGridViewModel = CardsFavoritesGridViewModel(cards: []) {
         didSet {
             self.gridView.viewModel = self.viewModel
         }
     }
 
     // MARK: Data
-//    let cardsRepository: FavoriteCardsRepositoryProtocol
-
+    let favoriteCardsRepository: Repository
+    
     // MARK: - Methods
+
     // MARK: Initializers
-    // init(repository: FavoriteCardsRepositoryProtocol) {
-    //    self.cardsRepository = repository
-    //    super.init(nibName: nil, bundle: nil)
-    // }
+
+    init(repository: Repository) {
+        self.favoriteCardsRepository = repository
+        super.init(nibName: nil, bundle: nil)
+    }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -51,9 +54,8 @@ final class FavoritesViewController: UIViewController {
 
     // MARK: Update data
     private func getMoreCards() {
-        // let favoriteCards = self.cardsRepository.getFavoriteCards()
-        // let viewModel = CardsFavoritesGridViewModel(cards: favoriteCards)
-        
+        let favoriteCards = self.favoriteCardsRepository.getFavoriteCards()
+        self.viewModel = CardsFavoritesGridViewModel(cards: favoriteCards)
     }
     
 }

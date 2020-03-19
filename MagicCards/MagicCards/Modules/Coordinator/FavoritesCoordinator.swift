@@ -9,6 +9,7 @@
 import UIKit
 
 final class FavoritesCoordinator {
+    typealias Repository = FavoriteCardsRepositoryProtocol & FavoriteCardDetailsRepositoryProtocol
 
     // MARK: - Variables
 
@@ -17,12 +18,17 @@ final class FavoritesCoordinator {
     var rootController: UINavigationController
     var childCoordinators: [Coordinator]
 
+    // MARK: Repository
+
+    let repository: Repository
+
     // MARK: - Methods
 
     // MARK: Initializers
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, repository: Repository) {
         self.rootController = navigationController
+        self.repository = repository
         self.childCoordinators = []
     }
 }
@@ -32,7 +38,7 @@ final class FavoritesCoordinator {
 extension FavoritesCoordinator: Coordinator {
 
     func start() {
-        let favoritesViewController = FavoritesViewController()
+        let favoritesViewController = FavoritesViewController(repository: self.repository)
         self.rootController.pushViewController(favoritesViewController, animated: true)
     }
 }
