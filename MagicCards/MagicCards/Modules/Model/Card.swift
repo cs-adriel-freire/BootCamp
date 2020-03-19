@@ -22,11 +22,21 @@ final class Card: Codable {
 
     // MARK: Initializers
     
-    init(id: String, name: String, imageUrl: String?, types: [String]) {
+    init(id: String, name: String, imageUrl: String?, imageData: Data? = nil, types: [String]) {
         self.id = id
         self.name = name
         self.imageUrl = imageUrl
+        self.imageData = imageData
         self.types = types
     }
 
+}
+
+// MARK: - Equatable
+
+extension Card: Equatable {
+
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
