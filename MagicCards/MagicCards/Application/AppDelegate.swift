@@ -12,11 +12,11 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var coordinator: AppCoordinator?
+    var coordinator: Coordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        self.coordinator = AppCoordinator(tabBarController: UITabBarController())
+        self.coordinator = CardsCoordinator(navigationController: UINavigationController())//AppCoordinator(tabBarController: UITabBarController())
 
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = self.coordinator?.rootController

@@ -16,7 +16,9 @@ final class CardsGridView: UIView {
     var viewModel: CardsGridViewModel {
         didSet {
             self.gridCollectionDataSource.viewModel = self.viewModel
-            self.collectionView.reloadData()
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         }
     }
 
@@ -65,6 +67,12 @@ final class CardsGridView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    // MARK: Update
+
+    func updateFrame() {
+        self.collectionFlowLayout.collectionFrame = self.collectionView.frame
+    }
 }
 
 // MARK: - ViewCode
@@ -87,6 +95,6 @@ extension CardsGridView: ViewCode {
     }
 
     func setupAdditionalConfiguration() {
-        self.collectionFlowLayout.collectionFrame = self.frame
+        //
     }
 }
