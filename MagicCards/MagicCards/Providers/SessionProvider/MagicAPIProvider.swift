@@ -20,13 +20,12 @@ final class MagicAPIProvider: SessionProvider {
         self.decoder = decoder
     }
     
-    // swiftlint:disable function_body_length
     public func fetchCards(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void) {
         let dispatchGroup = DispatchGroup()
         let dispatchQueue = DispatchQueue(label: "fetchCards")
         var cards: [Card] = []
         guard let requestBuilder = requestBuilders["cards"] else {
-            // MARK: Mudar isso para colocar o erro de sem request válido
+            // TODO: Change to a valid error return
             return
         }
         
@@ -36,9 +35,7 @@ final class MagicAPIProvider: SessionProvider {
         dispatchGroup.enter()
         fetch(withRequest: request, decoder: decoder) { (result: Result<(CardDTO, URLResponse), SessionProviderError>) in
             switch result {
-            case .success(let data):
-                let dto = data.0
-                let response = data.1
+            case .success(let (dto, response)):
                 cards.append(contentsOf: dto.cards)
                 
                 for card in dto.cards {
@@ -55,8 +52,7 @@ final class MagicAPIProvider: SessionProvider {
                     dispatchGroup.enter()
                     self.fetch(withRequest: request, decoder: self.decoder) { (result: Result<(CardDTO, URLResponse), SessionProviderError>) in
                         switch result {
-                        case .success(let data):
-                            let dto = data.0
+                        case .success(let (dto, _)):
                             cards.append(contentsOf: dto.cards)
                             
                             for card in dto.cards {
@@ -85,15 +81,13 @@ final class MagicAPIProvider: SessionProvider {
             }
         }
     }
-    // swiftlint:enable function_body_length
     
-    // swiftlint:disable function_body_length
     public func fetchCards(withSet set: String, completion: @escaping (Result<[Card], Error>) -> Void) {
         let dispatchGroup = DispatchGroup()
         let dispatchQueue = DispatchQueue(label: "fetchCards")
         var cards: [Card] = []
         guard let requestBuilder = requestBuilders["cards"] else {
-            // MARK: Mudar isso para colocar o erro de sem request válido
+            // TODO: Change to a valid error return
             return
         }
         
@@ -103,9 +97,7 @@ final class MagicAPIProvider: SessionProvider {
         dispatchGroup.enter()
         fetch(withRequest: request, decoder: decoder) { (result: Result<(CardDTO, URLResponse), SessionProviderError>) in
             switch result {
-            case .success(let data):
-                let dto = data.0
-                let response = data.1
+            case .success(let (dto, response)):
                 cards.append(contentsOf: dto.cards)
                 
                 for card in dto.cards {
@@ -122,8 +114,7 @@ final class MagicAPIProvider: SessionProvider {
                     dispatchGroup.enter()
                     self.fetch(withRequest: request, decoder: self.decoder) { (result: Result<(CardDTO, URLResponse), SessionProviderError>) in
                         switch result {
-                        case .success(let data):
-                            let dto = data.0
+                        case .success(let (dto, _)):
                             cards.append(contentsOf: dto.cards)
                             
                             for card in dto.cards {
@@ -152,17 +143,15 @@ final class MagicAPIProvider: SessionProvider {
             }
         }
     }
-    // swiftlint:enable function_body_length
     
     public func fetchCardSets(completion: @escaping (Result<[CardSet], Error>) -> Void) {
         guard let requestBuilder = requestBuilders["sets"] else {
-            // MARK: Mudar isso para colocar o erro de sem request válido
+            // TODO: Change to a valid error return
             return
         }
         fetch(withRequest: requestBuilder.request(), decoder: decoder) { (result: Result<(CardSetDTO, URLResponse), SessionProviderError>) in
             switch result {
-            case .success(let data):
-                let dto = data.0
+            case .success(let (dto, _)):
                 completion(.success(dto.sets))
             case .failure(let error):
                 completion(.failure(error))
@@ -171,7 +160,7 @@ final class MagicAPIProvider: SessionProvider {
     }
     
     public func fetchImage(toCardUrl urlString: String?, completion: @escaping (Data) -> Void) {
-        // MARK: Change this empty data to a specific placeholder image
+        // TODO: Change this empty data to a specific placeholder image
         let dataPlaceholder: Data = Data()
         guard let urlString = urlString, let url = URL(string: urlString) else {
             completion(dataPlaceholder)

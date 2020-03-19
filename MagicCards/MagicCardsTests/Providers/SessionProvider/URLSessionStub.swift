@@ -23,10 +23,10 @@ final class URLSessionStub: URLSession {
     override func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
         if !shouldReturnError {
             urlResponse = HTTPURLResponse(url: url, statusCode: statusCode, httpVersion: nil, headerFields: nil)!
-            completionHandler(dataResponse, urlResponse , nil)
+            completionHandler(dataResponse, urlResponse, nil)
             return URLSessionDataTaskFake()
         }
-        completionHandler(nil, nil , error)
+        completionHandler(nil, nil, error)
         return URLSessionDataTaskFake()
     }
 

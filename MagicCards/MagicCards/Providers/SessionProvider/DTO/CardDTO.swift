@@ -7,5 +7,5 @@
 //
 
 struct CardDTO: Codable {
-    var cards: [Card]
+    let cards: [Card]
 }

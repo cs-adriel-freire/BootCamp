@@ -7,5 +7,5 @@
 //
 
 struct CardSetDTO: Codable {
-    var sets: [CardSet]
+    let sets: [CardSet]
 }
