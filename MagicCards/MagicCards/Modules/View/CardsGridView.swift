@@ -20,10 +20,9 @@ final class CardsGridView: UIView {
         }
     }
 
-    var collectionFlowLayout: CardsGridViewFlowLayout
-
     // MARK: CollectionVIew
 
+    var collectionFlowLayout: CardsGridViewFlowLayout
     private let gridCollectionDataSource: GridCollectionDataSource
     //swiftlint:disable weak_delegate
     private let collectionViewDelegate: UICollectionViewDelegate?
