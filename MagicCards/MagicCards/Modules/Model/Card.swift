@@ -8,12 +8,26 @@
 
 import Foundation
 
-struct Card: Codable {
+final class Card: Codable {
+    
+    // MARK: - Variables
     
     let id: String
     let name: String
     let imageUrl: String?
     var imageData: Data?
     let types: [String]
+    
+    // MARK: - Methods
+
+    // MARK: Initializers
+    
+    init(id: String, name: String, imageUrl: String?, imageData: Data? = nil, types: [String]) {
+        self.id = id
+        self.name = name
+        self.imageUrl = imageUrl
+        self.imageData = imageData
+        self.types = types
+    }
 
 }
