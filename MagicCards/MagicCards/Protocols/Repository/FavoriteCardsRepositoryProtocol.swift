@@ -11,8 +11,8 @@ protocol FavoriteCardsRepositoryProtocol {
     // MARK: Get methods
 
     func getFavoriteCards() -> [Card]    // TODO: Remove this temporary solution
-//    func getFavoriteCards(untilSet setIndex: Int, completion: @escaping (Result<[CardSet: [Card]], Error>) -> Void)
-    func getFavoriteCards(untilSet setIndex: Int, withName: String, completion: @escaping (Result<[CardSet: [Card]], Error>) -> Void)
+//    func getFavoriteCards(untilSet setIndex: Int) -> [CardSet: [Card]]
+    func getFavoriteCards(untilSet setIndex: Int, withName: String) -> [CardSet: [Card]]
 
     // MARK: Favorite methods
 

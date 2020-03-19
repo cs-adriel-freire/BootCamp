@@ -148,12 +148,12 @@ extension CardsRepository: FavoriteCardsRepositoryProtocol {
         return self.favoriteCards
     }
 
-    func getFavoriteCards(untilSet setIndex: Int, completion: @escaping (Result<[CardSet: [Card]], Error>) -> Void) {
-        //
-    }
+//    func getFavoriteCards(untilSet setIndex: Int) -> [CardSet: [Card]] {
+//        //
+//    }
 
-    func getFavoriteCards(untilSet setIndex: Int, withName: String, completion: @escaping (Result<[CardSet: [Card]], Error>) -> Void) {
-        //
+    func getFavoriteCards(untilSet setIndex: Int, withName: String) -> [CardSet: [Card]] {
+        return [:]
     }
 
     // MARK: Favorite methods
