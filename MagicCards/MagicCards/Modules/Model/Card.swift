@@ -31,3 +31,12 @@ final class Card: Codable {
     }
 
 }
+
+// MARK: - Equatable
+
+extension Card: Equatable {
+
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return lhs.id == rhs.id
+    }
+}

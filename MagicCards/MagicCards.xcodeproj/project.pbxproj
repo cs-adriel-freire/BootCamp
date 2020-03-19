@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		00A8FE758E31C2060B4AEAE5 /* Pods_MagicCardsSnapshotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F92AD5549A92796F6324B5 /* Pods_MagicCardsSnapshotTests.framework */; };
+		2325345A24213B0A00D9F931 /* CardsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2325345924213B0A00D9F931 /* CardsRepositoryProtocol.swift */; };
+		2325345C24213B2300D9F931 /* FavoriteCardsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2325345B24213B2300D9F931 /* FavoriteCardsRepositoryProtocol.swift */; };
+		2325345E24213B3600D9F931 /* CardRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2325345D24213B3600D9F931 /* CardRepositoryProtocol.swift */; };
 		23684CB024219B170081042C /* CardCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23684CAF24219B170081042C /* CardCellViewModel.swift */; };
 		23684CB224219B290081042C /* CardsGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23684CB124219B290081042C /* CardsGridViewModel.swift */; };
 		23684CB42421B0110081042C /* CardsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23684CB32421B0110081042C /* CardsGridView.swift */; };
@@ -19,6 +22,8 @@
 		2396142F2423A76000177FB2 /* StorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2396142B2423A75F00177FB2 /* StorageProvider.swift */; };
 		239614302423A76000177FB2 /* CardsStorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2396142C2423A75F00177FB2 /* CardsStorageProvider.swift */; };
 		239614312423A76000177FB2 /* CardsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2396142D2423A75F00177FB2 /* CardsDataModel.xcdatamodeld */; };
+		23BFC1112423C5F100024368 /* CardsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BFC1102423C5F100024368 /* CardsRepository.swift */; };
+		23BFC1132423C64200024368 /* CardsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BFC1122423C64200024368 /* CardsProvider.swift */; };
 		23E118DD241FF99200CC6E61 /* CardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118DA241FF99200CC6E61 /* CardDetailsViewController.swift */; };
 		23E118DE241FF99200CC6E61 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118DB241FF99200CC6E61 /* FavoritesViewController.swift */; };
 		23E118DF241FF99200CC6E61 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118DC241FF99200CC6E61 /* CardsViewController.swift */; };
@@ -32,7 +37,6 @@
 		23E118F624201A3300CC6E61 /* CardCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118F524201A3300CC6E61 /* CardCellTest.swift */; };
 		5A13F07B241D31B000276862 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A13F07A241D31B000276862 /* Card.swift */; };
 		5A13F07D241D31CA00276862 /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A13F07C241D31CA00276862 /* CardSet.swift */; };
-		5A13F084241FDFAB00276862 /* CardSetTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A13F083241FDFAB00276862 /* CardSetTest.swift */; };
 		5A7A0E9F2423A85A00901E96 /* GridFavoritesCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7A0E9E2423A85A00901E96 /* GridFavoritesCollectionDataSource.swift */; };
 		5A7A0EA12423A8A600901E96 /* CardsFavoritesGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7A0EA02423A8A600901E96 /* CardsFavoritesGridViewModel.swift */; };
 		5A7A0EA32423B73000901E96 /* FavoriteCardsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7A0EA22423B73000901E96 /* FavoriteCardsGridView.swift */; };
@@ -51,6 +55,12 @@
 		5AEAB8AA24231B6D00084472 /* MagicAPIProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEAB8A924231B6D00084472 /* MagicAPIProviderTest.swift */; };
 		65584E7F166B5C625A96D9B7 /* Pods_MagicCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 314ACA793FC97EA9D8B93FE9 /* Pods_MagicCards.framework */; };
 		EDC392ACAFE8AA31584F1635 /* Pods_MagicCardsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86F810F4E12862F3BF45E99F /* Pods_MagicCardsTests.framework */; };
+		FC215E142423C1C700262D9D /* CardDetailsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC215E102423C1C700262D9D /* CardDetailsViewDelegate.swift */; };
+		FC215E152423C1C700262D9D /* CardDetailsView + FlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC215E112423C1C700262D9D /* CardDetailsView + FlowDelegate.swift */; };
+		FC215E162423C1C700262D9D /* CardDetailsCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC215E122423C1C700262D9D /* CardDetailsCollectionDataSource.swift */; };
+		FC215E172423C1C700262D9D /* CardDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC215E132423C1C700262D9D /* CardDetailsView.swift */; };
+		FC215E192423C1D900262D9D /* CardDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC215E182423C1D900262D9D /* CardDetailsViewModel.swift */; };
+		FC215E1B2423C1F300262D9D /* CardDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC215E1A2423C1F300262D9D /* CardDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +83,9 @@
 /* Begin PBXFileReference section */
 		18AACB8879566E0B9B73096D /* Pods-MagicCardsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsTests.release.xcconfig"; path = "Target Support Files/Pods-MagicCardsTests/Pods-MagicCardsTests.release.xcconfig"; sourceTree = "<group>"; };
 		21FBED51FDA52A0E3908D1CE /* Pods-MagicCardsSnapshotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsSnapshotTests.debug.xcconfig"; path = "Target Support Files/Pods-MagicCardsSnapshotTests/Pods-MagicCardsSnapshotTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2325345924213B0A00D9F931 /* CardsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsRepositoryProtocol.swift; sourceTree = "<group>"; };
+		2325345B24213B2300D9F931 /* FavoriteCardsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCardsRepositoryProtocol.swift; sourceTree = "<group>"; };
+		2325345D24213B3600D9F931 /* CardRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepositoryProtocol.swift; sourceTree = "<group>"; };
 		23684CAF24219B170081042C /* CardCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCellViewModel.swift; sourceTree = "<group>"; };
 		23684CB124219B290081042C /* CardsGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridViewModel.swift; sourceTree = "<group>"; };
 		23684CB32421B0110081042C /* CardsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridView.swift; sourceTree = "<group>"; };
@@ -84,6 +97,8 @@
 		2396142B2423A75F00177FB2 /* StorageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageProvider.swift; sourceTree = "<group>"; };
 		2396142C2423A75F00177FB2 /* CardsStorageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsStorageProvider.swift; sourceTree = "<group>"; };
 		2396142E2423A75F00177FB2 /* CardsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CardsDataModel.xcdatamodel; sourceTree = "<group>"; };
+		23BFC1102423C5F100024368 /* CardsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsRepository.swift; sourceTree = "<group>"; };
+		23BFC1122423C64200024368 /* CardsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsProvider.swift; sourceTree = "<group>"; };
 		23E118DA241FF99200CC6E61 /* CardDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailsViewController.swift; sourceTree = "<group>"; };
 		23E118DB241FF99200CC6E61 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		23E118DC241FF99200CC6E61 /* CardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +141,12 @@
 		E105FA3BA762F775A21B8AD7 /* Pods-MagicCardsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsTests.debug.xcconfig"; path = "Target Support Files/Pods-MagicCardsTests/Pods-MagicCardsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E6A3884CDF3EFE75F2D33A96 /* Pods-MagicCards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCards.debug.xcconfig"; path = "Target Support Files/Pods-MagicCards/Pods-MagicCards.debug.xcconfig"; sourceTree = "<group>"; };
 		ED108DF496D2A464928A2F89 /* Pods-MagicCardsSnapshotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsSnapshotTests.release.xcconfig"; path = "Target Support Files/Pods-MagicCardsSnapshotTests/Pods-MagicCardsSnapshotTests.release.xcconfig"; sourceTree = "<group>"; };
+		FC215E102423C1C700262D9D /* CardDetailsViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardDetailsViewDelegate.swift; path = CardDetails/CardDetailsViewDelegate.swift; sourceTree = "<group>"; };
+		FC215E112423C1C700262D9D /* CardDetailsView + FlowDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CardDetailsView + FlowDelegate.swift"; path = "CardDetails/CardDetailsView + FlowDelegate.swift"; sourceTree = "<group>"; };
+		FC215E122423C1C700262D9D /* CardDetailsCollectionDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardDetailsCollectionDataSource.swift; path = CardDetails/CardDetailsCollectionDataSource.swift; sourceTree = "<group>"; };
+		FC215E132423C1C700262D9D /* CardDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardDetailsView.swift; path = CardDetails/CardDetailsView.swift; sourceTree = "<group>"; };
+		FC215E182423C1D900262D9D /* CardDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailsViewModel.swift; sourceTree = "<group>"; };
+		FC215E1A2423C1F300262D9D /* CardDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +197,16 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		2325345F24213B4900D9F931 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				2325345D24213B3600D9F931 /* CardRepositoryProtocol.swift */,
+				2325345924213B0A00D9F931 /* CardsRepositoryProtocol.swift */,
+				2325345B24213B2300D9F931 /* FavoriteCardsRepositoryProtocol.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		23684CBC2422B3400081042C /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +231,7 @@
 		23E118F424201A0F00CC6E61 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FC215E1A2423C1F300262D9D /* CardDetailsView.swift */,
 				23E118F524201A3300CC6E61 /* CardCellTest.swift */,
 				23684CB7242286090081042C /* CardsGridViewTest.swift */,
 			);
@@ -346,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				230F400D2420335F00E2BA74 /* Controllers */,
+				FC215E0F2423C1B900262D9D /* CardDetails */,
 				23E118F024200DD500CC6E61 /* CardCell.swift */,
 				23684CB32421B0110081042C /* CardsGridView.swift */,
 				5A7A0EA22423B73000901E96 /* FavoriteCardsGridView.swift */,
@@ -356,6 +389,7 @@
 		5AD28BC5241C3F310072BBEB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				FC215E182423C1D900262D9D /* CardDetailsViewModel.swift */,
 				23684CAF24219B170081042C /* CardCellViewModel.swift */,
 				23684CB124219B290081042C /* CardsGridViewModel.swift */,
 				5A7A0EA02423A8A600901E96 /* CardsFavoritesGridViewModel.swift */,
@@ -393,9 +427,11 @@
 		5AD28BC9241C41660072BBEB /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				5AC398C8241C44C5006FCDE4 /* ViewCode.swift */,
+				23BFC1122423C64200024368 /* CardsProvider.swift */,
 				5AC398CA241C44F8006FCDE4 /* Coordinator.swift */,
 				5AEAB89C2422B86300084472 /* SessionProvider.swift */,
+				5AC398C8241C44C5006FCDE4 /* ViewCode.swift */,
+				2325345F24213B4900D9F931 /* Repository */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -403,6 +439,7 @@
 		5AEAB8962422B77E00084472 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
+				23BFC1102423C5F100024368 /* CardsRepository.swift */,
 				5AEAB89F2422B93200084472 /* SessionProvider */,
 			);
 			path = Providers;
@@ -455,6 +492,17 @@
 				18AACB8879566E0B9B73096D /* Pods-MagicCardsTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FC215E0F2423C1B900262D9D /* CardDetails */ = {
+			isa = PBXGroup;
+			children = (
+				FC215E122423C1C700262D9D /* CardDetailsCollectionDataSource.swift */,
+				FC215E112423C1C700262D9D /* CardDetailsView + FlowDelegate.swift */,
+				FC215E132423C1C700262D9D /* CardDetailsView.swift */,
+				FC215E102423C1C700262D9D /* CardDetailsViewDelegate.swift */,
+			);
+			name = CardDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -717,6 +765,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23684CB8242286090081042C /* CardsGridViewTest.swift in Sources */,
+				FC215E1B2423C1F300262D9D /* CardDetailsView.swift in Sources */,
 				23E118F624201A3300CC6E61 /* CardCellTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -725,19 +774,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2325345C24213B2300D9F931 /* FavoriteCardsRepositoryProtocol.swift in Sources */,
 				23E118E4241FF99A00CC6E61 /* CardsCoordinator.swift in Sources */,
+				23BFC1132423C64200024368 /* CardsProvider.swift in Sources */,
 				23778D422422B54400AFCB36 /* CardsGridViewFlowLayout.swift in Sources */,
 				239614302423A76000177FB2 /* CardsStorageProvider.swift in Sources */,
 				5A7A0EA12423A8A600901E96 /* CardsFavoritesGridViewModel.swift in Sources */,
 				5AEAB89D2422B86300084472 /* SessionProvider.swift in Sources */,
 				5AEAB8A12422B95000084472 /* SessionRequestBuilder.swift in Sources */,
 				23E118DF241FF99200CC6E61 /* CardsViewController.swift in Sources */,
+				2325345E24213B3600D9F931 /* CardRepositoryProtocol.swift in Sources */,
 				23E118F124200DD500CC6E61 /* CardCell.swift in Sources */,
 				5AD28BA1241C3D4D0072BBEB /* AppDelegate.swift in Sources */,
+				FC215E172423C1C700262D9D /* CardDetailsView.swift in Sources */,
 				5AEAB8A32422B9E200084472 /* MagicAPIProvider.swift in Sources */,
 				23684CB024219B170081042C /* CardCellViewModel.swift in Sources */,
+				FC215E152423C1C700262D9D /* CardDetailsView + FlowDelegate.swift in Sources */,
 				5A7A0E9F2423A85A00901E96 /* GridFavoritesCollectionDataSource.swift in Sources */,
 				23E118DD241FF99200CC6E61 /* CardDetailsViewController.swift in Sources */,
+				2325345A24213B0A00D9F931 /* CardsRepositoryProtocol.swift in Sources */,
 				23E118DE241FF99200CC6E61 /* FavoritesViewController.swift in Sources */,
 				5AEAB8992422B7BA00084472 /* CardDTO.swift in Sources */,
 				5AEAB89B2422B7EF00084472 /* CardSetDTO.swift in Sources */,
@@ -747,12 +802,16 @@
 				23684CB224219B290081042C /* CardsGridViewModel.swift in Sources */,
 				5AC398C9241C44C5006FCDE4 /* ViewCode.swift in Sources */,
 				23684CBB2422B2640081042C /* GridCollectionDataSource.swift in Sources */,
+				FC215E162423C1C700262D9D /* CardDetailsCollectionDataSource.swift in Sources */,
 				23E118E5241FF99A00CC6E61 /* FavoritesCoordinator.swift in Sources */,
 				23684CBE2422B3650081042C /* GridCollectionHeaderView.swift in Sources */,
+				FC215E192423C1D900262D9D /* CardDetailsViewModel.swift in Sources */,
 				2396142F2423A76000177FB2 /* StorageProvider.swift in Sources */,
 				23684CB42421B0110081042C /* CardsGridView.swift in Sources */,
 				23E118E3241FF99A00CC6E61 /* AppCoordinator.swift in Sources */,
+				23BFC1112423C5F100024368 /* CardsRepository.swift in Sources */,
 				5AC398CB241C44F8006FCDE4 /* Coordinator.swift in Sources */,
+				FC215E142423C1C700262D9D /* CardDetailsViewDelegate.swift in Sources */,
 				5A13F07B241D31B000276862 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
