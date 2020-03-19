@@ -9,7 +9,7 @@
 import SnapKit
 import UIKit
 
-class CardCell: UICollectionViewCell {
+final class CardCell: UICollectionViewCell {
 
     // MARK: - Variables
 

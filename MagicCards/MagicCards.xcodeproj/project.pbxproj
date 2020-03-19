@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		00A8FE758E31C2060B4AEAE5 /* Pods_MagicCardsSnapshotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F92AD5549A92796F6324B5 /* Pods_MagicCardsSnapshotTests.framework */; };
+		23684CB024219B170081042C /* CardCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23684CAF24219B170081042C /* CardCellViewModel.swift */; };
+		23684CB224219B290081042C /* CardsGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23684CB124219B290081042C /* CardsGridViewModel.swift */; };
+		23684CB42421B0110081042C /* CardsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23684CB32421B0110081042C /* CardsGridView.swift */; };
+		23684CB624225FAC0081042C /* CardsGridViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23684CB524225FAC0081042C /* CardsGridViewModelTest.swift */; };
+		23684CB8242286090081042C /* CardsGridViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23684CB7242286090081042C /* CardsGridViewTest.swift */; };
+		23684CBB2422B2640081042C /* GridCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23684CBA2422B2640081042C /* GridCollectionDataSource.swift */; };
+		23684CBE2422B3650081042C /* GridCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23684CBD2422B3650081042C /* GridCollectionHeaderView.swift */; };
+		23778D422422B54400AFCB36 /* CardsGridViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23778D412422B54400AFCB36 /* CardsGridViewFlowLayout.swift */; };
 		23E118DD241FF99200CC6E61 /* CardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118DA241FF99200CC6E61 /* CardDetailsViewController.swift */; };
 		23E118DE241FF99200CC6E61 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118DB241FF99200CC6E61 /* FavoritesViewController.swift */; };
 		23E118DF241FF99200CC6E61 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118DC241FF99200CC6E61 /* CardsViewController.swift */; };
@@ -18,24 +26,18 @@
 		23E118EB2420065900CC6E61 /* CardsCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118EA2420065900CC6E61 /* CardsCoordinatorTest.swift */; };
 		23E118ED2420087C00CC6E61 /* FavoritesCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118EC2420087C00CC6E61 /* FavoritesCoordinatorTest.swift */; };
 		23E118F124200DD500CC6E61 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118F024200DD500CC6E61 /* CardCell.swift */; };
-		23E118F324200F7E00CC6E61 /* CardCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118F224200F7D00CC6E61 /* CardCellViewModel.swift */; };
 		23E118F624201A3300CC6E61 /* CardCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118F524201A3300CC6E61 /* CardCellTest.swift */; };
 		5A13F07B241D31B000276862 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A13F07A241D31B000276862 /* Card.swift */; };
 		5A13F07D241D31CA00276862 /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A13F07C241D31CA00276862 /* CardSet.swift */; };
 		5A13F084241FDFAB00276862 /* CardSetTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A13F083241FDFAB00276862 /* CardSetTest.swift */; };
-		5A753621241FFD7F0098C08D /* SessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A753620241FFD7F0098C08D /* SessionProtocol.swift */; };
 		5AC398C9241C44C5006FCDE4 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC398C8241C44C5006FCDE4 /* ViewCode.swift */; };
 		5AC398CB241C44F8006FCDE4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC398CA241C44F8006FCDE4 /* Coordinator.swift */; };
 		5AD28BA1241C3D4D0072BBEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD28BA0241C3D4C0072BBEB /* AppDelegate.swift */; };
 		5AD28BAA241C3D520072BBEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD28BA9241C3D520072BBEB /* Assets.xcassets */; };
 		5AD28BAD241C3D520072BBEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD28BAB241C3D520072BBEB /* LaunchScreen.storyboard */; };
+		5AD8B1522422897500398D83 /* CardsGridViewFlowLayoutTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD8B1512422897500398D83 /* CardsGridViewFlowLayoutTest.swift */; };
 		65584E7F166B5C625A96D9B7 /* Pods_MagicCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 314ACA793FC97EA9D8B93FE9 /* Pods_MagicCards.framework */; };
 		EDC392ACAFE8AA31584F1635 /* Pods_MagicCardsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86F810F4E12862F3BF45E99F /* Pods_MagicCardsTests.framework */; };
-		FC0F94DD24211C9600E9BA08 /* CardsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCFBBCD5241FFE9700293275 /* CardsDataModel.xcdatamodeld */; };
-		FC6035CE24206E8400AD7320 /* CardsStorageProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6035CD24206E8400AD7320 /* CardsStorageProviderTest.swift */; };
-		FC66666624213E5C00833F83 /* CardsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCFBBCD5241FFE9700293275 /* CardsDataModel.xcdatamodeld */; };
-		FCFBBCD2241FFE7B00293275 /* StorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBBCD1241FFE7B00293275 /* StorageProvider.swift */; };
-		FCFBBCD4241FFE8B00293275 /* CardsStorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBBCD3241FFE8B00293275 /* CardsStorageProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,14 @@
 /* Begin PBXFileReference section */
 		18AACB8879566E0B9B73096D /* Pods-MagicCardsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsTests.release.xcconfig"; path = "Target Support Files/Pods-MagicCardsTests/Pods-MagicCardsTests.release.xcconfig"; sourceTree = "<group>"; };
 		21FBED51FDA52A0E3908D1CE /* Pods-MagicCardsSnapshotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsSnapshotTests.debug.xcconfig"; path = "Target Support Files/Pods-MagicCardsSnapshotTests/Pods-MagicCardsSnapshotTests.debug.xcconfig"; sourceTree = "<group>"; };
+		23684CAF24219B170081042C /* CardCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCellViewModel.swift; sourceTree = "<group>"; };
+		23684CB124219B290081042C /* CardsGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridViewModel.swift; sourceTree = "<group>"; };
+		23684CB32421B0110081042C /* CardsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridView.swift; sourceTree = "<group>"; };
+		23684CB524225FAC0081042C /* CardsGridViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridViewModelTest.swift; sourceTree = "<group>"; };
+		23684CB7242286090081042C /* CardsGridViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridViewTest.swift; sourceTree = "<group>"; };
+		23684CBA2422B2640081042C /* GridCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionDataSource.swift; sourceTree = "<group>"; };
+		23684CBD2422B3650081042C /* GridCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionHeaderView.swift; sourceTree = "<group>"; };
+		23778D412422B54400AFCB36 /* CardsGridViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsGridViewFlowLayout.swift; sourceTree = "<group>"; };
 		23E118DA241FF99200CC6E61 /* CardDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailsViewController.swift; sourceTree = "<group>"; };
 		23E118DB241FF99200CC6E61 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		23E118DC241FF99200CC6E61 /* CardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
@@ -68,7 +78,6 @@
 		23E118EA2420065900CC6E61 /* CardsCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCoordinatorTest.swift; sourceTree = "<group>"; };
 		23E118EC2420087C00CC6E61 /* FavoritesCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinatorTest.swift; sourceTree = "<group>"; };
 		23E118F024200DD500CC6E61 /* CardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
-		23E118F224200F7D00CC6E61 /* CardCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardCellViewModel.swift; path = MagicCards/Modules/View/CardCellViewModel.swift; sourceTree = SOURCE_ROOT; };
 		23E118F524201A3300CC6E61 /* CardCellTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellTest.swift; sourceTree = "<group>"; };
 		314ACA793FC97EA9D8B93FE9 /* Pods_MagicCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MagicCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41C558B83C610F5583F274D6 /* Pods-MagicCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCards.release.xcconfig"; path = "Target Support Files/Pods-MagicCards/Pods-MagicCards.release.xcconfig"; sourceTree = "<group>"; };
@@ -77,7 +86,6 @@
 		5A13F083241FDFAB00276862 /* CardSetTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetTest.swift; sourceTree = "<group>"; };
 		5A6E8FF2241C42B400C5EC53 /* MagicCardsSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicCardsSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A6E8FF6241C42B400C5EC53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5A753620241FFD7F0098C08D /* SessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionProtocol.swift; sourceTree = "<group>"; };
 		5AC398C8241C44C5006FCDE4 /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		5AC398CA241C44F8006FCDE4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		5AD28B9D241C3D4C0072BBEB /* MagicCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,15 +95,12 @@
 		5AD28BAE241C3D520072BBEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AD28BB3241C3D530072BBEB /* MagicCardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicCardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD28BB9241C3D530072BBEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AD8B1512422897500398D83 /* CardsGridViewFlowLayoutTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridViewFlowLayoutTest.swift; sourceTree = "<group>"; };
 		86F810F4E12862F3BF45E99F /* Pods_MagicCardsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MagicCardsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5F92AD5549A92796F6324B5 /* Pods_MagicCardsSnapshotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MagicCardsSnapshotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E105FA3BA762F775A21B8AD7 /* Pods-MagicCardsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsTests.debug.xcconfig"; path = "Target Support Files/Pods-MagicCardsTests/Pods-MagicCardsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E6A3884CDF3EFE75F2D33A96 /* Pods-MagicCards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCards.debug.xcconfig"; path = "Target Support Files/Pods-MagicCards/Pods-MagicCards.debug.xcconfig"; sourceTree = "<group>"; };
 		ED108DF496D2A464928A2F89 /* Pods-MagicCardsSnapshotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsSnapshotTests.release.xcconfig"; path = "Target Support Files/Pods-MagicCardsSnapshotTests/Pods-MagicCardsSnapshotTests.release.xcconfig"; sourceTree = "<group>"; };
-		FC6035CD24206E8400AD7320 /* CardsStorageProviderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsStorageProviderTest.swift; sourceTree = "<group>"; };
-		FCFBBCD1241FFE7B00293275 /* StorageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageProvider.swift; sourceTree = "<group>"; };
-		FCFBBCD3241FFE8B00293275 /* CardsStorageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsStorageProvider.swift; sourceTree = "<group>"; };
-		FCFBBCD6241FFE9700293275 /* CardsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CardsDataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,10 +151,21 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		23684CBC2422B3400081042C /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				23778D412422B54400AFCB36 /* CardsGridViewFlowLayout.swift */,
+				23684CBA2422B2640081042C /* GridCollectionDataSource.swift */,
+				23684CBD2422B3650081042C /* GridCollectionHeaderView.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
 		23E118F424201A0F00CC6E61 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				23E118F524201A3300CC6E61 /* CardCellTest.swift */,
+				23684CB7242286090081042C /* CardsGridViewTest.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -176,6 +192,7 @@
 		5A13F080241FDF0D00276862 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5AD8B1512422897500398D83 /* CardsGridViewFlowLayoutTest.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -183,6 +200,7 @@
 		5A13F081241FDF1400276862 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				23684CB524225FAC0081042C /* CardsGridViewModelTest.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -247,8 +265,8 @@
 		5AD28B9F241C3D4C0072BBEB /* MagicCards */ = {
 			isa = PBXGroup;
 			children = (
-				FCFBBCD0241FFE5700293275 /* StorageManager */,
 				5AD28BC7241C40D80072BBEB /* Application */,
+				23684CBC2422B3400081042C /* CollectionView */,
 				5AD28BC2241C3E980072BBEB /* Modules */,
 				5AD28BC9241C41660072BBEB /* Protocols */,
 				5AD28BA9241C3D520072BBEB /* Assets.xcassets */,
@@ -260,7 +278,6 @@
 		5AD28BB6241C3D530072BBEB /* MagicCardsTests */ = {
 			isa = PBXGroup;
 			children = (
-				FC6035C724200D1B00AD7320 /* StorageManager */,
 				5AD28BC8241C41090072BBEB /* Application */,
 				5A13F07E241FDEB000276862 /* Modules */,
 			);
@@ -291,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				23E118F024200DD500CC6E61 /* CardCell.swift */,
+				23684CB32421B0110081042C /* CardsGridView.swift */,
 				230F400D2420335F00E2BA74 /* Controllers */,
 			);
 			path = View;
@@ -299,7 +317,8 @@
 		5AD28BC5241C3F310072BBEB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				23E118F224200F7D00CC6E61 /* CardCellViewModel.swift */,
+				23684CAF24219B170081042C /* CardCellViewModel.swift */,
+				23684CB124219B290081042C /* CardsGridViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -334,9 +353,8 @@
 		5AD28BC9241C41660072BBEB /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				5AC398C8241C44C5006FCDE4 /* ViewCode.swift */,
 				5AC398CA241C44F8006FCDE4 /* Coordinator.swift */,
-				5A753620241FFD7F0098C08D /* SessionProtocol.swift */,
+				5AC398C8241C44C5006FCDE4 /* ViewCode.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -352,24 +370,6 @@
 				18AACB8879566E0B9B73096D /* Pods-MagicCardsTests.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		FC6035C724200D1B00AD7320 /* StorageManager */ = {
-			isa = PBXGroup;
-			children = (
-				FC6035CD24206E8400AD7320 /* CardsStorageProviderTest.swift */,
-			);
-			path = StorageManager;
-			sourceTree = "<group>";
-		};
-		FCFBBCD0241FFE5700293275 /* StorageManager */ = {
-			isa = PBXGroup;
-			children = (
-				FCFBBCD1241FFE7B00293275 /* StorageProvider.swift */,
-				FCFBBCD3241FFE8B00293275 /* CardsStorageProvider.swift */,
-				FCFBBCD5241FFE9700293275 /* CardsDataModel.xcdatamodeld */,
-			);
-			path = StorageManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -631,6 +631,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23684CB8242286090081042C /* CardsGridViewTest.swift in Sources */,
 				23E118F624201A3300CC6E61 /* CardCellTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -640,21 +641,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				23E118E4241FF99A00CC6E61 /* CardsCoordinator.swift in Sources */,
+				23778D422422B54400AFCB36 /* CardsGridViewFlowLayout.swift in Sources */,
 				23E118DF241FF99200CC6E61 /* CardsViewController.swift in Sources */,
-				23E118F324200F7E00CC6E61 /* CardCellViewModel.swift in Sources */,
 				23E118F124200DD500CC6E61 /* CardCell.swift in Sources */,
 				5AD28BA1241C3D4D0072BBEB /* AppDelegate.swift in Sources */,
+				23684CB024219B170081042C /* CardCellViewModel.swift in Sources */,
 				23E118DD241FF99200CC6E61 /* CardDetailsViewController.swift in Sources */,
 				23E118DE241FF99200CC6E61 /* FavoritesViewController.swift in Sources */,
 				5A13F07D241D31CA00276862 /* CardSet.swift in Sources */,
-				5A753621241FFD7F0098C08D /* SessionProtocol.swift in Sources */,
+				23684CB224219B290081042C /* CardsGridViewModel.swift in Sources */,
+				5AD8B1502422605100398D83 /* CardsGridViewFlowLayout.swift in Sources */,
 				5AC398C9241C44C5006FCDE4 /* ViewCode.swift in Sources */,
-				FC0F94DD24211C9600E9BA08 /* CardsDataModel.xcdatamodeld in Sources */,
-				FCFBBCD4241FFE8B00293275 /* CardsStorageProvider.swift in Sources */,
+				23684CBB2422B2640081042C /* GridCollectionDataSource.swift in Sources */,
 				23E118E5241FF99A00CC6E61 /* FavoritesCoordinator.swift in Sources */,
+				23684CBE2422B3650081042C /* GridCollectionHeaderView.swift in Sources */,
+				23684CB42421B0110081042C /* CardsGridView.swift in Sources */,
 				23E118E3241FF99A00CC6E61 /* AppCoordinator.swift in Sources */,
 				5AC398CB241C44F8006FCDE4 /* Coordinator.swift in Sources */,
-				FCFBBCD2241FFE7B00293275 /* StorageProvider.swift in Sources */,
 				5A13F07B241D31B000276862 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -664,11 +667,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				23E118ED2420087C00CC6E61 /* FavoritesCoordinatorTest.swift in Sources */,
+				5AD8B1522422897500398D83 /* CardsGridViewFlowLayoutTest.swift in Sources */,
 				23E118E9241FFA6500CC6E61 /* AppCoordinatorTest.swift in Sources */,
 				23E118EB2420065900CC6E61 /* CardsCoordinatorTest.swift in Sources */,
 				5A13F084241FDFAB00276862 /* CardSetTest.swift in Sources */,
-				FC66666624213E5C00833F83 /* CardsDataModel.xcdatamodeld in Sources */,
-				FC6035CE24206E8400AD7320 /* CardsStorageProviderTest.swift in Sources */,
+				23684CB624225FAC0081042C /* CardsGridViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -987,19 +990,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		FCFBBCD5241FFE9700293275 /* CardsDataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				FCFBBCD6241FFE9700293275 /* CardsDataModel.xcdatamodel */,
-			);
-			currentVersion = FCFBBCD6241FFE9700293275 /* CardsDataModel.xcdatamodel */;
-			path = CardsDataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 5AD28B95241C3D4C0072BBEB /* Project object */;
 }

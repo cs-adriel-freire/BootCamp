@@ -10,7 +10,7 @@
 import XCTest
 import Foundation
 
-class CardSetTest: XCTestCase {
+final class CardSetTest: XCTestCase {
     
     var sut: CardSet!
     var jsonData: Data!
