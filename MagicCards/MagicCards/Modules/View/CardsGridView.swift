@@ -51,7 +51,7 @@ final class CardsGridView: UIView {
 
     // MARK: Initializers
 
-    init(frame: CGRect = .zero, viewModel: CardsGridViewModel, collectionDelegate: UICollectionViewDelegate? = nil) { // TODO: set default value
+    init(frame: CGRect = .zero, viewModel: CardsGridViewModel, collectionDelegate: UICollectionViewDelegate? = nil) {
         self.collectionViewDelegate = collectionDelegate
         self.viewModel = viewModel
         self.gridCollectionDataSource = GridCollectionDataSource(viewModel: self.viewModel)

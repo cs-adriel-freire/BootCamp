@@ -5,6 +5,7 @@
 //  Created by c.cruz.agra.lopes on 18/03/20.
 //  Copyright © 2020 Concrete. All rights reserved.
 //
+
 import UIKit
 import Nimble
 import Nimble_Snapshots
@@ -24,6 +25,7 @@ final class CardsGridViewTest: XCTestCase {
 
     var viewModel: CardsGridViewModel!
     var referenceDate: Date!
+    var card: Card!
     var cardsBySet: [CardSet: [Card]]!
 
     // MARK: - Methods
@@ -38,33 +40,32 @@ final class CardsGridViewTest: XCTestCase {
     }
 
     private func setupInitialViewModel() {
-        let abundanceCard = Card(id: "1669af17-d287-5094-b005-4b143441442f",
+        self.card = Card(id: "1669af17-d287-5094-b005-4b143441442f",
                                     name: "Abundance",
                                     imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130483&type=card",
                                     types: ["Enchantment"])
-        abundanceCard.imageData = UIImage(named: "cardForTest")?.pngData()
-
-        let academyCard = Card(id: "047d5499-a21c-5f5c-9679-1599fcaf9815",
-                                name: "Academy Researchers",
-                                imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=132072&type=card",
-                                types: ["Creature"])
-        academyCard.imageData = UIImage(named: "cardForTest")?.pngData()
+        self.card.imageData = UIImage(named: "cardForTest")?.pngData()
 
         self.cardsBySet[CardSet(id: "10E",
                                 name: "Tenth Edition",
-                                releaseDate: Date(timeInterval: 50.0, since: self.referenceDate))] = [abundanceCard, academyCard]
+                                releaseDate: Date(timeInterval: 50.0, since: self.referenceDate))] = [self.card, self.card, self.card,
+                                                                                                      self.card, self.card, self.card,
+                                                                                                      self.card, self.card, self.card]
 
         self.viewModel = CardsGridViewModel(cardsBySet: self.cardsBySet)
     }
 
     private func setupNewViewModel() {
-        let abominationCard = Card(id: "aef2b3de-ed09-591e-ac6b-ecf62bac4a6b",
+        self.card = Card(id: "aef2b3de-ed09-591e-ac6b-ecf62bac4a6b",
                                     name: "Abomination of Gudul",
                                     imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=386463&type=card",
                                     types: ["Creature"])
-        abominationCard.imageData = UIImage(named: "cardForTest")?.pngData()
+        self.card.imageData = UIImage(named: "cardForTest")?.pngData()
 
-        self.cardsBySet[CardSet(id: "KTK", name: "Khans of Tarkir", releaseDate: Date(timeInterval: 10.0, since: self.referenceDate))] = [abominationCard]
+        self.cardsBySet[CardSet(id: "KTK",
+                                name: "Khans of Tarkir",
+                                releaseDate: Date(timeInterval: 10.0, since: self.referenceDate))] = [self.card, self.card, self.card,
+                                                                                                      self.card, self.card, self.card]
 
         self.viewModel = CardsGridViewModel(cardsBySet: self.cardsBySet)
     }
@@ -73,6 +74,7 @@ final class CardsGridViewTest: XCTestCase {
 
     override func tearDown() {
         self.referenceDate = nil
+        self.card = nil
         self.cardsBySet = nil
         self.viewModel = nil
         self.sut = nil
