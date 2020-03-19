@@ -19,7 +19,9 @@ protocol SessionProvider {
 
 protocol StorageProvider {
 
+    func save(objects: [Card])
     func fetch() -> [Card]
+    func delete(objects: [Card])
 }
 
 ///////////////////////////////
@@ -37,7 +39,8 @@ final class CardsRepository {
 
     private var cardSets: [CardSet]
     private var cards: [CardSet: [Card]]
-    private var favoriteCards: [CardSet: [Card]]
+//    private var favoriteCards: [CardSet: [Card]]
+    private var favoriteCards: [Card]   // TODO: Remove this temporary solution
 
     // MARK: Providers
 
@@ -53,7 +56,8 @@ final class CardsRepository {
         self.storageProvider = storageProvider
         self.cardSets = []
         self.cards = [:]
-        self.favoriteCards = [:]
+//        self.favoriteCards = [:]
+        self.favoriteCards = []
     }
 
     // MARK: Helpers
@@ -159,12 +163,36 @@ extension CardsRepository: CardsRepositoryProtocol {
 
 extension CardsRepository: FavoriteCardsRepositoryProtocol {
 
+    // MARK: Get methods
+
+    func getFavoriteCards() -> [Card] {
+        if self.favoriteCards.isEmpty {
+           self.favoriteCards = self.storageProvider.fetch()
+        }
+
+        return self.favoriteCards
+    }
+
     func getFavoriteCards(untilSet setIndex: Int, completion: @escaping (Result<[CardSet: [Card]], Error>) -> Void) {
         //
     }
 
     func getFavoriteCards(untilSet setIndex: Int, withName: String, completion: @escaping (Result<[CardSet: [Card]], Error>) -> Void) {
         //
+    }
+
+    // MARK: Favorite methods
+
+    func addCardToFavorie(_ card: Card) {
+        self.favoriteCards.append(card)
+        self.storageProvider.save(objects: [card])
+    }
+
+    func removeCardFromFavorite(_ card: Card) {
+        self.favoriteCards = self.favoriteCards.filter { favoriteCard -> Bool in
+            favoriteCard == card
+        }
+        self.storageProvider.delete(objects: [card])
     }
 }
 
@@ -188,5 +216,22 @@ extension CardsRepository: CardDetailsRepositoryProtocol {
                 completion(.failure(error))
             }
         }
+    }
+}
+
+// MARK: - FavoriteCardDetailsRepositoryProtocol
+
+extension CardsRepository: FavoriteCardDetailsRepositoryProtocol {
+
+    func getCard(withIndex cardIndex: Int, completion: @escaping (Result<Card, Error>) -> Void) {
+
+        let favoriteCards = self.getFavoriteCards()
+
+        guard cardIndex < favoriteCards.count else {
+            completion(.failure(CardsRepositoryError.cardNotFound))
+            return
+        }
+
+        completion(.success(favoriteCards[cardIndex]))
     }
 }
