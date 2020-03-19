@@ -16,6 +16,9 @@
 		23684CBB2422B2640081042C /* GridCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23684CBA2422B2640081042C /* GridCollectionDataSource.swift */; };
 		23684CBE2422B3650081042C /* GridCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23684CBD2422B3650081042C /* GridCollectionHeaderView.swift */; };
 		23778D422422B54400AFCB36 /* CardsGridViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23778D412422B54400AFCB36 /* CardsGridViewFlowLayout.swift */; };
+		2396142F2423A76000177FB2 /* StorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2396142B2423A75F00177FB2 /* StorageProvider.swift */; };
+		239614302423A76000177FB2 /* CardsStorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2396142C2423A75F00177FB2 /* CardsStorageProvider.swift */; };
+		239614312423A76000177FB2 /* CardsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2396142D2423A75F00177FB2 /* CardsDataModel.xcdatamodeld */; };
 		23E118DD241FF99200CC6E61 /* CardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118DA241FF99200CC6E61 /* CardDetailsViewController.swift */; };
 		23E118DE241FF99200CC6E61 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118DB241FF99200CC6E61 /* FavoritesViewController.swift */; };
 		23E118DF241FF99200CC6E61 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118DC241FF99200CC6E61 /* CardsViewController.swift */; };
@@ -68,6 +71,9 @@
 		23684CBA2422B2640081042C /* GridCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionDataSource.swift; sourceTree = "<group>"; };
 		23684CBD2422B3650081042C /* GridCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionHeaderView.swift; sourceTree = "<group>"; };
 		23778D412422B54400AFCB36 /* CardsGridViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsGridViewFlowLayout.swift; sourceTree = "<group>"; };
+		2396142B2423A75F00177FB2 /* StorageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageProvider.swift; sourceTree = "<group>"; };
+		2396142C2423A75F00177FB2 /* CardsStorageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsStorageProvider.swift; sourceTree = "<group>"; };
+		2396142E2423A75F00177FB2 /* CardsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CardsDataModel.xcdatamodel; sourceTree = "<group>"; };
 		23E118DA241FF99200CC6E61 /* CardDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailsViewController.swift; sourceTree = "<group>"; };
 		23E118DB241FF99200CC6E61 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		23E118DC241FF99200CC6E61 /* CardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +165,16 @@
 				23684CBD2422B3650081042C /* GridCollectionHeaderView.swift */,
 			);
 			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		2396142A2423A75F00177FB2 /* StorageManager */ = {
+			isa = PBXGroup;
+			children = (
+				2396142D2423A75F00177FB2 /* CardsDataModel.xcdatamodeld */,
+				2396142C2423A75F00177FB2 /* CardsStorageProvider.swift */,
+				2396142B2423A75F00177FB2 /* StorageProvider.swift */,
+			);
+			path = StorageManager;
 			sourceTree = "<group>";
 		};
 		23E118F424201A0F00CC6E61 /* View */ = {
@@ -269,6 +285,7 @@
 				23684CBC2422B3400081042C /* CollectionView */,
 				5AD28BC2241C3E980072BBEB /* Modules */,
 				5AD28BC9241C41660072BBEB /* Protocols */,
+				2396142A2423A75F00177FB2 /* StorageManager */,
 				5AD28BA9241C3D520072BBEB /* Assets.xcassets */,
 				5AD28BAB241C3D520072BBEB /* LaunchScreen.storyboard */,
 			);
@@ -642,6 +659,7 @@
 			files = (
 				23E118E4241FF99A00CC6E61 /* CardsCoordinator.swift in Sources */,
 				23778D422422B54400AFCB36 /* CardsGridViewFlowLayout.swift in Sources */,
+				239614302423A76000177FB2 /* CardsStorageProvider.swift in Sources */,
 				23E118DF241FF99200CC6E61 /* CardsViewController.swift in Sources */,
 				23E118F124200DD500CC6E61 /* CardCell.swift in Sources */,
 				5AD28BA1241C3D4D0072BBEB /* AppDelegate.swift in Sources */,
@@ -649,12 +667,13 @@
 				23E118DD241FF99200CC6E61 /* CardDetailsViewController.swift in Sources */,
 				23E118DE241FF99200CC6E61 /* FavoritesViewController.swift in Sources */,
 				5A13F07D241D31CA00276862 /* CardSet.swift in Sources */,
+				239614312423A76000177FB2 /* CardsDataModel.xcdatamodeld in Sources */,
 				23684CB224219B290081042C /* CardsGridViewModel.swift in Sources */,
-				5AD8B1502422605100398D83 /* CardsGridViewFlowLayout.swift in Sources */,
 				5AC398C9241C44C5006FCDE4 /* ViewCode.swift in Sources */,
 				23684CBB2422B2640081042C /* GridCollectionDataSource.swift in Sources */,
 				23E118E5241FF99A00CC6E61 /* FavoritesCoordinator.swift in Sources */,
 				23684CBE2422B3650081042C /* GridCollectionHeaderView.swift in Sources */,
+				2396142F2423A76000177FB2 /* StorageProvider.swift in Sources */,
 				23684CB42421B0110081042C /* CardsGridView.swift in Sources */,
 				23E118E3241FF99A00CC6E61 /* AppCoordinator.swift in Sources */,
 				5AC398CB241C44F8006FCDE4 /* Coordinator.swift in Sources */,
@@ -990,6 +1009,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2396142D2423A75F00177FB2 /* CardsDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2396142E2423A75F00177FB2 /* CardsDataModel.xcdatamodel */,
+			);
+			currentVersion = 2396142E2423A75F00177FB2 /* CardsDataModel.xcdatamodel */;
+			path = CardsDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5AD28B95241C3D4C0072BBEB /* Project object */;
 }
