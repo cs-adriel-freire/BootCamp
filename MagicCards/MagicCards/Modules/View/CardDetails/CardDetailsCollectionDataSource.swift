@@ -24,6 +24,7 @@ final class CardDetailsCollectionDataSource: NSObject, UICollectionViewDataSourc
         }
         let cardCellViewModel = CardCellViewModel(card: cards[indexPath.row])
         cell.configure(with: cardCellViewModel)
+        cell.backgroundColor = .green
         return cell
     }
     

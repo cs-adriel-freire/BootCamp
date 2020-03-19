@@ -47,12 +47,15 @@ final class CardDetailsView: UIView {
         return button
     }()
     
-    private let cardsCollection: UICollectionView = {
+    private lazy var cardsCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 190, height: 264)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.delegate = self
         collection.register(CardCell.self, forCellWithReuseIdentifier: CardCell.reuseIdentifier)
         collection.backgroundColor = .clear
+        
+        collection.backgroundColor = .green
+        
         return collection
     }()
     
@@ -122,8 +125,9 @@ extension CardDetailsView: ViewCode {
         }
         
         cardsCollection.snp.makeConstraints { (make) in
-            make.height.equalTo(265)
             make.center.equalToSuperview()
+//            make.height.equalToSuperview().dividedBy(0.5)
+            make.height.equalTo(500)
             
             if #available(iOS 11.0, *) {
                 make.leading.equalTo(safeAreaLayoutGuide)
