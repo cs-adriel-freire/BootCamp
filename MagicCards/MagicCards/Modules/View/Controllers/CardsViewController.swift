@@ -6,57 +6,6 @@
 //  Copyright © 2020 Concrete. All rights reserved.
 //
 
-////////////////////////
-
-// TODO: remove this
-
-protocol CardDetailsRepositoryProtocol {
-
-    func getCard(fromSet setIndex: Int, withIndex cardIndex: Int, completion: @escaping (Result<Card, Error>) -> Void)
-}
-
-protocol CardsRepositoryProtocol {
-
-    func getCards(untilSet setIndex: Int, completion: @escaping (Result<[CardSet: [Card]], Error>) -> Void)
-    func getCards(untilSet setIndex: Int, withName: String, completion: @escaping (Result<[CardSet: [Card]], Error>) -> Void)
-}
-
-class CardsRepository: CardsRepositoryProtocol {
-    func getCards(untilSet setIndex: Int, completion: @escaping (Result<[CardSet: [Card]], Error>) -> Void) {
-        let card = Card(id: "1669af17-d287-5094-b005-4b143441442f",
-                        name: "Abundance",
-                        imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130483&type=card",
-                        types: ["Enchantment"])
-        card.imageData = UIImage(named: "cardForTest")?.pngData()
-
-        let referenceDate = Date()
-        var cardsBySet = [CardSet(id: "10E",
-                                name: "Tenth Edition",
-                                releaseDate: Date(timeInterval: 50.0, since: referenceDate)): [card, card, card,
-                                                                                               card, card, card,
-                                                                                               card, card, card]]
-
-        if setIndex > 0 {
-            cardsBySet[CardSet(id: "KTK",
-                               name: "Khans of Tarkir",
-                               releaseDate: Date(timeInterval: 10.0, since: referenceDate))] = [card, card, card,
-                                                                                                card, card, card]
-        }
-
-        completion(.success(cardsBySet))
-    }
-
-    func getCards(untilSet setIndex: Int, withName: String, completion: @escaping (Result<[CardSet: [Card]], Error>) -> Void) {
-        //
-    }
-}
-
-extension CardsRepository: CardDetailsRepositoryProtocol {
-    func getCard(fromSet setIndex: Int, withIndex cardIndex: Int, completion: @escaping (Result<Card, Error>) -> Void) { }
-}
-
-////////////////////////
-
 import UIKit
 
 final class CardsViewController: UIViewController {
