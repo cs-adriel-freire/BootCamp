@@ -23,7 +23,7 @@ final class FavoritesCoordinatorTest: XCTestCase {
 
     override func setUp() {
         self.navigationController = UINavigationController()
-        self.sut = FavoritesCoordinator(navigationController: self.navigationController)
+        self.sut = FavoritesCoordinator(navigationController: self.navigationController, repository: FavoritesRepositoryDummy())
     }
 
     // MARK: Tear down
