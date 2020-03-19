@@ -51,7 +51,7 @@ extension AppCoordinator: Coordinator {
 
         let favoritesNavigationController = UINavigationController()
         favoritesNavigationController.tabBarItem = UITabBarItem(title: "Favorites", image: nil, tag: 0)
-        let favoritesCoordinator = FavoritesCoordinator(navigationController: favoritesNavigationController)
+        let favoritesCoordinator = FavoritesCoordinator(navigationController: favoritesNavigationController, repository: cardsRepository)
 
         favoritesCoordinator.start()
 
