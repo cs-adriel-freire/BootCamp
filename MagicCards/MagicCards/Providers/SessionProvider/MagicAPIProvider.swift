@@ -9,17 +9,79 @@
 import Foundation
 
 final class MagicAPIProvider: SessionProvider {
-    
+
+    // MARK: - Variables
+
     var urlSession: URLSession
     var requestBuilders: [String: SessionRequestBuilder]
     var decoder: JSONDecoder
-    
+
+    // MARK: - Methods
+
+    // MARK: Initializers
+
     required init(urlSession: URLSession, requestBuilders: [String: SessionRequestBuilder], decoder: JSONDecoder) {
         self.urlSession = urlSession
         self.requestBuilders = requestBuilders
         self.decoder = decoder
     }
+
+    init() {
+        let cardsRequestBuilder = SessionRequestBuilder(baseURL: URL(string: "https://api.magicthegathering.io/v1")!, path: "cards")
+        let cardSetsRequestBuilder = SessionRequestBuilder(baseURL: URL(string: "https://api.magicthegathering.io/v1")!, path: "sets")
+
+        var requestBuilders: [String: SessionRequestBuilder] = [:]
+        requestBuilders["cards"] = cardsRequestBuilder
+        requestBuilders["sets"] = cardSetsRequestBuilder
+
+        let decoder: JSONDecoder = {
+            let decoder = JSONDecoder()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            decoder.dateDecodingStrategy = .formatted(dateFormatter)
+            return decoder
+        }()
+
+        self.urlSession = URLSession.shared
+        self.requestBuilders = requestBuilders
+        self.decoder = decoder
+    }
+
+    // MARK: Image fetch
+
+    public func fetchImage(toCardUrl urlString: String?, completion: @escaping (Data) -> Void) {
+        // TODO: Change this empty data to a specific placeholder image
+        let dataPlaceholder: Data = Data()
+        guard let urlString = urlString, let url = URL(string: urlString) else {
+            completion(dataPlaceholder)
+            return
+        }
+        let request = URLRequest(url: url)
+        let task = urlSession.dataTask(with: request) { (data, _, _) in
+            guard let data = data else {
+                completion(dataPlaceholder)
+                return
+            }
+            completion(data)
+        }
+        task.resume()
+    }
+
+    // MARK: Helpers
+
+    private func pages(forResponse response: URLResponse) -> Int {
+        guard let header = response as? HTTPURLResponse else { return 0 }
+        guard let totalCountString = header.allHeaderFields["total-count"] as? String else { return 0 }
+        guard let totalCount = Double(totalCountString) else { return 0 }
+        return Int((totalCount/100).rounded(.up))
+    }
     
+}
+
+// MARK: - CardsProvider
+
+extension MagicAPIProvider: CardsProvider {
+
     public func fetchCards(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void) {
         let dispatchGroup = DispatchGroup()
         let dispatchQueue = DispatchQueue(label: "fetchCards")
@@ -81,7 +143,7 @@ final class MagicAPIProvider: SessionProvider {
             }
         }
     }
-    
+
     public func fetchCards(withSet set: String, completion: @escaping (Result<[Card], Error>) -> Void) {
         let dispatchGroup = DispatchGroup()
         let dispatchQueue = DispatchQueue(label: "fetchCards")
@@ -143,7 +205,7 @@ final class MagicAPIProvider: SessionProvider {
             }
         }
     }
-    
+
     public func fetchCardSets(completion: @escaping (Result<[CardSet], Error>) -> Void) {
         guard let requestBuilder = requestBuilders["sets"] else {
             // TODO: Change to a valid error return
@@ -158,30 +220,4 @@ final class MagicAPIProvider: SessionProvider {
             }
         }
     }
-    
-    public func fetchImage(toCardUrl urlString: String?, completion: @escaping (Data) -> Void) {
-        // TODO: Change this empty data to a specific placeholder image
-        let dataPlaceholder: Data = Data()
-        guard let urlString = urlString, let url = URL(string: urlString) else {
-            completion(dataPlaceholder)
-            return
-        }
-        let request = URLRequest(url: url)
-        let task = urlSession.dataTask(with: request) { (data, _, _) in
-            guard let data = data else {
-                completion(dataPlaceholder)
-                return
-            }
-            completion(data)
-        }
-        task.resume()
-    }
-    
-    private func pages(forResponse response: URLResponse) -> Int {
-        guard let header = response as? HTTPURLResponse else { return 0 }
-        guard let totalCountString = header.allHeaderFields["total-count"] as? String else { return 0 }
-        guard let totalCount = Double(totalCountString) else { return 0 }
-        return Int((totalCount/100).rounded(.up))
-    }
-    
 }
