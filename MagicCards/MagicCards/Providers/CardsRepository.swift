@@ -6,24 +6,6 @@
 //  Copyright © 2020 Concrete. All rights reserved.
 //
 
-///////////////////////////////
-
-// TODO: Remove these temporary protocols
-
-protocol SessionProvider {
-
-    func fetchCards(withSet set: String, completion: @escaping (Result<[Card], Error>) -> Void)
-    func fetchCards(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void)
-    func fetchCardSets(completion: @escaping (Result<[CardSet], Error>) -> Void)
-}
-
-///////////////////////////////
-
-enum CardsRepositoryError: Error {
-    case setNotFound
-    case cardNotFound
-}
-
 final class CardsRepository {
 
     // MARK: - Variables
@@ -37,15 +19,15 @@ final class CardsRepository {
 
     // MARK: Providers
 
-    private let sessionProvider: SessionProvider
+    private let cardsProvider: CardsProvider
     private let storageProvider: StorageProvider
 
     // MARK: - Methods
 
     // MARK: Initializers
 
-    init(sessionProvider: SessionProvider, storageProvider: StorageProvider = CardsStorageProvider(onError: { })) {  // TODO: set SessionProvider default value
-        self.sessionProvider = sessionProvider
+    init(cardsProvider: CardsProvider, storageProvider: StorageProvider = CardsStorageProvider(onError: { })) {  // TODO: set SessionProvider default value
+        self.cardsProvider = cardsProvider
         self.storageProvider = storageProvider
         self.cardSets = []
         self.cards = [:]
@@ -56,7 +38,7 @@ final class CardsRepository {
     // MARK: Helpers
 
     private func fetchCards(fromSet set: CardSet, completion: @escaping (Result<[Card], Error>) -> Void) {
-        self.sessionProvider.fetchCards(withSet: set.id) { [weak self] result in
+        self.cardsProvider.fetchCards(withSet: set.id) { [weak self] result in
             switch result {
             case let .success(cards):
                 self?.cards[set] = cards
@@ -72,7 +54,7 @@ final class CardsRepository {
         // If the cardSets are not stored locally, fetch them
 
         guard !self.cardSets.isEmpty else {
-            self.sessionProvider.fetchCardSets { [weak self] result in
+            self.cardsProvider.fetchCardSets { [weak self] result in
                 switch result {
                 case let .success(cardSets):
                     self?.cardSets = cardSets.sorted(by: { (lhs, rhs) in
@@ -227,4 +209,11 @@ extension CardsRepository: FavoriteCardDetailsRepositoryProtocol {
 
         completion(.success(favoriteCards[cardIndex]))
     }
+}
+
+// MARK: - Error enum
+
+enum CardsRepositoryError: Error {
+    case setNotFound
+    case cardNotFound
 }
