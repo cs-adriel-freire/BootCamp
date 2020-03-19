@@ -61,6 +61,11 @@ final class FavoritesCardsGridView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: Update
+    func updateFrame() {
+        self.collectionFlowLayout.collectionFrame = self.collectionView.frame
+    }
 }
 
 extension FavoritesCardsGridView: ViewCode {
