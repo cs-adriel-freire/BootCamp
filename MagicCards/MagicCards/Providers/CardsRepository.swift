@@ -99,13 +99,8 @@ final class CardsRepository {
 
         completion(.success(self.cardSets[setIndex]))
     }
-}
 
-// MARK: - CardsRepositoryProtocol
-
-extension CardsRepository: CardsRepositoryProtocol {
-
-    func getCards(fromSet setIndex: Int, completion: @escaping (Result<[Card], Error>) -> Void) {
+    private func getCards(fromSet setIndex: Int, completion: @escaping (Result<[Card], Error>) -> Void) {
 
         self.getCardSet(withIndex: setIndex) { result in
             switch result {
@@ -122,8 +117,40 @@ extension CardsRepository: CardsRepositoryProtocol {
             }
         }
     }
+}
 
-    func getCards(fromSet setIndex: Int, withName: String, completion: @escaping (Result<[Card], Error>) -> Void) {
+// MARK: - CardsRepositoryProtocol
+
+extension CardsRepository: CardsRepositoryProtocol {
+
+    func getCards(untilSet setIndex: Int, completion: @escaping (Result<[CardSet: [Card]], Error>) -> Void) {
+
+        self.getCardSet(withIndex: setIndex) { result in
+            switch result {
+            case let .success(cardSet):
+
+                guard self.cards[cardSet] != nil else {
+                    self.fetchCards(fromSet: cardSet) { result in
+                        switch result {
+                        //swiftlint:disable empty_enum_arguments
+                        case .success(_):
+                        // swiftlint:enable empty_enum_arguments
+                            completion(.success(self.cards))
+                        case let .failure(error):
+                            completion(.failure(error))
+                        }
+                    }
+                    return
+                }
+
+                completion(.success(self.cards))
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    func getCards(untilSet setIndex: Int, withName: String, completion: @escaping (Result<[CardSet: [Card]], Error>) -> Void) {
         //
     }
 }
