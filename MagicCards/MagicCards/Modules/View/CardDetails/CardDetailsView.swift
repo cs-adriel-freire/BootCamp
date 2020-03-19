@@ -28,13 +28,15 @@ final class CardDetailsView: UIView {
         return imageView
     }()
     
-    private let closeButton: UIButton = {
+    private lazy var closeButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "closeIcon"), for: .normal)
+        
+        button.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
         return button
     }()
     
-    private let addFavoriteButton: UIButton = {
+    private lazy var addFavoriteButton: UIButton = {
         let button = UIButton()
         button.setTitle("add card to deck", for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 16)
@@ -43,6 +45,8 @@ final class CardDetailsView: UIView {
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 5
+        
+        button.addTarget(self, action: #selector(favoriteButtonAction), for: .touchUpInside)
         
         return button
     }()
@@ -75,6 +79,14 @@ final class CardDetailsView: UIView {
     }
     
     // MARK: - Methods
+    @objc func closeButtonAction() {
+        delegate?.didClickOnCloseButton()
+    }
+    
+    @objc func favoriteButtonAction() {
+        delegate?.didClickOnFavoriteButton()
+    }
+    
 }
 
 extension CardDetailsView: ViewCode {

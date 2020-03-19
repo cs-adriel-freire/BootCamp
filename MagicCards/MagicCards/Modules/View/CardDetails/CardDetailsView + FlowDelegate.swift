@@ -13,7 +13,8 @@ extension CardDetailsView: UICollectionViewDelegateFlowLayout {
         return CGSize(width: width, height: width * 1.3)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         let itemWidth = collectionView.frame.width * (190/320)
         let itemHeight = itemWidth * 1.3

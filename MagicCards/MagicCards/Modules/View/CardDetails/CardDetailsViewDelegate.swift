@@ -6,7 +6,8 @@
 //  Copyright © 2020 Concrete. All rights reserved.
 //
 
-import Foundation
+import UIKit
 protocol CardDetailsViewDelegate: AnyObject {
-    
+    func didClickOnCloseButton()
+    func didClickOnFavoriteButton()
 }
