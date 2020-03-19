@@ -159,11 +159,11 @@ extension CardsRepository: CardsRepositoryProtocol {
 
 extension CardsRepository: FavoriteCardsRepositoryProtocol {
 
-    func getFavoriteCards(fromSet setIndex: Int, completion: @escaping (Result<[Card], Error>) -> Void) {
+    func getFavoriteCards(untilSet setIndex: Int, completion: @escaping (Result<[CardSet: [Card]], Error>) -> Void) {
         //
     }
 
-    func getFavoriteCards(fromSet setIndex: Int, withName: String, completion: @escaping (Result<[Card], Error>) -> Void) {
+    func getFavoriteCards(untilSet setIndex: Int, withName: String, completion: @escaping (Result<[CardSet: [Card]], Error>) -> Void) {
         //
     }
 }
