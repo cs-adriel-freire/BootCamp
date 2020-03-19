@@ -8,6 +8,6 @@
 
 import UIKit
 
-class CardDetailsViewController: UIViewController {
+final class CardDetailsViewController: UIViewController {
     
 }

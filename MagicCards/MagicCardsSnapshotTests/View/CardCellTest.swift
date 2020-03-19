@@ -13,7 +13,7 @@ import XCTest
 
 @testable import MagicCards
 
-class CardCellTest: XCTestCase {
+final class CardCellTest: XCTestCase {
 
     // MARK: - Variables
 
@@ -36,12 +36,12 @@ class CardCellTest: XCTestCase {
     // MARK: Tests
 
     func testLookAndFeelWithImage() {
-        let data = UIImage(named: "cardForTest")!.pngData()
-        self.sut.configure(with: CardCellViewModel(card: Card(id: "1669af17-d287-5094-b005-4b143441442f",
-                                                              name: "Abundance",
-                                                              imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130483&type=card",
-                                                              imageData: data,
-                                                              types: ["Enchantment"])))
+        let card = Card(id: "1669af17-d287-5094-b005-4b143441442f",
+                        name: "Abundance",
+                        imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130483&type=card",
+                        types: ["Enchantment"])
+        card.imageData = UIImage(named: "cardForTest")!.pngData()
+        self.sut.configure(with: CardCellViewModel(card: card))
 
         expect(self.sut) == snapshot("CardCell_withImage")
     }
@@ -50,7 +50,6 @@ class CardCellTest: XCTestCase {
         self.sut.configure(with: CardCellViewModel(card: Card(id: "1669af17-d287-5094-b005-4b143441442f",
                                                               name: "Abundance",
                                                               imageUrl: nil,
-                                                              imageData: nil,
                                                               types: ["Enchantment"])))
 
         expect(self.sut) == snapshot("CardCell_withoutImage")

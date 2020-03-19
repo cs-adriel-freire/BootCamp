@@ -10,7 +10,7 @@ import XCTest
 
 @testable import MagicCards
 
-class AppCoordinatorTest: XCTestCase {
+final class AppCoordinatorTest: XCTestCase {
 
     // MARK: - Variables
 
