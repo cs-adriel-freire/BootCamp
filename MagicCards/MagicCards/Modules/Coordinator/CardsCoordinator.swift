@@ -9,6 +9,7 @@
 import UIKit
 
 final class CardsCoordinator {
+    typealias Repository = CardsRepositoryProtocol & CardDetailsRepositoryProtocol
 
     // MARK: - Variables
 
@@ -17,12 +18,17 @@ final class CardsCoordinator {
     var rootController: UINavigationController
     var childCoordinators: [Coordinator]
 
+    // MARK: Repository
+
+    let repository: Repository
+
     // MARK: - Methods
 
     // MARK: Initializers
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, repository: Repository) {
         self.rootController = navigationController
+        self.repository = repository
         self.childCoordinators = []
     }
 }
@@ -32,7 +38,7 @@ final class CardsCoordinator {
 extension CardsCoordinator: Coordinator {
 
     func start() {
-        let cardsViewController = CardsViewController()
+        let cardsViewController = CardsViewController(repository: self.repository)
         self.rootController.pushViewController(cardsViewController, animated: true)
     }
 }

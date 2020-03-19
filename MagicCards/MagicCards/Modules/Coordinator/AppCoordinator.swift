@@ -37,12 +37,13 @@ final class AppCoordinator {
 extension AppCoordinator: Coordinator {
 
     func start() {
+        let cardsRepository = CardsRepository()
 
         // All cards' tab
 
         let cardsNavigationController = UINavigationController()
         cardsNavigationController.tabBarItem = UITabBarItem(title: "Cards", image: nil, tag: 0)
-        let cardsCoordinator = CardsCoordinator(navigationController: cardsNavigationController)
+        let cardsCoordinator = CardsCoordinator(navigationController: cardsNavigationController, repository: cardsRepository)
 
         cardsCoordinator.start()
 
@@ -50,7 +51,7 @@ extension AppCoordinator: Coordinator {
 
         let favoritesNavigationController = UINavigationController()
         favoritesNavigationController.tabBarItem = UITabBarItem(title: "Favorites", image: nil, tag: 0)
-        let favoritesCoordinator = FavoritesCoordinator(navigationController: favoritesNavigationController)
+        let favoritesCoordinator = FavoritesCoordinator(navigationController: favoritesNavigationController, repository: cardsRepository)
 
         favoritesCoordinator.start()
 
