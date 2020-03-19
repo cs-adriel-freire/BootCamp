@@ -33,7 +33,7 @@ class CardDetailsViewTest: XCTestCase {
     }
     
     func testLookAndFeel() {
-        expect(self.sut).to( recordSnapshot(named: "some custom name") )
+        expect(self.sut).to( haveValidSnapshot(named: "CardDetailsView") )
     }
     
     private func setInitialCard() -> Card {

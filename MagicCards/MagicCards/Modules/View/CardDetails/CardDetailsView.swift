@@ -54,8 +54,6 @@ final class CardDetailsView: UIView {
         collection.register(CardCell.self, forCellWithReuseIdentifier: CardCell.reuseIdentifier)
         collection.backgroundColor = .clear
         
-        collection.backgroundColor = .green
-        
         return collection
     }()
     
@@ -126,8 +124,7 @@ extension CardDetailsView: ViewCode {
         
         cardsCollection.snp.makeConstraints { (make) in
             make.center.equalToSuperview()
-//            make.height.equalToSuperview().dividedBy(0.5)
-            make.height.equalTo(500)
+            make.height.equalToSuperview().dividedBy(2)
             
             if #available(iOS 11.0, *) {
                 make.leading.equalTo(safeAreaLayoutGuide)
