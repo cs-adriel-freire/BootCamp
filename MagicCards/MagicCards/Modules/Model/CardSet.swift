@@ -43,3 +43,19 @@ final class CardSet: Codable {
     }
     
 }
+
+// MARK: - Hashable
+
+extension CardSet: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.id)
+    }
+}
+
+// MARK: - Equatable
+
+extension CardSet: Equatable {
+    static func == (lhs: CardSet, rhs: CardSet) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
