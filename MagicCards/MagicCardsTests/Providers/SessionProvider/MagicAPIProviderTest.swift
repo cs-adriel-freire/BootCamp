@@ -12,11 +12,17 @@ import XCTest
 
 final class MagicAPIProviderTest: XCTestCase {
 
+    // MARK: - Variables
+    
     var sut: MagicAPIProvider!
     var urlSessionStub: URLSessionStub!
     var requestBuilders: [String: SessionRequestBuilder]!
     var decoder: JSONDecoder!
     var urlRequest: URLRequest!
+    
+    // MARK: - Methods
+
+    // MARK: Set up
     
     override func setUp() {
         urlSessionStub = URLSessionStub()
@@ -25,6 +31,8 @@ final class MagicAPIProviderTest: XCTestCase {
         urlRequest = URLRequest(url: URL(string: "www.google.com")!)
         sut = MagicAPIProvider(urlSession: urlSessionStub, requestBuilders: requestBuilders, decoder: decoder)
     }
+    
+    // MARK: Tear down
 
     override func tearDown() {
         urlSessionStub = nil
@@ -33,6 +41,8 @@ final class MagicAPIProviderTest: XCTestCase {
         urlRequest = nil
         sut = nil
     }
+    
+    // MARK: Tests
     
     func testRequestWithoutConnection() {
         urlSessionStub.shouldReturnError = true

@@ -9,12 +9,16 @@
 import Foundation
 
 final class URLSessionStub: URLSession {
+    
+    // MARK: - Variables
 
     var shouldReturnError: Bool = false
     var dataResponse: Data? = Data()
     var urlResponse: HTTPURLResponse? = HTTPURLResponse()
     var statusCode: Int = 200
     var error: Error = NSError(domain: String(), code: 404, userInfo: nil)
+    
+    // MARK: - Methods
 
     override func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
         if !shouldReturnError {
