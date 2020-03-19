@@ -83,12 +83,12 @@ final class CardsGridViewTest: XCTestCase {
     // MARK: Tests
 
     func testLookAndFeel() {
-        expect(self.sut) == recordSnapshot("CardsGridView_initialViewModel")
+        expect(self.sut) == snapshot("CardsGridView_initialViewModel")
     }
 
     func testViewModelUpdate() {
         self.setupNewViewModel()
         self.sut.viewModel = self.viewModel
-        expect(self.sut) == recordSnapshot("CardsGridView_newViewModel")
+        expect(self.sut) == snapshot("CardsGridView_newViewModel")
     }
 }

@@ -20,6 +20,8 @@ final class CardsGridView: UIView {
         }
     }
 
+    var collectionFlowLayout: CardsGridViewFlowLayout
+
     // MARK: CollectionVIew
 
     private let gridCollectionDataSource: GridCollectionDataSource
@@ -36,7 +38,7 @@ final class CardsGridView: UIView {
     }()
 
     private lazy var collectionView: UICollectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: CardsGridViewFlowLayout())
+        let view = UICollectionView(frame: .zero, collectionViewLayout: self.collectionFlowLayout)
         view.register(CardCell.self, forCellWithReuseIdentifier: CardCell.reuseIdentifier)
         view.register(GridCollectionHeaderView.self,
                       forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
@@ -54,6 +56,7 @@ final class CardsGridView: UIView {
     init(frame: CGRect = .zero, viewModel: CardsGridViewModel, collectionDelegate: UICollectionViewDelegate? = nil) {
         self.collectionViewDelegate = collectionDelegate
         self.viewModel = viewModel
+        self.collectionFlowLayout = CardsGridViewFlowLayout()
         self.gridCollectionDataSource = GridCollectionDataSource(viewModel: self.viewModel)
         super.init(frame: frame)
 
@@ -85,6 +88,6 @@ extension CardsGridView: ViewCode {
     }
 
     func setupAdditionalConfiguration() {
-        //
+        self.collectionFlowLayout.collectionFrame = self.frame
     }
 }
