@@ -17,4 +17,28 @@ import XCTest
 
 final class CardsGridErrorViewTest: XCTestCase {
     
+    // MARK: - Variables
+
+    var sut: CardsGridErrorView!
+
+    // MARK: - Methods
+
+    // MARK: Set up
+    
+    override func setUp() {
+        self.sut = CardsGridErrorView(frame: UIScreen.main.bounds, delegate: nil)
+    }
+    
+    // MARK: Tear down
+
+    override func tearDown() {
+        self.sut = nil
+    }
+
+    // MARK: Tests
+
+    func testLookAndFeel() {
+        expect(self.sut) == snapshot("CardsGridErrorView")
+    }
+    
 }

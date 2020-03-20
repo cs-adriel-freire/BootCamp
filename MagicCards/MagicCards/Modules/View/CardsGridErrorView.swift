@@ -11,6 +11,7 @@ import UIKit
 final class CardsGridErrorView: UIView {
 
     // MARK: - Variables
+    weak var delegate: CardsGridErrorViewDelegate?
     
     // MARK: Subviews
     
@@ -21,28 +22,51 @@ final class CardsGridErrorView: UIView {
     
     private let mainText: UILabel = {
         let view = UILabel(frame: .zero)
-        view.font = UIFont.systemFont(ofSize: 12.0, weight: .semibold)
+        view.font = UIFont.systemFont(ofSize: 18.0, weight: .semibold)
         view.textAlignment = .center
-        view.text = "Sorry, something went wrong"
+        view.textColor = .white
+        view.numberOfLines = 0
+        view.text = "Sorry, something went wrong."
         return view
     }()
     
     private let secondaryText: UILabel = {
         let view = UILabel(frame: .zero)
-        view.font = UIFont.systemFont(ofSize: 10.0, weight: .regular)
+        view.font = UIFont.systemFont(ofSize: 12.0, weight: .regular)
         view.textAlignment = .center
-        view.text = "Press the buttom bellow to try again"
+        view.textColor = .white
+        view.numberOfLines = 0
+        view.text = "Press the buttom bellow to try again."
         return view
     }()
     
     private let retryButton: UIButton = {
         let view = UIButton(frame: .zero)
-        // view.setImage(nil, for: .normal)
+        view.setImage(UIImage(named: "baseline_refresh_white_36pt"), for: .normal)
+        view.tintColor = .white
+        view.addTarget(nil, action: #selector(retryFetchAction), for: .touchUpInside)
         return view
     }()
     
+    // MARK: - Methods
+    
+    // MARK: Initializers
+    
+    required init(frame: CGRect, delegate: CardsGridErrorViewDelegate?) {
+        super.init(frame: frame)
+        self.delegate = delegate
+        self.setupView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func retryFetchAction() {
+        self.delegate?.retryFetchAction()
+    }
+    
 }
-
 
 // MARK: - ViewCode
 
@@ -56,11 +80,35 @@ extension CardsGridErrorView: ViewCode {
     }
     
     func setupContraints() {
-        
+        self.wrapperView.snp.makeConstraints { (maker) in
+            maker.center.equalToSuperview()
+            maker.width.equalToSuperview().multipliedBy(0.8)
+        }
+        self.mainText.snp.makeConstraints { (maker) in
+            maker.centerX.equalToSuperview()
+            maker.top.equalToSuperview()
+        }
+        self.secondaryText.snp.makeConstraints { (maker) in
+            maker.centerX.equalToSuperview()
+            maker.top.equalTo(self.mainText.snp.bottom).offset(16)
+        }
+        self.retryButton.snp.makeConstraints { (maker) in
+            maker.centerX.equalToSuperview()
+            maker.top.equalTo(self.secondaryText.snp.bottom).offset(24)
+            maker.height.width.equalTo(32)
+        }
     }
     
     func setupAdditionalConfiguration() {
-    
+        self.backgroundColor = .clear
     }
+    
+}
+
+// MARK: - Protocol definition
+
+protocol CardsGridErrorViewDelegate: AnyObject {
+    
+    func retryFetchAction()
     
 }
