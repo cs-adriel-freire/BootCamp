@@ -63,7 +63,7 @@ final class CardsGridViewTest: XCTestCase {
         self.card.imageData = UIImage(named: "cardForTest")?.pngData()
 
         self.cardsBySet[CardSet(id: "KTK",
-                                name: "Khans of Tarkir",
+                                name: "Khans of Tarkir, a long long long name, with append",
                                 releaseDate: Date(timeInterval: 10.0, since: self.referenceDate))] = [self.card, self.card, self.card,
                                                                                                       self.card, self.card, self.card]
 
