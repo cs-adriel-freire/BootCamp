@@ -49,17 +49,16 @@ final class MagicAPIProvider: SessionProvider {
 
     // MARK: Image fetch
 
-    public func fetchImage(toCardUrl urlString: String?, completion: @escaping (Data) -> Void) {
+    public func fetchImage(toCardUrl urlString: String?, completion: @escaping (Data?) -> Void) {
         // TODO: Change this empty data to a specific placeholder image
-        let dataPlaceholder: Data = Data()
         guard let urlString = urlString, let url = URL(string: urlString) else {
-            completion(dataPlaceholder)
+            completion(nil)
             return
         }
         let request = URLRequest(url: url)
         let task = urlSession.dataTask(with: request) { (data, _, _) in
             guard let data = data else {
-                completion(dataPlaceholder)
+                completion(nil)
                 return
             }
             completion(data)

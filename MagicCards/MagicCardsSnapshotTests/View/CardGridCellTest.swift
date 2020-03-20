@@ -1,5 +1,5 @@
 //
-//  CardCellTest.swift
+//  CardGridCellTest.swift
 //  MagicCardsSnapshotTests
 //
 //  Created by c.cruz.agra.lopes on 16/03/20.
@@ -13,18 +13,18 @@ import XCTest
 
 @testable import MagicCards
 
-final class CardCellTest: XCTestCase {
+final class CardGridCellTest: XCTestCase {
 
     // MARK: - Variables
 
-    var sut: CardCell!
+    var sut: CardGridCell!
 
     // MARK: - Methods
 
     // MARK: Set up
 
     override func setUp() {
-        self.sut = CardCell(frame: CGRect(x: 0, y: 0, width: 85, height: 118))
+        self.sut = CardGridCell(frame: CGRect(x: 0, y: 0, width: 85, height: 118))
     }
 
     // MARK: Tear down
@@ -43,7 +43,7 @@ final class CardCellTest: XCTestCase {
         card.imageData = UIImage(named: "cardForTest")!.pngData()
         self.sut.configure(with: CardCellViewModel(card: card))
 
-        expect(self.sut) == snapshot("CardCell_withImage")
+        expect(self.sut) == snapshot("CardGridCell_withImage")
     }
 
     func testLookAndFeelWithoutImage() {
@@ -52,6 +52,6 @@ final class CardCellTest: XCTestCase {
                                                               imageUrl: nil,
                                                               types: ["Enchantment"])))
 
-        expect(self.sut) == snapshot("CardCell_withoutImage")
+        expect(self.sut) == snapshot("CardGridCell_withoutImage")
     }
 }

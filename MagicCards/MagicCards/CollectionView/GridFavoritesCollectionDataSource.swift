@@ -35,7 +35,7 @@ extension GridFavoritesCollectionDataSource: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCell.reuseIdentifier, for: indexPath) as? CardCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardGridCell.reuseIdentifier, for: indexPath) as? CardGridCell else {
             return UICollectionViewCell()
         }
 

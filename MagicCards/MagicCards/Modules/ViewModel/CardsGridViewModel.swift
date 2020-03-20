@@ -13,7 +13,7 @@ struct CardsGridViewModel {
     let numberOfSections: Int
     let numberOfItemsBySection: [Int]
     let headerTitleBySection: [String]
-    let viewModelBySection: [[CardCellViewModel]]
+    let cellViewModelBySection: [[CardCellViewModel]]
     let nextSectionIndex: Int
     let lastSectionCount: Int
 
@@ -39,7 +39,7 @@ struct CardsGridViewModel {
         self.headerTitleBySection = cardSets.map { cardSet in
             cardSet.name
         }
-        self.viewModelBySection = cardsGroups.map { cards in
+        self.cellViewModelBySection = cardsGroups.map { cards in
             cards.map { card in
                 CardCellViewModel(card: card)
             }

@@ -61,11 +61,11 @@ extension GridCollectionDataSource: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCell.reuseIdentifier, for: indexPath) as? CardCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardGridCell.reuseIdentifier, for: indexPath) as? CardGridCell else {
             return UICollectionViewCell()
         }
 
-        cell.configure(with: self.viewModel.viewModelBySection[indexPath.section][indexPath.row])
+        cell.configure(with: self.viewModel.cellViewModelBySection[indexPath.section][indexPath.row])
 
         return cell
     }

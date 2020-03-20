@@ -74,8 +74,8 @@ final class CardsGridViewModelTest: XCTestCase {
     }
 
     func testViewModelBySection() {
-        XCTAssert(self.sut.viewModelBySection[0][0] == CardCellViewModel(card: self.abundanceCard))
-        XCTAssert(self.sut.viewModelBySection[0][1] == CardCellViewModel(card: self.academyCard))
-        XCTAssert(self.sut.viewModelBySection[1][0] == CardCellViewModel(card: self.abominationCard))
+        XCTAssert(self.sut.cellViewModelBySection[0][0] == CardCellViewModel(card: self.abundanceCard))
+        XCTAssert(self.sut.cellViewModelBySection[0][1] == CardCellViewModel(card: self.academyCard))
+        XCTAssert(self.sut.cellViewModelBySection[1][0] == CardCellViewModel(card: self.abominationCard))
     }
 }

@@ -1,5 +1,5 @@
 //
-//  CardCell.swift
+//  CardGridCell.swift
 //  MagicCards
 //
 //  Created by c.cruz.agra.lopes on 16/03/20.
@@ -9,19 +9,26 @@
 import SnapKit
 import UIKit
 
-final class CardCell: UICollectionViewCell {
+final class CardGridCell: UICollectionViewCell {
 
     // MARK: - Variables
 
     // MARK: Reuse Identifier
 
-    static let reuseIdentifier: String = "CardCell"
+    static let reuseIdentifier: String = "CardGridCell"
 
     // MARK: Subviews
 
     private lazy var imageView: UIImageView = {
         let view = UIImageView()
         view.backgroundColor = .lightGray
+        return view
+    }()
+
+    private lazy var nameLabel: UILabel = {
+        let view = UILabel()
+        view.font = UIFont.systemFont(ofSize: 3)
+        view.textColor = .black
         return view
     }()
 
@@ -42,20 +49,28 @@ final class CardCell: UICollectionViewCell {
 
     func configure(with viewModel: CardCellViewModel) {
         self.imageView.image = viewModel.image
+        self.nameLabel.text = viewModel.name
     }
 }
 
 // MARK: - ViewCode
 
-extension CardCell: ViewCode {
+extension CardGridCell: ViewCode {
 
     func buildViewHierarchy() {
         self.addSubview(self.imageView)
+        self.addSubview(self.nameLabel)
     }
     
     func setupContraints() {
         self.imageView.snp.makeConstraints { maker in
             maker.top.bottom.leading.trailing.equalToSuperview()
+        }
+
+        self.nameLabel.snp.makeConstraints { maker in
+            maker.top.equalToSuperview().inset(8)
+            maker.centerX.equalToSuperview()
+            maker.width.equalToSuperview().multipliedBy(0.8)
         }
     }
     
@@ -63,5 +78,4 @@ extension CardCell: ViewCode {
         self.layer.cornerRadius = 5.0
         self.layer.masksToBounds = true
     }
-
 }

@@ -37,7 +37,7 @@ final class FavoritesCardsGridView: UIView {
 
     private lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: self.collectionFlowLayout)
-        view.register(CardCell.self, forCellWithReuseIdentifier: CardCell.reuseIdentifier)
+        view.register(CardGridCell.self, forCellWithReuseIdentifier: CardGridCell.reuseIdentifier)
         view.dataSource = self.gridFavoritesCollectionDataSource
         view.delegate = self.collectionViewDelegate
         view.backgroundColor = .clear
