@@ -27,8 +27,10 @@ final class CardGridCell: UICollectionViewCell {
 
     private lazy var nameLabel: UILabel = {
         let view = UILabel()
-        view.font = UIFont.systemFont(ofSize: 3)
+        view.font = UIFont.systemFont(ofSize: 10)
         view.textColor = .black
+        view.numberOfLines = 4
+        view.textAlignment = .center
         return view
     }()
 
@@ -68,7 +70,7 @@ extension CardGridCell: ViewCode {
         }
 
         self.nameLabel.snp.makeConstraints { maker in
-            maker.top.equalToSuperview().inset(8)
+            maker.top.equalToSuperview().inset(16)
             maker.centerX.equalToSuperview()
             maker.width.equalToSuperview().multipliedBy(0.8)
         }
