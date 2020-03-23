@@ -35,7 +35,8 @@ extension GridCollectionDataSource: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        let itens = viewModel.getItens()
+        return itens[section].count
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -46,8 +47,7 @@ extension GridCollectionDataSource: UICollectionViewDataSource {
                                                                                for: indexPath) as? GridCollectionHeaderView else {
                                                                                 return UICollectionReusableView()
         }
-        
-        headerView.configure(with: self.viewModel.getHeader(idp: indexPath.section))
+        headerView.configure(with: self.viewModel.getHeader(atIndexPath: indexPath.section))
         view = headerView
         return view
     }
@@ -56,7 +56,9 @@ extension GridCollectionDataSource: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCell.reuseIdentifier, for: indexPath) as? CardCell else {
             return UICollectionViewCell()
         }
-        
+        if indexPath.row == 0 {
+            return cell
+        }
         cell.configure(with: self.viewModel.viewModelBySection[0][0])
 
         return cell

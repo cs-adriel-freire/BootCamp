@@ -16,12 +16,11 @@ struct CardsGridViewModel {
     let nextSectionIndex: Int
     let lastSectionCount: Int
     
-    var currentGroup = ""
+    private var currentGroup = ""
 
     let cardsBySet: [CardSet: [Card]]
     
-
-    var currentSet = 0
+    var currentSet = ""
     // MARK: - Methods
 
     // MARK: Initializers
@@ -78,6 +77,10 @@ struct CardsGridViewModel {
         return groups
     }
     
+    func getNumberOfItens(inSection section: Int) {
+        
+    }
+    
     func getGroups(forSet set: CardSet) -> [String: [Card]] {
         guard let cards = cardsBySet[set] else {
             return [:]
@@ -86,7 +89,11 @@ struct CardsGridViewModel {
 
         return groupsDictionary
     }
-    func getHeader(idp: Int) -> String {
+    func getHeader(atIndexPath: Int) -> String {
+        let heads: [String] = getAllHeaders()
+        return heads[atIndexPath]
+    }
+    func getAllHeaders() -> [String] {
         var heads: [String] = []
         for set in cardsBySet.keys {
             heads.append(set.name)
@@ -98,7 +105,10 @@ struct CardsGridViewModel {
             heads.append(contentsOf: keys)
             
         }
-        return heads[idp]
+        return heads
+    }
+    func getNumberOfItens(forSection section: Int) {
+        
     }
     func getHeaders() -> [String] {
         var heads: [String] = []
@@ -110,6 +120,39 @@ struct CardsGridViewModel {
             
         }
         return heads
+    }
+//    func intensForIndexPath(section: Int, row: Int) {
+//        let sortedKeysAndValues = cardsBySet.sorted { (lhs, rhs) -> Bool in
+//            lhs.key.releaseDate > rhs.key.releaseDate
+//        }
+//        let headers = getAllHeaders()
+//        let teste = cardsBySet.keys
+//        if cardsBySet.keys.contains(where: { (cardSet) -> Bool in
+//            cardSet.name == headers[section]
+//        }) {
+//            self.currentSet = headers[section]
+//
+//        }
+//
+//    }
+    //organizar um array de array onde quando é titulo ele é vazio e no resto é preenchifo
+    
+    func getItens() -> [[Card]] {
+        var itens: [[Card]] = []
+        let headers = getAllHeaders()
+        var lastSet = ""
+        
+        for header in headers {
+            if cardsBySet.keys.contains(where: { (set) -> Bool in set.name == header }) {
+                itens.append([])
+                lastSet = header
+            }
+            let cards = cardsBySet.filter { (arg) -> Bool in
+                arg.key.name == lastSet
+            }.map { (arg) -> [Card] in arg.value }
+            itens.append(cards[0])
+        }
+        return itens
     }
     
     func itens(forSet set: CardSet, andGroup group: String) -> [Card] {
