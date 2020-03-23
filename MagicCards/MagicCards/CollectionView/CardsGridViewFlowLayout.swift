@@ -31,7 +31,7 @@ final class CardsGridViewFlowLayout: UICollectionViewFlowLayout {
     required init(cellSize: CGSize = CGSize(width: 85.0, height: 118.0),
                   minimumMargin: CGFloat = 16.0,
                   scrollDirection: UICollectionView.ScrollDirection = .vertical,
-                  headerHeight: CGFloat = 82.0) {
+                  headerHeight: CGFloat = 102.0) {
         self.cellSize = cellSize
         self.minimumMargin = minimumMargin
         self.headerHeight = headerHeight

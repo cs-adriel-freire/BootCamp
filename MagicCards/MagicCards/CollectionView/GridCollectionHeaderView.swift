@@ -33,7 +33,7 @@ final class GridCollectionHeaderView: UICollectionReusableView {
 
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
-        self.setupView()
+        self.setupView()        
     }
 
     required init?(coder: NSCoder) {
@@ -60,7 +60,9 @@ extension GridCollectionHeaderView: ViewCode {
 
     func setupContraints() {
         self.titleLabel.snp.makeConstraints { maker in
-            maker.top.bottom.leading.trailing.equalToSuperview().inset(16)
+            maker.leading.trailing.equalToSuperview().inset(16)
+            maker.top.greaterThanOrEqualToSuperview().inset(8)
+            maker.bottom.equalToSuperview().inset(8)
         }
     }
 
