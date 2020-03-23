@@ -15,8 +15,8 @@ final class CardDetailsView: UIView {
     var collectionDataSource: CardDetailsCollectionDataSource
     
     public var viewModel: CardDetailsViewModel {
-        didSet(newViewModel) {
-            collectionDataSource.cards = newViewModel.cards
+        didSet {
+            collectionDataSource.cards = viewModel.cards
             cardsCollection.reloadData()
         }
     }
