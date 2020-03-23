@@ -48,6 +48,9 @@ extension GridCollectionDataSource: UICollectionViewDataSource {
                                                                                 return UICollectionReusableView()
         }
         headerView.configure(with: self.viewModel.getHeader(atIndexPath: indexPath.section))
+        if !viewModel.checkIfSet(section: indexPath.section) {
+            headerView.newConfigure(with: self.viewModel.getHeader(atIndexPath: indexPath.section))
+        }
         view = headerView
         return view
     }
@@ -59,7 +62,9 @@ extension GridCollectionDataSource: UICollectionViewDataSource {
         if indexPath.row == 0 {
             return cell
         }
-        cell.configure(with: self.viewModel.viewModelBySection[0][0])
+        let cards = viewModel.getItens()
+        let vm = CardCellViewModel(card: cards[indexPath.section][indexPath.row])
+        cell.configure(with: vm)
 
         return cell
     }

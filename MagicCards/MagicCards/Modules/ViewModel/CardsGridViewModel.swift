@@ -89,10 +89,12 @@ struct CardsGridViewModel {
 
         return groupsDictionary
     }
+    
     func getHeader(atIndexPath: Int) -> String {
         let heads: [String] = getAllHeaders()
         return heads[atIndexPath]
     }
+    
     func getAllHeaders() -> [String] {
         var heads: [String] = []
         for set in cardsBySet.keys {
@@ -107,9 +109,7 @@ struct CardsGridViewModel {
         }
         return heads
     }
-    func getNumberOfItens(forSection section: Int) {
-        
-    }
+    
     func getHeaders() -> [String] {
         var heads: [String] = []
         for set in cardsBySet.keys {
@@ -136,6 +136,14 @@ struct CardsGridViewModel {
 //
 //    }
     //organizar um array de array onde quando é titulo ele é vazio e no resto é preenchifo
+    func checkIfSet(section: Int) -> Bool {
+        let headers = getAllHeaders()
+        if cardsBySet.keys.contains(where: { (set) -> Bool in set.name == headers[section] }) {
+            return true
+            
+        }
+        return false
+    }
     
     func getItens() -> [[Card]] {
         var itens: [[Card]] = []

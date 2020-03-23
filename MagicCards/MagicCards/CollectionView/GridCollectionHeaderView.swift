@@ -45,6 +45,12 @@ final class GridCollectionHeaderView: UICollectionReusableView {
     func configure(with title: String) {
         self.titleLabel.text = title
     }
+    
+    func newConfigure(with title: String) {
+        configure(with: title)
+        titleLabel.font = .boldSystemFont(ofSize: 16)
+        titleLabel.textColor = .gray
+    }
 
     override func prepareForReuse() {
         self.titleLabel.text = nil
