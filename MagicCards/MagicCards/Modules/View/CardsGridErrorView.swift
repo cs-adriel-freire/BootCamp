@@ -40,11 +40,9 @@ final class CardsGridErrorView: UIView {
         return view
     }()
     
-    private let retryButton: UIButton = {
-        let view = UIButton(frame: .zero)
-        view.setImage(UIImage(named: "baseline_refresh_white_36pt"), for: .normal)
+    private let retryButton: UIImageView = {
+        let view = UIImageView(image: UIImage(named: "baseline_refresh_white_36pt"))
         view.tintColor = .white
-        view.addTarget(nil, action: #selector(retryFetchAction), for: .touchUpInside)
         return view
     }()
     
@@ -54,6 +52,10 @@ final class CardsGridErrorView: UIView {
     
     required init(frame: CGRect, delegate: CardsGridErrorViewDelegate?) {
         super.init(frame: frame)
+        self.isUserInteractionEnabled = true
+        // TODO: Put the action into the retryButton
+        let action = UITapGestureRecognizer(target: self, action: #selector(retryFetchAction))
+        self.addGestureRecognizer(action)
         self.delegate = delegate
         self.setupView()
     }
@@ -63,6 +65,7 @@ final class CardsGridErrorView: UIView {
     }
     
     @objc func retryFetchAction() {
+        print("Something")
         self.delegate?.retryFetchAction()
     }
     

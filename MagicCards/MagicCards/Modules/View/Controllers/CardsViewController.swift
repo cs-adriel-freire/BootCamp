@@ -10,6 +10,13 @@ import UIKit
 
 final class CardsViewController: UIViewController {
     typealias Repository = CardsRepositoryProtocol & CardDetailsRepositoryProtocol
+    
+    enum State {
+        case initial
+        case error
+        case loading
+        case success
+    }
 
     // MARK: - Variables
 
@@ -22,6 +29,12 @@ final class CardsViewController: UIViewController {
     private var viewModel = CardsGridViewModel(cardsBySet: [:]) {
         didSet {
             self.gridView.viewModel = self.viewModel
+        }
+    }
+    
+    private var state: State = .initial {
+        didSet {
+            self.gridView.setState(state)
         }
     }
 
@@ -64,12 +77,14 @@ final class CardsViewController: UIViewController {
     // MARK: Update data
 
     private func getMoreCards() {
+        self.state = .loading
         self.cardsRepository.getCards(untilSet: self.viewModel.nextSectionIndex) { result in
             switch result {
             case let .success(cardsBySet):
                 self.viewModel = CardsGridViewModel(cardsBySet: cardsBySet)
-            case let .failure(error):
-                print(error)
+                self.state = .success
+            case .failure:
+                self.state = .error
             }
         }
     }
@@ -84,4 +99,14 @@ extension CardsViewController: UICollectionViewDelegate {
             self.getMoreCards()
         }
     }
+}
+
+// MARK: - CardsGridErrorViewDelegate
+
+extension CardsViewController: CardsGridErrorViewDelegate {
+    
+    func retryFetchAction() {
+        self.getMoreCards()
+    }
+
 }

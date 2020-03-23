@@ -12,7 +12,7 @@ import UIKit
 final class CardsGridView: UIView {
 
     // MARK: - Variables
-
+    
     var viewModel: CardsGridViewModel {
         didSet {
             self.gridCollectionDataSource.viewModel = self.viewModel
@@ -21,7 +21,7 @@ final class CardsGridView: UIView {
             }
         }
     }
-
+    
     // MARK: CollectionVIew
 
     var collectionFlowLayout: CardsGridViewFlowLayout
@@ -73,6 +73,24 @@ final class CardsGridView: UIView {
     func updateFrame() {
         self.collectionFlowLayout.collectionFrame = self.collectionView.frame
     }
+    
+    func setState(_ state: CardsViewController.State) {
+        DispatchQueue.main.async {
+            if state == .error && self.viewModel.numberOfSections == 0 {
+                self.collectionView.backgroundView = CardsGridErrorView(frame: .zero, delegate: nil)
+            } else if state == .error && self.viewModel.numberOfSections != 0 {
+                // TODO: Set footer error view in collectionView
+            } else if state == .loading && self.viewModel.numberOfSections == 0 {
+                self.collectionView.backgroundView = CardsGridLoadingView()
+            } else if state == .loading && self.viewModel.numberOfSections != 0 {
+                // TODO: Set footer loading view in collectionView
+            } else if state == .success {
+                self.collectionView.backgroundView = nil
+                // TODO: Remove footer loading view from collectionView
+            }
+        }
+    }
+    
 }
 
 // MARK: - ViewCode
@@ -81,7 +99,8 @@ extension CardsGridView: ViewCode {
 
     func buildViewHierarchy() {
         self.addSubview(self.backgroundImageView)
-        self.backgroundImageView.addSubview(self.collectionView)
+        self.addSubview(self.collectionView)
+//        self.backgroundImageView.addSubview(self.collectionView)
     }
 
     func setupContraints() {
