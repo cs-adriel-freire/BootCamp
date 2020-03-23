@@ -47,7 +47,7 @@ extension GridCollectionDataSource: UICollectionViewDataSource {
                                                                                 return UICollectionReusableView()
         }
         
-        headerView.configure(with: self.viewModel.getHeaderTitle(forSection: indexPath.section))
+        headerView.configure(with: self.viewModel.getHeader(idp: indexPath.section))
         view = headerView
         return view
     }

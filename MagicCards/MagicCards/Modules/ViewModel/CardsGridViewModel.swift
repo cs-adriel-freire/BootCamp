@@ -15,8 +15,13 @@ struct CardsGridViewModel {
     let viewModelBySection: [[CardCellViewModel]]
     let nextSectionIndex: Int
     let lastSectionCount: Int
+    
+    var currentGroup = ""
 
     let cardsBySet: [CardSet: [Card]]
+    
+
+    var currentSet = 0
     // MARK: - Methods
 
     // MARK: Initializers
@@ -31,7 +36,7 @@ struct CardsGridViewModel {
         }
         let cardsGroups = sortedKeysAndValues.map { (arg) -> [Card] in
             arg.value
-        }        
+        }
         
         self.numberOfItemsBySection = cardsGroups.map { cards in
             cards.count
@@ -73,11 +78,64 @@ struct CardsGridViewModel {
         return groups
     }
     
-    func getNumberOfSections() -> Int {
-        cardsBySet.keys.count + getCardsGroups().count
+    func getGroups(forSet set: CardSet) -> [String: [Card]] {
+        guard let cards = cardsBySet[set] else {
+            return [:]
+        }
+        let groupsDictionary = Dictionary.init(grouping: cards, by: {$0.types[0]})
+
+        return groupsDictionary
+    }
+    func getHeader(idp: Int) -> String {
+        var heads: [String] = []
+        for set in cardsBySet.keys {
+            heads.append(set.name)
+            let groups = getGroups(forSet: set)
+            let orederedGroups = groups.sorted { (lhs, rhs) -> Bool in
+                lhs.key < rhs.key
+            }
+            let keys: [String] = orederedGroups.map({ $0.key })
+            heads.append(contentsOf: keys)
+            
+        }
+        return heads[idp]
+    }
+    func getHeaders() -> [String] {
+        var heads: [String] = []
+        for set in cardsBySet.keys {
+            heads.append(set.name)
+            let groups = getGroups(forSet: set)
+            let keys: [String] = groups.map({ $0.key })
+            heads.append(contentsOf: keys)
+            
+        }
+        return heads
     }
     
-    func getHeaderTitle(forSection section: Int) -> String{
+    func itens(forSet set: CardSet, andGroup group: String) -> [Card] {
+        let groups = getGroups(forSet: set)
+        guard let cards = groups[group] else { return []}
+        return cards
+    }
+    func getNumberOfSections() -> Int {
+        var totalGroups = 0
+        for set in cardsBySet.keys {
+            let groups = getGroups(forSet: set)
+            totalGroups += groups.keys.count
+        }
+        return cardsBySet.keys.count + totalGroups
+    }
+    
+    func getHeaderTitle(forSection section: Int) -> String {
+        let sortedKeysAndValues = cardsBySet.sorted { (lhs, rhs) -> Bool in
+            lhs.key.releaseDate > rhs.key.releaseDate
+        }
+        let cardSets = sortedKeysAndValues.map { (arg) -> CardSet in
+            arg.key
+        }
+        for set in cardSets {
+            
+        }
         return getCardsGroups()[section]
         
     }
