@@ -13,6 +13,8 @@ final class CardsViewController: UIViewController {
 
     // MARK: - Variables
 
+    var gotLastSet: Bool
+
     // MARK: View
 
     private lazy var gridView = CardsGridView(viewModel: self.viewModel, collectionDelegate: self)
@@ -35,6 +37,7 @@ final class CardsViewController: UIViewController {
 
     init(repository: Repository) {
         self.cardsRepository = repository
+        self.gotLastSet = false
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -69,6 +72,9 @@ final class CardsViewController: UIViewController {
             case let .success(cardsBySet):
                 self.viewModel = CardsGridViewModel(cardsBySet: cardsBySet)
             case let .failure(error):
+                if let cardsRepositoryError = error as? CardsRepositoryError, cardsRepositoryError == CardsRepositoryError.setNotFound {
+                    self.gotLastSet = true
+                }
                 print(error)
             }
         }
@@ -80,6 +86,10 @@ final class CardsViewController: UIViewController {
 extension CardsViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard !self.gotLastSet else {
+            return
+        }
+
         if indexPath == IndexPath(item: self.viewModel.lastSectionCount-1, section: self.viewModel.nextSectionIndex-1) {
             self.getMoreCards()
         }
