@@ -68,7 +68,7 @@ extension CardDetailsCell: ViewCode {
         }
 
         self.nameLabel.snp.makeConstraints { maker in
-            maker.top.equalToSuperview().inset(17)
+            maker.top.equalToSuperview().inset(18)
             maker.centerX.equalToSuperview()
             maker.width.equalToSuperview().multipliedBy(0.8)
         }

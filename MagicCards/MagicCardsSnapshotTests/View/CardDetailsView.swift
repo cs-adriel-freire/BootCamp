@@ -35,6 +35,14 @@ class CardDetailsViewTest: XCTestCase {
     func testLookAndFeel() {
         expect(self.sut).to( haveValidSnapshot(named: "CardDetailsView") )
     }
+
+    func testLookAndFeelWithoutImage() {
+        let viewModel = CardDetailsViewModel(cards: [Card(id: "001", name: "Test Card", imageUrl: nil, imageData: nil, types: [])])
+        sut = CardDetailsView(viewModel: viewModel)
+        sut.frame = UIScreen.main.bounds
+
+        expect(self.sut).to( haveValidSnapshot(named: "CardDetailsView_withoutImage") )
+    }
     
     private func setInitialCard() -> Card {
         let image = UIImage(named: "cardForTest")
