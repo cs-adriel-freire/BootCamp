@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00A8FE758E31C2060B4AEAE5 /* Pods_MagicCardsSnapshotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F92AD5549A92796F6324B5 /* Pods_MagicCardsSnapshotTests.framework */; };
+		231564C824290B2800920643 /* CardsGridViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231564C724290B2800920643 /* CardsGridViewDelegate.swift */; };
 		2325345A24213B0A00D9F931 /* CardsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2325345924213B0A00D9F931 /* CardsRepositoryProtocol.swift */; };
 		2325345C24213B2300D9F931 /* FavoriteCardsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2325345B24213B2300D9F931 /* FavoriteCardsRepositoryProtocol.swift */; };
 		2325345E24213B3600D9F931 /* CardDetailsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2325345D24213B3600D9F931 /* CardDetailsRepositoryProtocol.swift */; };
@@ -85,6 +86,7 @@
 /* Begin PBXFileReference section */
 		18AACB8879566E0B9B73096D /* Pods-MagicCardsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsTests.release.xcconfig"; path = "Target Support Files/Pods-MagicCardsTests/Pods-MagicCardsTests.release.xcconfig"; sourceTree = "<group>"; };
 		21FBED51FDA52A0E3908D1CE /* Pods-MagicCardsSnapshotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsSnapshotTests.debug.xcconfig"; path = "Target Support Files/Pods-MagicCardsSnapshotTests/Pods-MagicCardsSnapshotTests.debug.xcconfig"; sourceTree = "<group>"; };
+		231564C724290B2800920643 /* CardsGridViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridViewDelegate.swift; sourceTree = "<group>"; };
 		2325345924213B0A00D9F931 /* CardsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsRepositoryProtocol.swift; sourceTree = "<group>"; };
 		2325345B24213B2300D9F931 /* FavoriteCardsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCardsRepositoryProtocol.swift; sourceTree = "<group>"; };
 		2325345D24213B3600D9F931 /* CardDetailsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -438,6 +440,7 @@
 				5AEAB89C2422B86300084472 /* SessionProvider.swift */,
 				5AC398C8241C44C5006FCDE4 /* ViewCode.swift */,
 				2325345F24213B4900D9F931 /* Repository */,
+				231564C724290B2800920643 /* CardsGridViewDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -795,6 +798,7 @@
 				FC215E172423C1C700262D9D /* CardDetailsView.swift in Sources */,
 				5AEAB8A32422B9E200084472 /* MagicAPIProvider.swift in Sources */,
 				23684CB024219B170081042C /* CardCellViewModel.swift in Sources */,
+				231564C824290B2800920643 /* CardsGridViewDelegate.swift in Sources */,
 				FC215E152423C1C700262D9D /* CardDetailsView + FlowDelegate.swift in Sources */,
 				5A7A0E9F2423A85A00901E96 /* GridFavoritesCollectionDataSource.swift in Sources */,
 				23E118DD241FF99200CC6E61 /* CardDetailsViewController.swift in Sources */,

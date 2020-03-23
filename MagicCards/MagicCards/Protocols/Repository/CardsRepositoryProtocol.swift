@@ -8,6 +8,7 @@
 
 protocol CardsRepositoryProtocol {
 
+    func reset()
     func getCards(untilSet setIndex: Int, completion: @escaping (Result<[CardSet: [Card]], Error>) -> Void)
     func getCards(untilSet setIndex: Int, withName: String, completion: @escaping (Result<[CardSet: [Card]], Error>) -> Void)
 }
