@@ -36,21 +36,6 @@ final class CardDetailsView: UIView {
         return button
     }()
     
-    private lazy var addFavoriteButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("add card to favorites", for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 16)
-        
-        button.backgroundColor = .clear
-        button.layer.borderColor = UIColor.white.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 5
-        
-        button.addTarget(self, action: #selector(favoriteButtonAction), for: .touchUpInside)
-        
-        return button
-    }()
-    
     private lazy var cardsCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -82,11 +67,6 @@ final class CardDetailsView: UIView {
     @objc func closeButtonAction() {
         delegate?.didClickOnCloseButton()
     }
-    
-    @objc func favoriteButtonAction() {
-        delegate?.didClickOnFavoriteButton()
-    }
-    
 }
 
 extension CardDetailsView: ViewCode {
@@ -96,7 +76,6 @@ extension CardDetailsView: ViewCode {
         addSubview(backgroundImageView)
         addSubview(cardsCollection)
         addSubview(closeButton)
-        addSubview(addFavoriteButton)
     }
     
     func setupContraints() {
@@ -105,20 +84,6 @@ extension CardDetailsView: ViewCode {
             make.bottom.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-        }
-        
-        addFavoriteButton.snp.makeConstraints { (make) in
-            make.height.equalTo(48)
-            
-            if #available(iOS 11.0, *) {
-                make.bottom.equalTo(safeAreaLayoutGuide).offset(-16)
-                make.leading.equalTo(safeAreaLayoutGuide).offset(16)
-                make.trailing.equalTo(safeAreaLayoutGuide).offset(-16)
-            } else {
-                make.leading.equalToSuperview().offset(16)
-                make.trailing.equalToSuperview().offset(-16)
-                make.bottom.equalToSuperview().offset(-16)
-            }
         }
         
         closeButton.snp.makeConstraints { (make) in
@@ -150,6 +115,5 @@ extension CardDetailsView: ViewCode {
        
     func setupAdditionalConfiguration() {
         cardsCollection.dataSource = collectionDataSource
-        addFavoriteButton.isHidden = true
     }
 }
