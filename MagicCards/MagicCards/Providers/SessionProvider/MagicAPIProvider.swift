@@ -194,27 +194,30 @@ extension MagicAPIProvider: CardsProvider {
                     }
                 }
                 
-                for page in 2 ... self.pages(forResponse: response) {
-                    let params = [URLQueryItem(name: "set", value: set), URLQueryItem(name: "page", value: String(page))]
-                    let request = requestBuilder.request(withParams: params)
-                    dispatchGroup.enter()
-                    self.fetch(withRequest: request, decoder: self.decoder) { (result: Result<(CardDTO, URLResponse), SessionProviderError>) in
-                        switch result {
-                        case .success(let (dto, _)):
-                            cards.append(contentsOf: dto.cards)
-                            
-                            for card in dto.cards {
-                                dispatchGroup.enter()
-                                self.fetchImage(forCard: card) { (data) in
-                                    card.imageData = data
-                                    dispatchGroup.leave()
+                let pages = self.pages(forResponse: response)
+                
+                if pages >= 2 {
+                    for page in 2 ... pages {
+                        let params = [URLQueryItem(name: "set", value: set), URLQueryItem(name: "page", value: String(page))]
+                        let request = requestBuilder.request(withParams: params)
+                        dispatchGroup.enter()
+                        self.fetch(withRequest: request, decoder: self.decoder) { (result: Result<(CardDTO, URLResponse), SessionProviderError>) in
+                            switch result {
+                            case .success(let (dto, _)):
+                                cards.append(contentsOf: dto.cards)
+                                
+                                for card in dto.cards {
+                                    dispatchGroup.enter()
+                                    self.fetchImage(toCardUrl: card.imageUrl) { (data) in
+                                        card.imageData = data
+                                        dispatchGroup.leave()
+                                    }
                                 }
+                                dispatchGroup.leave()
+                            case .failure(let error):
+                                completion(.failure(error))
+                                dispatchGroup.leave()
                             }
-                            
-                            dispatchGroup.leave()
-                        case .failure(let error):
-                            completion(.failure(error))
-                            dispatchGroup.leave()
                         }
                     }
                 }
