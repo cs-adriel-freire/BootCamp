@@ -1,4 +1,4 @@
-module Pods_MagicCards {
+framework module Pods_MagicCards {
   umbrella header "Pods-MagicCards-umbrella.h"
 
   export *
