@@ -57,25 +57,36 @@ final class CardsGridViewModelTest: XCTestCase {
         self.sut = nil
     }
 
-    // MARK: Tests
+    // MARK: Tests  
 
     func testNumberOfSections() {
-        XCTAssert(self.sut.numberOfSections == 2)
+        XCTAssert(sut.getAllHeaders().count == 5)
     }
 
     func testNumberOsItemsBySection() {
-        XCTAssert(self.sut.numberOfItemsBySection[0] == 2)
-        XCTAssert(self.sut.numberOfItemsBySection[1] == 1)
+        print(sut.getAllHeaders())
+        let itens = sut.getItens()
+        print(itens)
+        XCTAssert(itens[0].isEmpty)
+        XCTAssert(itens[1].count == 1)
+        XCTAssert(itens[2].count == 1)
+        XCTAssert(itens[3].isEmpty)
+        XCTAssert(itens[4].count == 1)
     }
 
     func testHeaderTitleBySection() {
-        XCTAssert(self.sut.headerTitleBySection[0] == "Tenth Edition")
-        XCTAssert(self.sut.headerTitleBySection[1] == "Khans of Tarkir")
+        XCTAssert(sut.getHeader(atSection: 0) == "Tenth Edition")
+        XCTAssert(sut.getHeader(atSection: 1) == "Creature")
+        XCTAssert(sut.getHeader(atSection: 2) == "Enchantment")
+        XCTAssert(sut.getHeader(atSection: 3) == "Khans of Tarkir")
+        XCTAssert(sut.getHeader(atSection: 4) == "Creature")
+
     }
 
     func testViewModelBySection() {
-        XCTAssert(self.sut.viewModelBySection[0][0] == CardCellViewModel(card: self.abundanceCard))
-        XCTAssert(self.sut.viewModelBySection[0][1] == CardCellViewModel(card: self.academyCard))
-        XCTAssert(self.sut.viewModelBySection[1][0] == CardCellViewModel(card: self.abominationCard))
+
+        XCTAssert(sut.getItens(atSection: 1, row: 0) == academyCard)
+        XCTAssert(sut.getItens(atSection: 2, row: 0) == abundanceCard)
+        XCTAssert(sut.getItens(atSection: 4, row: 0) == abominationCard)
     }
 }

@@ -11,16 +11,11 @@ struct CardsGridViewModel {
     // MARK: - Variables
 
     let numberOfItemsBySection: [Int]
-    let headerTitleBySection: [String]
-    let viewModelBySection: [[CardCellViewModel]]
     let nextSectionIndex: Int
     let lastSectionCount: Int
-    
-    private var currentGroup = ""
 
-    let cardsBySet: [CardSet: [Card]]
+    private let cardsBySet: [CardSet: [Card]]
     
-    var currentSet = ""
     // MARK: - Methods
 
     // MARK: Initializers
@@ -30,9 +25,9 @@ struct CardsGridViewModel {
         let sortedKeysAndValues = cardsBySet.sorted { (lhs, rhs) -> Bool in
             lhs.key.releaseDate > rhs.key.releaseDate
         }
-        let cardSets = sortedKeysAndValues.map { (arg) -> CardSet in
-            arg.key
-        }
+//        let cardSets = sortedKeysAndValues.map { (arg) -> CardSet in
+//            arg.key
+//        }
         let cardsGroups = sortedKeysAndValues.map { (arg) -> [Card] in
             arg.value
         }
@@ -40,45 +35,9 @@ struct CardsGridViewModel {
         self.numberOfItemsBySection = cardsGroups.map { cards in
             cards.count
         }
-        self.headerTitleBySection = cardSets.map { cardSet in
-            cardSet.name
-        }
-        self.viewModelBySection = cardsGroups.map { cards in
-            cards.map { card in
-                CardCellViewModel(card: card)
-            }
-        }
 
         self.nextSectionIndex = cardsBySet.keys.count
         self.lastSectionCount = self.numberOfItemsBySection.last ?? 0
-    }
-    
-    func getCardsGroups() -> [String] {
-        if cardsBySet.keys.isEmpty {
-            return []
-        }
-        var groups: [String] = []
-        
-        let sortedKeysAndValues = cardsBySet.sorted { (lhs, rhs) -> Bool in
-            lhs.key.releaseDate > rhs.key.releaseDate
-        }
-        let cardsGroups = sortedKeysAndValues.map { (arg) -> [Card] in
-            arg.value
-        }
-        
-        for index in 0 ... cardsBySet.keys.count - 1 {
-            let cards = cardsGroups[index]
-            
-            let groupsDictionary = Dictionary.init(grouping: cards, by: {$0.types[0]})
-            let keys: [String] = groupsDictionary.map({ $0.key })
-            groups.append(contentsOf: keys)
-            
-        }
-        return groups
-    }
-    
-    func getNumberOfItens(inSection section: Int) {
-        
     }
     
     func getGroups(forSet set: CardSet) -> [String: [Card]] {
@@ -90,14 +49,18 @@ struct CardsGridViewModel {
         return groupsDictionary
     }
     
-    func getHeader(atIndexPath: Int) -> String {
+    func getHeader(atSection section: Int) -> String {
         let heads: [String] = getAllHeaders()
-        return heads[atIndexPath]
+        return heads[section]
     }
     
     func getAllHeaders() -> [String] {
+        let sortedKeysAndValues = cardsBySet.sorted { (lhs, rhs) -> Bool in
+            lhs.key.releaseDate > rhs.key.releaseDate
+        }
         var heads: [String] = []
-        for set in cardsBySet.keys {
+        for obj in sortedKeysAndValues {
+            let set = obj.key
             heads.append(set.name)
             let groups = getGroups(forSet: set)
             let orederedGroups = groups.sorted { (lhs, rhs) -> Bool in
@@ -110,32 +73,6 @@ struct CardsGridViewModel {
         return heads
     }
     
-    func getHeaders() -> [String] {
-        var heads: [String] = []
-        for set in cardsBySet.keys {
-            heads.append(set.name)
-            let groups = getGroups(forSet: set)
-            let keys: [String] = groups.map({ $0.key })
-            heads.append(contentsOf: keys)
-            
-        }
-        return heads
-    }
-//    func intensForIndexPath(section: Int, row: Int) {
-//        let sortedKeysAndValues = cardsBySet.sorted { (lhs, rhs) -> Bool in
-//            lhs.key.releaseDate > rhs.key.releaseDate
-//        }
-//        let headers = getAllHeaders()
-//        let teste = cardsBySet.keys
-//        if cardsBySet.keys.contains(where: { (cardSet) -> Bool in
-//            cardSet.name == headers[section]
-//        }) {
-//            self.currentSet = headers[section]
-//
-//        }
-//
-//    }
-    //organizar um array de array onde quando é titulo ele é vazio e no resto é preenchifo
     func checkIfSet(section: Int) -> Bool {
         let headers = getAllHeaders()
         if cardsBySet.keys.contains(where: { (set) -> Bool in set.name == headers[section] }) {
@@ -154,40 +91,22 @@ struct CardsGridViewModel {
             if cardsBySet.keys.contains(where: { (set) -> Bool in set.name == header }) {
                 itens.append([])
                 lastSet = header
+                continue
             }
             let cards = cardsBySet.filter { (arg) -> Bool in
                 arg.key.name == lastSet
-            }.map { (arg) -> [Card] in arg.value }
-            itens.append(cards[0])
+            }.map { (arg) -> [Card] in arg.value }.reduce([], +)
+            let cardsOfGroup = cards.filter {(card) -> Bool in card.types.contains(header)}
+
+            itens.append(cardsOfGroup)
+            print("\n\n\ncads: \(cards) \n\n\n")
         }
         return itens
     }
     
-    func itens(forSet set: CardSet, andGroup group: String) -> [Card] {
-        let groups = getGroups(forSet: set)
-        guard let cards = groups[group] else { return []}
-        return cards
-    }
-    func getNumberOfSections() -> Int {
-        var totalGroups = 0
-        for set in cardsBySet.keys {
-            let groups = getGroups(forSet: set)
-            totalGroups += groups.keys.count
-        }
-        return cardsBySet.keys.count + totalGroups
+    func getItens(atSection section: Int, row: Int) -> Card {
+        let itens = getItens()
+        return itens[section][row]
     }
     
-    func getHeaderTitle(forSection section: Int) -> String {
-        let sortedKeysAndValues = cardsBySet.sorted { (lhs, rhs) -> Bool in
-            lhs.key.releaseDate > rhs.key.releaseDate
-        }
-        let cardSets = sortedKeysAndValues.map { (arg) -> CardSet in
-            arg.key
-        }
-        for set in cardSets {
-            
-        }
-        return getCardsGroups()[section]
-        
-    }
 }
