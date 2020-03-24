@@ -1,4 +1,4 @@
-framework module Pods_MagicCardsSnapshotTests {
+module Pods_MagicCardsSnapshotTests {
   umbrella header "Pods-MagicCardsSnapshotTests-umbrella.h"
 
   export *
