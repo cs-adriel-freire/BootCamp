@@ -4,7 +4,7 @@
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="imageData" optional="YES" attributeType="Binary"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="types" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="types" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
     </entity>
     <elements>
         <element name="CDCard" positionX="-63" positionY="-18" width="128" height="103"/>

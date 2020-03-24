@@ -39,6 +39,26 @@ extension CardsCoordinator: Coordinator {
 
     func start() {
         let cardsViewController = CardsViewController(repository: self.repository)
+        cardsViewController.delegate = self
         self.rootController.pushViewController(cardsViewController, animated: true)
+    }
+}
+
+// MARK: - CardsViewControllerDelegate
+
+extension CardsCoordinator: CardsViewControllerDelegate {
+
+    func showDetailsForCard(at indexPath: IndexPath) {
+        let cardDetailsViewController = CardDetailsViewController(repository: self.repository, set: indexPath.section, index: indexPath.item)
+        cardDetailsViewController.delegate = self
+        self.rootController.pushViewController(cardDetailsViewController, animated: true)
+    }
+}
+
+// MARK: - CardDetailsViewControllerDelegate
+
+extension CardsCoordinator: CardDetailsViewControllerDelegate {
+    func closeDetails() {
+        self.rootController.popViewController(animated: true)
     }
 }
