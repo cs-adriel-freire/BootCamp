@@ -46,7 +46,7 @@ final class GridCollectionHeaderView: UICollectionReusableView {
         self.titleLabel.text = title
     }
     
-    func newConfigure(with title: String) {
+    func groupConfigure(with title: String) {
         configure(with: title)
         titleLabel.font = .boldSystemFont(ofSize: 16)
         titleLabel.textColor = .gray

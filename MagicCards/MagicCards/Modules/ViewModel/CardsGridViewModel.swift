@@ -15,8 +15,6 @@ struct CardsGridViewModel {
     let lastSectionCount: Int
 
     private let cardsBySet: [CardSet: [Card]]
-    
-    // MARK: - Methods
 
     // MARK: Initializers
 
@@ -25,9 +23,7 @@ struct CardsGridViewModel {
         let sortedKeysAndValues = cardsBySet.sorted { (lhs, rhs) -> Bool in
             lhs.key.releaseDate > rhs.key.releaseDate
         }
-//        let cardSets = sortedKeysAndValues.map { (arg) -> CardSet in
-//            arg.key
-//        }
+
         let cardsGroups = sortedKeysAndValues.map { (arg) -> [Card] in
             arg.value
         }
@@ -40,6 +36,8 @@ struct CardsGridViewModel {
         self.lastSectionCount = self.numberOfItemsBySection.last ?? 0
     }
     
+    // MARK: - Methods
+    
     func getGroups(forSet set: CardSet) -> [String: [Card]] {
         guard let cards = cardsBySet[set] else {
             return [:]
@@ -49,7 +47,7 @@ struct CardsGridViewModel {
         return groupsDictionary
     }
     
-    func getHeader(atSection section: Int) -> String {
+    func getHeader(forSection section: Int) -> String {
         let heads: [String] = getAllHeaders()
         return heads[section]
     }
@@ -82,7 +80,7 @@ struct CardsGridViewModel {
         return false
     }
     
-    func getItens() -> [[Card]] {
+    func getAllItens() -> [[Card]] {
         var itens: [[Card]] = []
         let headers = getAllHeaders()
         var lastSet = ""
@@ -99,13 +97,12 @@ struct CardsGridViewModel {
             let cardsOfGroup = cards.filter {(card) -> Bool in card.types.contains(header)}
 
             itens.append(cardsOfGroup)
-            print("\n\n\ncads: \(cards) \n\n\n")
         }
         return itens
     }
     
-    func getItens(atSection section: Int, row: Int) -> Card {
-        let itens = getItens()
+    func getItens(forSection section: Int, row: Int) -> Card {
+        let itens = getAllItens()
         return itens[section][row]
     }
     

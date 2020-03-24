@@ -35,7 +35,7 @@ extension GridCollectionDataSource: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let itens = viewModel.getItens()
+        let itens = viewModel.getAllItens()
         return itens[section].count
     }
 
@@ -48,9 +48,10 @@ extension GridCollectionDataSource: UICollectionViewDataSource {
                                                                                for: indexPath) as? GridCollectionHeaderView else {
                                                                                 return UICollectionReusableView()
         }
-        headerView.configure(with: self.viewModel.getHeader(atSection: indexPath.section))
-        if !viewModel.checkIfSet(section: indexPath.section) {
-            headerView.newConfigure(with: self.viewModel.getHeader(atSection: indexPath.section))
+        if viewModel.checkIfSet(section: indexPath.section) {
+            headerView.configure(with: self.viewModel.getHeader(forSection: indexPath.section))
+        } else {
+            headerView.groupConfigure(with: self.viewModel.getHeader(forSection: indexPath.section))
         }
         view = headerView
         return view
@@ -60,12 +61,9 @@ extension GridCollectionDataSource: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCell.reuseIdentifier, for: indexPath) as? CardCell else {
             return UICollectionViewCell()
         }
-        if indexPath.row == 0 {
-            return cell
-        }
-        let card = viewModel.getItens(atSection: indexPath.section, row: indexPath.row)
-        let vm = CardCellViewModel(card: card)
-        cell.configure(with: vm)
+        let card = viewModel.getItens(forSection: indexPath.section, row: indexPath.row)
+        let cardViewModel = CardCellViewModel(card: card)
+        cell.configure(with: cardViewModel)
 
         return cell
     }
