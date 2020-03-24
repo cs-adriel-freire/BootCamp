@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		231564C824290B2800920643 /* CardsGridViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231564C724290B2800920643 /* CardsGridViewDelegate.swift */; };
 		231564CA2429396900920643 /* CardsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231564C92429396900920643 /* CardsViewControllerDelegate.swift */; };
 		231564CC242939A200920643 /* CardDetailsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231564CB242939A200920643 /* CardDetailsViewControllerDelegate.swift */; };
 		2325345A24213B0A00D9F931 /* CardsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2325345924213B0A00D9F931 /* CardsRepositoryProtocol.swift */; };
@@ -72,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		231564C724290B2800920643 /* CardsGridViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridViewDelegate.swift; sourceTree = "<group>"; };
 		231564C92429396900920643 /* CardsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewControllerDelegate.swift; sourceTree = "<group>"; };
 		231564CB242939A200920643 /* CardDetailsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsViewControllerDelegate.swift; sourceTree = "<group>"; };
 		2325345924213B0A00D9F931 /* CardsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -386,6 +388,7 @@
 				5AC398C8241C44C5006FCDE4 /* ViewCode.swift */,
 				231564CD242939BD00920643 /* Delegates */,
 				2325345F24213B4900D9F931 /* Repository */,
+				231564C724290B2800920643 /* CardsGridViewDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -715,6 +718,7 @@
 				FC215E172423C1C700262D9D /* CardDetailsView.swift in Sources */,
 				5AEAB8A32422B9E200084472 /* MagicAPIProvider.swift in Sources */,
 				23684CB024219B170081042C /* CardCellViewModel.swift in Sources */,
+				231564C824290B2800920643 /* CardsGridViewDelegate.swift in Sources */,
 				FC215E152423C1C700262D9D /* CardDetailsView + FlowDelegate.swift in Sources */,
 				231564CA2429396900920643 /* CardsViewControllerDelegate.swift in Sources */,
 				23E118DD241FF99200CC6E61 /* CardDetailsViewController.swift in Sources */,

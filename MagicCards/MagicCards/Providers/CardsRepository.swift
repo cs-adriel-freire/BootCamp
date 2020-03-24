@@ -96,6 +96,11 @@ final class CardsRepository {
 
 extension CardsRepository: CardsRepositoryProtocol {
 
+    func reset() {
+        self.cardSets = []
+        self.cards = [:]
+    }
+
     func getCards(untilSet setIndex: Int, completion: @escaping (Result<[CardSet: [Card]], Error>) -> Void) {
 
         self.getCardSet(withIndex: setIndex) { result in

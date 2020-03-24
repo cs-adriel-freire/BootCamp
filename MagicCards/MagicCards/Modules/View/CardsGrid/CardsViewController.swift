@@ -63,6 +63,7 @@ final class CardsViewController: UIViewController {
 
     override func loadView() {
         self.view = self.gridView
+        self.gridView.delegate = self
     }
 
     override func viewDidLoad() {
@@ -115,5 +116,16 @@ extension CardsViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.delegate?.showDetailsForCard(at: indexPath)
+    }
+}
+
+// MARK: - CardsGridViewDelegate
+
+extension CardsViewController: CardsGridViewDelegate {
+
+    func refresh() {
+        self.cardsRepository.reset()
+        self.viewModel = CardsGridViewModel(cardsBySet: [:])
+        self.getMoreCards()
     }
 }
