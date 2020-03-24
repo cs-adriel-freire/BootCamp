@@ -91,4 +91,9 @@ final class CardsGridViewTest: XCTestCase {
         self.sut.viewModel = self.viewModel
         expect(self.sut) == snapshot("CardsGridView_newViewModel")
     }
+
+    func testRefresh() {
+        self.sut.refreshCollectionView()
+        expect(self.sut) == snapshot("CardsGridView_initialViewModel")
+    }
 }

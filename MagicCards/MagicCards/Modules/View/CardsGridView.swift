@@ -13,6 +13,8 @@ final class CardsGridView: UIView {
 
     // MARK: - Variables
 
+    // MARK: ViewModel
+
     var viewModel: CardsGridViewModel {
         didSet {
             self.gridCollectionDataSource.viewModel = self.viewModel
@@ -21,6 +23,10 @@ final class CardsGridView: UIView {
             }
         }
     }
+
+    // MARK: Delegate
+
+    weak var delegate: CardsGridViewDelegate?
 
     // MARK: CollectionVIew
 
@@ -50,13 +56,23 @@ final class CardsGridView: UIView {
         return view
     }()
 
+    private lazy var refreshControl: UIRefreshControl = {
+        let view = UIRefreshControl()
+        view.tintColor = .white
+        view.attributedTitle = NSAttributedString(string: "Pull down to refresh", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white,
+                                                                                               NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)])
+        view.addTarget(self, action: #selector(self.refreshCollectionView), for: .valueChanged)
+        self.collectionView.refreshControl = view
+        return view
+    }()
+
     // MARK: - Methods
 
     // MARK: Initializers
 
     init(frame: CGRect = .zero, viewModel: CardsGridViewModel, collectionDelegate: UICollectionViewDelegate? = nil) {
-        self.collectionViewDelegate = collectionDelegate
         self.viewModel = viewModel
+        self.collectionViewDelegate = collectionDelegate
         self.collectionFlowLayout = CardsGridViewFlowLayout()
         self.gridCollectionDataSource = GridCollectionDataSource(viewModel: self.viewModel)
         super.init(frame: frame)
@@ -73,6 +89,13 @@ final class CardsGridView: UIView {
     func updateFrame() {
         self.collectionFlowLayout.collectionFrame = self.collectionView.frame
     }
+
+    // MARK: Refresh
+
+    @objc func refreshCollectionView() {
+        self.collectionView.refreshControl?.endRefreshing()
+        self.delegate?.refresh()
+    }
 }
 
 // MARK: - ViewCode
@@ -82,6 +105,7 @@ extension CardsGridView: ViewCode {
     func buildViewHierarchy() {
         self.addSubview(self.backgroundImageView)
         self.addSubview(collectionView)
+        self.collectionView.addSubview(self.refreshControl)
     }
 
     func setupContraints() {
