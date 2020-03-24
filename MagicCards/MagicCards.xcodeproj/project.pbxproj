@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00A8FE758E31C2060B4AEAE5 /* Pods_MagicCardsSnapshotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F92AD5549A92796F6324B5 /* Pods_MagicCardsSnapshotTests.framework */; };
+		231564CA2429396900920643 /* CardsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231564C92429396900920643 /* CardsViewControllerDelegate.swift */; };
+		231564CC242939A200920643 /* CardDetailsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231564CB242939A200920643 /* CardDetailsViewControllerDelegate.swift */; };
 		2325345A24213B0A00D9F931 /* CardsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2325345924213B0A00D9F931 /* CardsRepositoryProtocol.swift */; };
 		2325345C24213B2300D9F931 /* FavoriteCardsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2325345B24213B2300D9F931 /* FavoriteCardsRepositoryProtocol.swift */; };
 		2325345E24213B3600D9F931 /* CardDetailsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2325345D24213B3600D9F931 /* CardDetailsRepositoryProtocol.swift */; };
@@ -88,6 +91,8 @@
 /* Begin PBXFileReference section */
 		18AACB8879566E0B9B73096D /* Pods-MagicCardsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsTests.release.xcconfig"; path = "Target Support Files/Pods-MagicCardsTests/Pods-MagicCardsTests.release.xcconfig"; sourceTree = "<group>"; };
 		21FBED51FDA52A0E3908D1CE /* Pods-MagicCardsSnapshotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsSnapshotTests.debug.xcconfig"; path = "Target Support Files/Pods-MagicCardsSnapshotTests/Pods-MagicCardsSnapshotTests.debug.xcconfig"; sourceTree = "<group>"; };
+		231564C92429396900920643 /* CardsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewControllerDelegate.swift; sourceTree = "<group>"; };
+		231564CB242939A200920643 /* CardDetailsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsViewControllerDelegate.swift; sourceTree = "<group>"; };
 		2325345924213B0A00D9F931 /* CardsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsRepositoryProtocol.swift; sourceTree = "<group>"; };
 		2325345B24213B2300D9F931 /* FavoriteCardsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCardsRepositoryProtocol.swift; sourceTree = "<group>"; };
 		2325345D24213B3600D9F931 /* CardDetailsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -207,6 +212,15 @@
 				23E118DB241FF99200CC6E61 /* FavoritesViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		231564CD242939BD00920643 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				231564CB242939A200920643 /* CardDetailsViewControllerDelegate.swift */,
+				231564C92429396900920643 /* CardsViewControllerDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		2325345F24213B4900D9F931 /* Repository */ = {
@@ -448,6 +462,7 @@
 				5AC398CA241C44F8006FCDE4 /* Coordinator.swift */,
 				5AEAB89C2422B86300084472 /* SessionProvider.swift */,
 				5AC398C8241C44C5006FCDE4 /* ViewCode.swift */,
+				231564CD242939BD00920643 /* Delegates */,
 				2325345F24213B4900D9F931 /* Repository */,
 			);
 			path = Protocols;
@@ -517,6 +532,7 @@
 				FC215E122423C1C700262D9D /* CardDetailsCollectionDataSource.swift */,
 				FC215E112423C1C700262D9D /* CardDetailsView + FlowDelegate.swift */,
 				FC215E132423C1C700262D9D /* CardDetailsView.swift */,
+				23E118DA241FF99200CC6E61 /* CardDetailsViewController.swift */,
 				FC215E102423C1C700262D9D /* CardDetailsViewDelegate.swift */,
 			);
 			name = CardDetails;
@@ -773,10 +789,12 @@
 				23684CB024219B170081042C /* CardCellViewModel.swift in Sources */,
 				FC215E152423C1C700262D9D /* CardDetailsView + FlowDelegate.swift in Sources */,
 				5A7A0E9F2423A85A00901E96 /* GridFavoritesCollectionDataSource.swift in Sources */,
+				231564CA2429396900920643 /* CardsViewControllerDelegate.swift in Sources */,
 				23E118DD241FF99200CC6E61 /* CardDetailsViewController.swift in Sources */,
 				2325345A24213B0A00D9F931 /* CardsRepositoryProtocol.swift in Sources */,
 				23E118DE241FF99200CC6E61 /* FavoritesViewController.swift in Sources */,
 				5AEAB8992422B7BA00084472 /* CardDTO.swift in Sources */,
+				231564CC242939A200920643 /* CardDetailsViewControllerDelegate.swift in Sources */,
 				5AEAB89B2422B7EF00084472 /* CardSetDTO.swift in Sources */,
 				5A13F07D241D31CA00276862 /* CardSet.swift in Sources */,
 				5A7A0EA32423B73000901E96 /* FavoriteCardsGridView.swift in Sources */,
