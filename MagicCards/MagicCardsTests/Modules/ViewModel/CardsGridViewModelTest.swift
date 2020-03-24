@@ -18,6 +18,7 @@ final class CardsGridViewModelTest: XCTestCase {
     var abominationCard: Card!
     var abundanceCard: Card!
     var academyCard: Card!
+    var airElementalCard: Card!
 
     // MARK: - Methods
 
@@ -36,13 +37,14 @@ final class CardsGridViewModelTest: XCTestCase {
                                 name: "Academy Researchers",
                                 imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=132072&type=card",
                                 types: ["Creature"])
+        self.airElementalCard = Card(id: "2854f284-974b-5842-8748-7c300e825b6c", name: "Air Elemental", imageUrl: nil, types: ["Creature"])
 
         let referenceDate = Date()
         let cardsBySet: [CardSet: [Card]] = [
             CardSet(id: "KTK", name: "Khans of Tarkir", releaseDate: Date(timeInterval: 10.0, since: referenceDate)):
                 [self.abominationCard],
             CardSet(id: "10E", name: "Tenth Edition", releaseDate: Date(timeInterval: 50.0, since: referenceDate)):
-                [self.abundanceCard, self.academyCard]
+                [self.abundanceCard, self.academyCard, self.airElementalCard]
         ]
 
         self.sut = CardsGridViewModel(cardsBySet: cardsBySet)
@@ -68,7 +70,7 @@ final class CardsGridViewModelTest: XCTestCase {
         let itens = sut.getItens()
         print(itens)
         XCTAssert(itens[0].isEmpty)
-        XCTAssert(itens[1].count == 1)
+        XCTAssert(itens[1].count == 2)
         XCTAssert(itens[2].count == 1)
         XCTAssert(itens[3].isEmpty)
         XCTAssert(itens[4].count == 1)
@@ -86,6 +88,7 @@ final class CardsGridViewModelTest: XCTestCase {
     func testViewModelBySection() {
 
         XCTAssert(sut.getItens(atSection: 1, row: 0) == academyCard)
+        XCTAssert(sut.getItens(atSection: 1, row: 1) == airElementalCard)
         XCTAssert(sut.getItens(atSection: 2, row: 0) == abundanceCard)
         XCTAssert(sut.getItens(atSection: 4, row: 0) == abominationCard)
     }
