@@ -9,5 +9,4 @@
 import UIKit
 protocol CardDetailsViewDelegate: AnyObject {
     func didClickOnCloseButton()
-    func didClickOnFavoriteButton()
 }

@@ -82,8 +82,4 @@ extension CardDetailsViewController: CardDetailsViewDelegate {
     func didClickOnCloseButton() {
         self.delegate?.closeDetails()
     }
-    
-    func didClickOnFavoriteButton() {
-        //
-    }
 }

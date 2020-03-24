@@ -106,68 +106,6 @@ final class MagicAPIProvider: SessionProvider {
 
 extension MagicAPIProvider: CardsProvider {
 
-    public func fetchCards(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void) {
-        let dispatchGroup = DispatchGroup()
-        let dispatchQueue = DispatchQueue(label: "fetchCards")
-        var cards: [Card] = []
-        guard let requestBuilder = requestBuilders["cards"] else {
-            // TODO: Change to a valid error return
-            return
-        }
-        
-        let params = [URLQueryItem(name: "name", value: name), URLQueryItem(name: "page", value: "1")]
-        let request = requestBuilder.request(withParams: params)
-    
-        dispatchGroup.enter()
-        fetch(withRequest: request, decoder: decoder) { (result: Result<(CardDTO, URLResponse), SessionProviderError>) in
-            switch result {
-            case .success(let (dto, response)):
-                cards.append(contentsOf: dto.cards)
-                
-                for card in dto.cards {
-                    dispatchGroup.enter()
-                    self.fetchImage(forCard: card) { (data) in
-                        card.imageData = data
-                        dispatchGroup.leave()
-                    }
-                }
-                
-                for page in 2 ... self.pages(forResponse: response) {
-                    let params = [URLQueryItem(name: "name", value: name), URLQueryItem(name: "page", value: String(page))]
-                    let request = requestBuilder.request(withParams: params)
-                    dispatchGroup.enter()
-                    self.fetch(withRequest: request, decoder: self.decoder) { (result: Result<(CardDTO, URLResponse), SessionProviderError>) in
-                        switch result {
-                        case .success(let (dto, _)):
-                            cards.append(contentsOf: dto.cards)
-                            
-                            for card in dto.cards {
-                                dispatchGroup.enter()
-                                self.fetchImage(forCard: card) { (data) in
-                                    card.imageData = data
-                                    dispatchGroup.leave()
-                                }
-                            }
-                            
-                            dispatchGroup.leave()
-                        case .failure(let error):
-                            completion(.failure(error))
-                            dispatchGroup.leave()
-                        }
-                    }
-                }
-                dispatchGroup.leave()
-            case .failure(let error):
-                completion(.failure(error))
-                dispatchGroup.leave()
-            }
-            
-            dispatchGroup.notify(queue: dispatchQueue) {
-                completion(.success(cards))
-            }
-        }
-    }
-
     public func fetchCards(withSet set: String, completion: @escaping (Result<[Card], Error>) -> Void) {
         let dispatchGroup = DispatchGroup()
         let dispatchQueue = DispatchQueue(label: "fetchCards")
