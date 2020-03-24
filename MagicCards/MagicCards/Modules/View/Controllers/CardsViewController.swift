@@ -12,7 +12,7 @@ final class CardsViewController: UIViewController {
     typealias Repository = CardsRepositoryProtocol & CardDetailsRepositoryProtocol
 
     // MARK: - Variables
-
+    private let indicator = UIActivityIndicatorView(style: .whiteLarge)
     var gotLastSet: Bool
 
     // MARK: View
@@ -24,6 +24,9 @@ final class CardsViewController: UIViewController {
     private var viewModel = CardsGridViewModel(cardsBySet: [:]) {
         didSet {
             self.gridView.viewModel = self.viewModel
+            DispatchQueue.main.async {
+                self.indicator.stopAnimating()
+            }
         }
     }
 
@@ -36,7 +39,14 @@ final class CardsViewController: UIViewController {
     weak var delegate: CardsViewControllerDelegate?
 
     // MARK: - Methods
-
+    private func setUpActivityIndicator() {
+        
+        indicator.center = view.center
+        self.view.addSubview(indicator)
+        indicator.startAnimating()
+        
+    }
+    
     // MARK: Initializers
 
     init(repository: Repository) {
@@ -58,6 +68,10 @@ final class CardsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getMoreCards()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+       setUpActivityIndicator()
     }
 
     override func viewDidLayoutSubviews() {
