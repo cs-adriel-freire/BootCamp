@@ -25,7 +25,7 @@ final class CardsViewController: UIViewController {
         didSet {
             self.gridView.viewModel = self.viewModel
             DispatchQueue.main.async {
-                self.updateActivityIndicator()
+                self.indicator.stopAnimating()
             }
         }
     }
@@ -39,14 +39,12 @@ final class CardsViewController: UIViewController {
     weak var delegate: CardsViewControllerDelegate?
 
     // MARK: - Methods
-    private func updateActivityIndicator() {
-        if indicator.isAnimating {
-            indicator.stopAnimating()
-        } else {
-            indicator.center = view.center
-            self.view.addSubview(indicator)
-            indicator.startAnimating()
-        }
+    private func setUpActivityIndicator() {
+        
+        indicator.center = view.center
+        self.view.addSubview(indicator)
+        indicator.startAnimating()
+        
     }
     
     // MARK: Initializers
@@ -73,7 +71,7 @@ final class CardsViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-       updateActivityIndicator()
+       setUpActivityIndicator()
     }
 
     override func viewDidLayoutSubviews() {
