@@ -1,7 +1,7 @@
 platform :ios, '10.0'
 
 target 'MagicCards' do
-  use_frameworks!
+  use_frameworks! :linkage => :static
 
   pod 'SnapKit', '~> 5.0.0'
   pod 'SwiftLint'

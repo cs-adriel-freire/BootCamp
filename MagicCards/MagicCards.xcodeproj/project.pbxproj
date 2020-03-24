@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00A8FE758E31C2060B4AEAE5 /* Pods_MagicCardsSnapshotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F92AD5549A92796F6324B5 /* Pods_MagicCardsSnapshotTests.framework */; };
 		231564C824290B2800920643 /* CardsGridViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231564C724290B2800920643 /* CardsGridViewDelegate.swift */; };
 		231564CA2429396900920643 /* CardsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231564C92429396900920643 /* CardsViewControllerDelegate.swift */; };
 		231564CC242939A200920643 /* CardDetailsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231564CB242939A200920643 /* CardDetailsViewControllerDelegate.swift */; };
@@ -39,6 +38,7 @@
 		23E118ED2420087C00CC6E61 /* FavoritesCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118EC2420087C00CC6E61 /* FavoritesCoordinatorTest.swift */; };
 		23E118F124200DD500CC6E61 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118F024200DD500CC6E61 /* CardCell.swift */; };
 		23E118F624201A3300CC6E61 /* CardCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E118F524201A3300CC6E61 /* CardCellTest.swift */; };
+		56662F03A5037D09A71DC854 /* Pods_MagicCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E4C18687F4AB32A99E7194 /* Pods_MagicCards.framework */; };
 		5A13F07B241D31B000276862 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A13F07A241D31B000276862 /* Card.swift */; };
 		5A13F07D241D31CA00276862 /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A13F07C241D31CA00276862 /* CardSet.swift */; };
 		5A7A0E9F2423A85A00901E96 /* GridFavoritesCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7A0E9E2423A85A00901E96 /* GridFavoritesCollectionDataSource.swift */; };
@@ -58,14 +58,14 @@
 		5AEAB8A32422B9E200084472 /* MagicAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEAB8A22422B9E200084472 /* MagicAPIProvider.swift */; };
 		5AEAB8A82423197C00084472 /* URLSessionStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEAB8A72423197C00084472 /* URLSessionStub.swift */; };
 		5AEAB8AA24231B6D00084472 /* MagicAPIProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEAB8A924231B6D00084472 /* MagicAPIProviderTest.swift */; };
-		65584E7F166B5C625A96D9B7 /* Pods_MagicCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 314ACA793FC97EA9D8B93FE9 /* Pods_MagicCards.framework */; };
-		EDC392ACAFE8AA31584F1635 /* Pods_MagicCardsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86F810F4E12862F3BF45E99F /* Pods_MagicCardsTests.framework */; };
+		A7491BCB40A6A0B66E444EC2 /* Pods_MagicCardsSnapshotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD42089E926DC5A5112F0F25 /* Pods_MagicCardsSnapshotTests.framework */; };
 		FC215E142423C1C700262D9D /* CardDetailsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC215E102423C1C700262D9D /* CardDetailsViewDelegate.swift */; };
 		FC215E152423C1C700262D9D /* CardDetailsView + FlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC215E112423C1C700262D9D /* CardDetailsView + FlowDelegate.swift */; };
 		FC215E162423C1C700262D9D /* CardDetailsCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC215E122423C1C700262D9D /* CardDetailsCollectionDataSource.swift */; };
 		FC215E172423C1C700262D9D /* CardDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC215E132423C1C700262D9D /* CardDetailsView.swift */; };
 		FC215E192423C1D900262D9D /* CardDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC215E182423C1D900262D9D /* CardDetailsViewModel.swift */; };
 		FC215E1B2423C1F300262D9D /* CardDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC215E1A2423C1F300262D9D /* CardDetailsView.swift */; };
+		FD7ECB8849823FA892E0B8AC /* Pods_MagicCardsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D00A5429514E3F1CD756E44 /* Pods_MagicCardsTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,8 +86,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		18AACB8879566E0B9B73096D /* Pods-MagicCardsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsTests.release.xcconfig"; path = "Target Support Files/Pods-MagicCardsTests/Pods-MagicCardsTests.release.xcconfig"; sourceTree = "<group>"; };
-		21FBED51FDA52A0E3908D1CE /* Pods-MagicCardsSnapshotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsSnapshotTests.debug.xcconfig"; path = "Target Support Files/Pods-MagicCardsSnapshotTests/Pods-MagicCardsSnapshotTests.debug.xcconfig"; sourceTree = "<group>"; };
 		231564C724290B2800920643 /* CardsGridViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridViewDelegate.swift; sourceTree = "<group>"; };
 		231564C92429396900920643 /* CardsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewControllerDelegate.swift; sourceTree = "<group>"; };
 		231564CB242939A200920643 /* CardDetailsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsViewControllerDelegate.swift; sourceTree = "<group>"; };
@@ -119,8 +117,8 @@
 		23E118EC2420087C00CC6E61 /* FavoritesCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinatorTest.swift; sourceTree = "<group>"; };
 		23E118F024200DD500CC6E61 /* CardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		23E118F524201A3300CC6E61 /* CardCellTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellTest.swift; sourceTree = "<group>"; };
-		314ACA793FC97EA9D8B93FE9 /* Pods_MagicCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MagicCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		41C558B83C610F5583F274D6 /* Pods-MagicCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCards.release.xcconfig"; path = "Target Support Files/Pods-MagicCards/Pods-MagicCards.release.xcconfig"; sourceTree = "<group>"; };
+		47CE9EBD706456411FB4BE00 /* Pods-MagicCards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCards.debug.xcconfig"; path = "Target Support Files/Pods-MagicCards/Pods-MagicCards.debug.xcconfig"; sourceTree = "<group>"; };
+		584AEF75F8AFB07BC9EB519F /* Pods-MagicCardsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsTests.release.xcconfig"; path = "Target Support Files/Pods-MagicCardsTests/Pods-MagicCardsTests.release.xcconfig"; sourceTree = "<group>"; };
 		5A13F07A241D31B000276862 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		5A13F07C241D31CA00276862 /* CardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSet.swift; sourceTree = "<group>"; };
 		5A6E8FF2241C42B400C5EC53 /* MagicCardsSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicCardsSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,11 +144,13 @@
 		5AEAB8A22422B9E200084472 /* MagicAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicAPIProvider.swift; sourceTree = "<group>"; };
 		5AEAB8A72423197C00084472 /* URLSessionStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionStub.swift; sourceTree = "<group>"; };
 		5AEAB8A924231B6D00084472 /* MagicAPIProviderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicAPIProviderTest.swift; sourceTree = "<group>"; };
-		86F810F4E12862F3BF45E99F /* Pods_MagicCardsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MagicCardsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A5F92AD5549A92796F6324B5 /* Pods_MagicCardsSnapshotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MagicCardsSnapshotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E105FA3BA762F775A21B8AD7 /* Pods-MagicCardsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsTests.debug.xcconfig"; path = "Target Support Files/Pods-MagicCardsTests/Pods-MagicCardsTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E6A3884CDF3EFE75F2D33A96 /* Pods-MagicCards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCards.debug.xcconfig"; path = "Target Support Files/Pods-MagicCards/Pods-MagicCards.debug.xcconfig"; sourceTree = "<group>"; };
-		ED108DF496D2A464928A2F89 /* Pods-MagicCardsSnapshotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsSnapshotTests.release.xcconfig"; path = "Target Support Files/Pods-MagicCardsSnapshotTests/Pods-MagicCardsSnapshotTests.release.xcconfig"; sourceTree = "<group>"; };
+		5D00A5429514E3F1CD756E44 /* Pods_MagicCardsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MagicCardsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		780EAA1A33ACF672FC5BCBE0 /* Pods-MagicCardsSnapshotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsSnapshotTests.debug.xcconfig"; path = "Target Support Files/Pods-MagicCardsSnapshotTests/Pods-MagicCardsSnapshotTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7FA2ED32834AE9A477C13589 /* Pods-MagicCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCards.release.xcconfig"; path = "Target Support Files/Pods-MagicCards/Pods-MagicCards.release.xcconfig"; sourceTree = "<group>"; };
+		AD42089E926DC5A5112F0F25 /* Pods_MagicCardsSnapshotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MagicCardsSnapshotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B59A395F14C13E058779C417 /* Pods-MagicCardsSnapshotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsSnapshotTests.release.xcconfig"; path = "Target Support Files/Pods-MagicCardsSnapshotTests/Pods-MagicCardsSnapshotTests.release.xcconfig"; sourceTree = "<group>"; };
+		B8E4C18687F4AB32A99E7194 /* Pods_MagicCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MagicCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E784D43D65D5E3885A60C127 /* Pods-MagicCardsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicCardsTests.debug.xcconfig"; path = "Target Support Files/Pods-MagicCardsTests/Pods-MagicCardsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FC215E102423C1C700262D9D /* CardDetailsViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardDetailsViewDelegate.swift; path = CardDetails/CardDetailsViewDelegate.swift; sourceTree = "<group>"; };
 		FC215E112423C1C700262D9D /* CardDetailsView + FlowDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CardDetailsView + FlowDelegate.swift"; path = "CardDetails/CardDetailsView + FlowDelegate.swift"; sourceTree = "<group>"; };
 		FC215E122423C1C700262D9D /* CardDetailsCollectionDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardDetailsCollectionDataSource.swift; path = CardDetails/CardDetailsCollectionDataSource.swift; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00A8FE758E31C2060B4AEAE5 /* Pods_MagicCardsSnapshotTests.framework in Frameworks */,
+				A7491BCB40A6A0B66E444EC2 /* Pods_MagicCardsSnapshotTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,7 +172,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65584E7F166B5C625A96D9B7 /* Pods_MagicCards.framework in Frameworks */,
+				56662F03A5037D09A71DC854 /* Pods_MagicCards.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,23 +180,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDC392ACAFE8AA31584F1635 /* Pods_MagicCardsTests.framework in Frameworks */,
+				FD7ECB8849823FA892E0B8AC /* Pods_MagicCardsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0493669217FA48933A3F8C8C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				314ACA793FC97EA9D8B93FE9 /* Pods_MagicCards.framework */,
-				A5F92AD5549A92796F6324B5 /* Pods_MagicCardsSnapshotTests.framework */,
-				86F810F4E12862F3BF45E99F /* Pods_MagicCardsTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		230F400D2420335F00E2BA74 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,7 +325,7 @@
 				5A6E8FF3241C42B400C5EC53 /* MagicCardsSnapshotTests */,
 				5AD28B9E241C3D4C0072BBEB /* Products */,
 				7AA996474318A7984B177B4D /* Pods */,
-				0493669217FA48933A3F8C8C /* Frameworks */,
+				7EBB55D15122D6C1561A9402 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -506,14 +496,24 @@
 		7AA996474318A7984B177B4D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E6A3884CDF3EFE75F2D33A96 /* Pods-MagicCards.debug.xcconfig */,
-				41C558B83C610F5583F274D6 /* Pods-MagicCards.release.xcconfig */,
-				21FBED51FDA52A0E3908D1CE /* Pods-MagicCardsSnapshotTests.debug.xcconfig */,
-				ED108DF496D2A464928A2F89 /* Pods-MagicCardsSnapshotTests.release.xcconfig */,
-				E105FA3BA762F775A21B8AD7 /* Pods-MagicCardsTests.debug.xcconfig */,
-				18AACB8879566E0B9B73096D /* Pods-MagicCardsTests.release.xcconfig */,
+				47CE9EBD706456411FB4BE00 /* Pods-MagicCards.debug.xcconfig */,
+				7FA2ED32834AE9A477C13589 /* Pods-MagicCards.release.xcconfig */,
+				780EAA1A33ACF672FC5BCBE0 /* Pods-MagicCardsSnapshotTests.debug.xcconfig */,
+				B59A395F14C13E058779C417 /* Pods-MagicCardsSnapshotTests.release.xcconfig */,
+				E784D43D65D5E3885A60C127 /* Pods-MagicCardsTests.debug.xcconfig */,
+				584AEF75F8AFB07BC9EB519F /* Pods-MagicCardsTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		7EBB55D15122D6C1561A9402 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B8E4C18687F4AB32A99E7194 /* Pods_MagicCards.framework */,
+				AD42089E926DC5A5112F0F25 /* Pods_MagicCardsSnapshotTests.framework */,
+				5D00A5429514E3F1CD756E44 /* Pods_MagicCardsTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		FC215E0F2423C1B900262D9D /* CardDetails */ = {
@@ -535,11 +535,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A6E8FFB241C42B400C5EC53 /* Build configuration list for PBXNativeTarget "MagicCardsSnapshotTests" */;
 			buildPhases = (
-				88CCCED159232CD8D86AA262 /* [CP] Check Pods Manifest.lock */,
+				B143C83E59016D23961826BC /* [CP] Check Pods Manifest.lock */,
 				5A6E8FEE241C42B400C5EC53 /* Sources */,
 				5A6E8FEF241C42B400C5EC53 /* Frameworks */,
 				5A6E8FF0241C42B400C5EC53 /* Resources */,
-				64FBD6C793808C7289124FA2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -555,11 +554,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5AD28BBC241C3D530072BBEB /* Build configuration list for PBXNativeTarget "MagicCards" */;
 			buildPhases = (
-				A2488A1786F98496DA61B47F /* [CP] Check Pods Manifest.lock */,
+				EC5DEB2ECC1A14A520E86437 /* [CP] Check Pods Manifest.lock */,
 				5AD28B99241C3D4C0072BBEB /* Sources */,
 				5AD28B9A241C3D4C0072BBEB /* Frameworks */,
 				5AD28B9B241C3D4C0072BBEB /* Resources */,
-				DE046A7D58CB8CBCD4508FE2 /* [CP] Embed Pods Frameworks */,
 				5A75361F241FF9DE0098C08D /* SwiftLint script */,
 			);
 			buildRules = (
@@ -575,7 +573,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5AD28BBF241C3D530072BBEB /* Build configuration list for PBXNativeTarget "MagicCardsTests" */;
 			buildPhases = (
-				A51843795600C71519D3398F /* [CP] Check Pods Manifest.lock */,
+				A420DCC31CBD1B6BECB59EEA /* [CP] Check Pods Manifest.lock */,
 				5AD28BAF241C3D530072BBEB /* Sources */,
 				5AD28BB0241C3D530072BBEB /* Frameworks */,
 				5AD28BB1241C3D530072BBEB /* Resources */,
@@ -680,68 +678,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n\n";
 		};
-		64FBD6C793808C7289124FA2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MagicCardsSnapshotTests/Pods-MagicCardsSnapshotTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MagicCardsSnapshotTests/Pods-MagicCardsSnapshotTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MagicCardsSnapshotTests/Pods-MagicCardsSnapshotTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		88CCCED159232CD8D86AA262 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MagicCardsSnapshotTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A2488A1786F98496DA61B47F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MagicCards-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A51843795600C71519D3398F /* [CP] Check Pods Manifest.lock */ = {
+		A420DCC31CBD1B6BECB59EEA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -763,21 +700,48 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DE046A7D58CB8CBCD4508FE2 /* [CP] Embed Pods Frameworks */ = {
+		B143C83E59016D23961826BC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MagicCards/Pods-MagicCards-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MagicCards/Pods-MagicCards-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MagicCardsSnapshotTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MagicCards/Pods-MagicCards-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC5DEB2ECC1A14A520E86437 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MagicCards-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -887,7 +851,7 @@
 /* Begin XCBuildConfiguration section */
 		5A6E8FF9241C42B400C5EC53 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21FBED51FDA52A0E3908D1CE /* Pods-MagicCardsSnapshotTests.debug.xcconfig */;
+			baseConfigurationReference = 780EAA1A33ACF672FC5BCBE0 /* Pods-MagicCardsSnapshotTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -911,7 +875,7 @@
 		};
 		5A6E8FFA241C42B400C5EC53 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED108DF496D2A464928A2F89 /* Pods-MagicCardsSnapshotTests.release.xcconfig */;
+			baseConfigurationReference = B59A395F14C13E058779C417 /* Pods-MagicCardsSnapshotTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -1048,7 +1012,7 @@
 		};
 		5AD28BBD241C3D530072BBEB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6A3884CDF3EFE75F2D33A96 /* Pods-MagicCards.debug.xcconfig */;
+			baseConfigurationReference = 47CE9EBD706456411FB4BE00 /* Pods-MagicCards.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1067,7 +1031,7 @@
 		};
 		5AD28BBE241C3D530072BBEB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41C558B83C610F5583F274D6 /* Pods-MagicCards.release.xcconfig */;
+			baseConfigurationReference = 7FA2ED32834AE9A477C13589 /* Pods-MagicCards.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1086,7 +1050,7 @@
 		};
 		5AD28BC0241C3D530072BBEB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E105FA3BA762F775A21B8AD7 /* Pods-MagicCardsTests.debug.xcconfig */;
+			baseConfigurationReference = E784D43D65D5E3885A60C127 /* Pods-MagicCardsTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1111,7 +1075,7 @@
 		};
 		5AD28BC1241C3D530072BBEB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 18AACB8879566E0B9B73096D /* Pods-MagicCardsTests.release.xcconfig */;
+			baseConfigurationReference = 584AEF75F8AFB07BC9EB519F /* Pods-MagicCardsTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
