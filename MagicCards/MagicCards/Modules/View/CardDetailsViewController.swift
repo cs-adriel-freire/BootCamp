@@ -28,25 +28,21 @@ final class CardDetailsViewController: UIViewController {
     // MARK: Data
 
     let repository: Repository
+    let card: Card
 
     // MARK: Delegate
 
     weak var delegate: CardDetailsViewControllerDelegate?
 
-    // MARK: Position
-
-    let set: Int
-    let index: Int
-
     // MARK: - Methods
 
     // MARK: Initializers
 
-    init(repository: Repository, set: Int, index: Int) {
+    init(repository: Repository, card: Card) {
         self.repository = repository
-        self.set = set
-        self.index = index
-        self.viewModel = CardDetailsViewModel(cards: [])
+
+        self.card = card
+        self.viewModel = CardDetailsViewModel(cards: [card])
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -61,18 +57,6 @@ final class CardDetailsViewController: UIViewController {
         self.detailsView.delegate = self
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.repository.getCard(fromSet: self.set, withIndex: self.index) { result in
-            switch result {
-            case let .success(card):
-                self.viewModel = CardDetailsViewModel(cards: [card])
-            case let .failure(error):
-                // TOTO: Handle error
-                print(error)
-            }
-        }
-    }
 }
 
 // MARK: - CardDetailsViewDelegate

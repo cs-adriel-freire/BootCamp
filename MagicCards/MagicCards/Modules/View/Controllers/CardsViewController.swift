@@ -100,6 +100,7 @@ extension CardsViewController: UICollectionViewDelegate {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.delegate?.showDetailsForCard(at: indexPath)
+        let card = viewModel.getItens(forSection: indexPath.section, row: indexPath.row)
+        self.delegate?.showDetails(forCard: card)
     }
 }

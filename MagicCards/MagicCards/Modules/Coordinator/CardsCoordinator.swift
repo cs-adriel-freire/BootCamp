@@ -48,8 +48,8 @@ extension CardsCoordinator: Coordinator {
 
 extension CardsCoordinator: CardsViewControllerDelegate {
 
-    func showDetailsForCard(at indexPath: IndexPath) {
-        let cardDetailsViewController = CardDetailsViewController(repository: self.repository, set: indexPath.section, index: indexPath.item)
+    func showDetails(forCard card: Card) {
+        let cardDetailsViewController = CardDetailsViewController(repository: self.repository, card: card)
         cardDetailsViewController.delegate = self
         self.rootController.pushViewController(cardDetailsViewController, animated: true)
     }
