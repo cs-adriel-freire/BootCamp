@@ -29,6 +29,10 @@ final class CardsViewController: UIViewController {
 
     let cardsRepository: Repository
 
+    // MARK: Delegate
+
+    weak var delegate: CardsViewControllerDelegate?
+
     // MARK: - Methods
 
     // MARK: Initializers
@@ -83,5 +87,9 @@ extension CardsViewController: UICollectionViewDelegate {
         if indexPath == IndexPath(item: self.viewModel.lastSectionCount-1, section: self.viewModel.nextSectionIndex-1) {
             self.getMoreCards()
         }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.delegate?.showDetailsForCard(at: indexPath)
     }
 }
