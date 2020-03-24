@@ -37,7 +37,7 @@ final class CardsGridViewModelTest: XCTestCase {
                                 name: "Academy Researchers",
                                 imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=132072&type=card",
                                 types: ["Creature"])
-        self.airElementalCard = Card(id: "2854f284-974b-5842-8748-7c300e825b6c", name: "Air Elemental", imageUrl: nil, types: ["Creature", "Enchantment"])
+        self.airElementalCard = Card(id: "2854f284-974b-5842-8748-7c300e825b6c", name: "Air Elemental", imageUrl: nil, types: ["Creature", "New"])
 
         let referenceDate = Date()
         let cardsBySet: [CardSet: [Card]] = [
@@ -63,7 +63,7 @@ final class CardsGridViewModelTest: XCTestCase {
     // MARK: Tests  
 
     func testNumberOfSections() {
-        XCTAssert(sut.getAllHeaders().count == 5)
+        XCTAssert(sut.getAllHeaders().count == 6)
     }
     
     func testNumberOsItemsBySection() {
@@ -72,17 +72,19 @@ final class CardsGridViewModelTest: XCTestCase {
         print(itens)
         XCTAssert(itens[0].isEmpty)
         XCTAssert(itens[1].count == 2)
-        XCTAssert(itens[2].count == 2)
-        XCTAssert(itens[3].isEmpty)
-        XCTAssert(itens[4].count == 1)
+        XCTAssert(itens[2].count == 1)
+        XCTAssert(itens[3].count == 1)
+        XCTAssert(itens[4].isEmpty)
+        XCTAssert(itens[5].count == 1)
     }
 
     func testHeaderTitleBySection() {
         XCTAssert(sut.getHeader(forSection: 0) == "Tenth Edition")
         XCTAssert(sut.getHeader(forSection: 1) == "Creature")
         XCTAssert(sut.getHeader(forSection: 2) == "Enchantment")
-        XCTAssert(sut.getHeader(forSection: 3) == "Khans of Tarkir")
-        XCTAssert(sut.getHeader(forSection: 4) == "Creature")
+        XCTAssert(sut.getHeader(forSection: 3) == "New")
+        XCTAssert(sut.getHeader(forSection: 4) == "Khans of Tarkir")
+        XCTAssert(sut.getHeader(forSection: 5) == "Creature")
 
     }
 
@@ -91,8 +93,8 @@ final class CardsGridViewModelTest: XCTestCase {
         XCTAssert(sut.getItens(forSection: 1, row: 0) == academyCard)
         XCTAssert(sut.getItens(forSection: 1, row: 1) == airElementalCard)
         XCTAssert(sut.getItens(forSection: 2, row: 0) == abundanceCard)
-        XCTAssert(sut.getItens(forSection: 2, row: 1) == airElementalCard)
-        XCTAssert(sut.getItens(forSection: 4, row: 0) == abominationCard)
+        XCTAssert(sut.getItens(forSection: 3, row: 0) == airElementalCard)
+        XCTAssert(sut.getItens(forSection: 5, row: 0) == abominationCard)
     }
     
 }

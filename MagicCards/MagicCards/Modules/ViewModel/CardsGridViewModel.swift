@@ -42,9 +42,19 @@ struct CardsGridViewModel {
         guard let cards = cardsBySet[set] else {
             return [:]
         }
-        let groupsDictionary = Dictionary.init(grouping: cards, by: {$0.types[0]})
+        
+        var dict: [String: [Card]] = [:]
+        for card in cards {
+            for type in card.types {
+                if dict[type] == nil {
+                    dict[type] = [card]
+                } else {
+                    dict[type]?.append(card)
+                }
+            }
+        }
 
-        return groupsDictionary
+        return dict
     }
     
     func getHeader(forSection section: Int) -> String {
