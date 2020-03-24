@@ -36,7 +36,7 @@ final class CardsGridViewTest: XCTestCase {
         self.cardsBySet = [:]
         self.referenceDate = Date()
         self.setupInitialViewModel()
-        self.sut = CardsGridView(frame: UIScreen.main.bounds, viewModel: self.viewModel)
+        self.sut = CardsGridView(frame: CGRect(x: 0, y: 0, width: 375, height: 667), viewModel: self.viewModel)
     }
 
     private func setupInitialViewModel() {

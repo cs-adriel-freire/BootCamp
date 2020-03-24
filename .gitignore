@@ -44,6 +44,8 @@ playground.xcworkspace
 
 .build/
 
+Pods/
+
 Carthage/Build
 
 # Accio
