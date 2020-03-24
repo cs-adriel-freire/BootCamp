@@ -56,6 +56,7 @@ final class CardsGridViewModelTest: XCTestCase {
         self.abominationCard = nil
         self.abundanceCard = nil
         self.academyCard = nil
+        self.airElementalCard = nil
         self.sut = nil
     }
 
@@ -92,6 +93,5 @@ final class CardsGridViewModelTest: XCTestCase {
         XCTAssert(sut.getItens(forSection: 2, row: 0) == abundanceCard)
         XCTAssert(sut.getItens(forSection: 4, row: 0) == abominationCard)
     }
-    
     
 }
