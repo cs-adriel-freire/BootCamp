@@ -86,7 +86,7 @@ final class CardsGridViewModelTest: XCTestCase {
 
     }
 
-    func testViewModelBySection() {
+    func testItemForIndexPath() {
 
         XCTAssert(sut.getItens(forSection: 1, row: 0) == academyCard)
         XCTAssert(sut.getItens(forSection: 1, row: 1) == airElementalCard)
