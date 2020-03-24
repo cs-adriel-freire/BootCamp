@@ -29,10 +29,12 @@ final class MagicAPIProvider: SessionProvider {
     init() {
         let cardsRequestBuilder = SessionRequestBuilder(baseURL: URL(string: "https://api.magicthegathering.io/v1")!, path: "cards")
         let cardSetsRequestBuilder = SessionRequestBuilder(baseURL: URL(string: "https://api.magicthegathering.io/v1")!, path: "sets")
+        let imageRequestBuilder = SessionRequestBuilder(baseURL: URL(string: "https://gatherer.wizards.com/Handlers/Image.ashx")!, path: "")
 
         var requestBuilders: [String: SessionRequestBuilder] = [:]
         requestBuilders["cards"] = cardsRequestBuilder
         requestBuilders["sets"] = cardSetsRequestBuilder
+        requestBuilders["images"] = imageRequestBuilder
 
         let decoder: JSONDecoder = {
             let decoder = JSONDecoder()
@@ -49,17 +51,40 @@ final class MagicAPIProvider: SessionProvider {
 
     // MARK: Image fetch
 
-    public func fetchImage(toCardUrl urlString: String?, completion: @escaping (Data) -> Void) {
-        // TODO: Change this empty data to a specific placeholder image
-        let dataPlaceholder: Data = Data()
+    public func fetchImage(forCard card: Card, completion: @escaping (Data?) -> Void) {
+        self.fetchImage(toCardUrl: card.imageUrl) { data in
+            if let data = data {
+                completion(data)
+            } else {
+                guard let requestBuilder = self.requestBuilders["images"] else {
+                    completion(nil)
+                    return
+                }
+
+                let params = [URLQueryItem(name: "name", value: card.name), URLQueryItem(name: "type", value: "card")]
+                let request = requestBuilder.request(withParams: params)
+
+                let task = self.urlSession.dataTask(with: request) { (data, _, _) in
+                    guard let data = data else {
+                        completion(nil)
+                        return
+                    }
+                    completion(data)
+                }
+                task.resume()
+            }
+        }
+    }
+
+    public func fetchImage(toCardUrl urlString: String?, completion: @escaping (Data?) -> Void) {
         guard let urlString = urlString, let url = URL(string: urlString) else {
-            completion(dataPlaceholder)
+            completion(nil)
             return
         }
         let request = URLRequest(url: url)
         let task = urlSession.dataTask(with: request) { (data, _, _) in
             guard let data = data else {
-                completion(dataPlaceholder)
+                completion(nil)
                 return
             }
             completion(data)
@@ -75,7 +100,6 @@ final class MagicAPIProvider: SessionProvider {
         guard let totalCount = Double(totalCountString) else { return 0 }
         return Int((totalCount/100).rounded(.up))
     }
-    
 }
 
 // MARK: - CardsProvider
@@ -102,7 +126,7 @@ extension MagicAPIProvider: CardsProvider {
                 
                 for card in dto.cards {
                     dispatchGroup.enter()
-                    self.fetchImage(toCardUrl: card.imageUrl) { (data) in
+                    self.fetchImage(forCard: card) { (data) in
                         card.imageData = data
                         dispatchGroup.leave()
                     }
@@ -119,7 +143,7 @@ extension MagicAPIProvider: CardsProvider {
                             
                             for card in dto.cards {
                                 dispatchGroup.enter()
-                                self.fetchImage(toCardUrl: card.imageUrl) { (data) in
+                                self.fetchImage(forCard: card) { (data) in
                                     card.imageData = data
                                     dispatchGroup.leave()
                                 }
@@ -164,33 +188,36 @@ extension MagicAPIProvider: CardsProvider {
                 
                 for card in dto.cards {
                     dispatchGroup.enter()
-                    self.fetchImage(toCardUrl: card.imageUrl) { (data) in
+                    self.fetchImage(forCard: card) { (data) in
                         card.imageData = data
                         dispatchGroup.leave()
                     }
                 }
                 
-                for page in 2 ... self.pages(forResponse: response) {
-                    let params = [URLQueryItem(name: "set", value: set), URLQueryItem(name: "page", value: String(page))]
-                    let request = requestBuilder.request(withParams: params)
-                    dispatchGroup.enter()
-                    self.fetch(withRequest: request, decoder: self.decoder) { (result: Result<(CardDTO, URLResponse), SessionProviderError>) in
-                        switch result {
-                        case .success(let (dto, _)):
-                            cards.append(contentsOf: dto.cards)
-                            
-                            for card in dto.cards {
-                                dispatchGroup.enter()
-                                self.fetchImage(toCardUrl: card.imageUrl) { (data) in
-                                    card.imageData = data
-                                    dispatchGroup.leave()
+                let pages = self.pages(forResponse: response)
+                
+                if pages >= 2 {
+                    for page in 2 ... pages {
+                        let params = [URLQueryItem(name: "set", value: set), URLQueryItem(name: "page", value: String(page))]
+                        let request = requestBuilder.request(withParams: params)
+                        dispatchGroup.enter()
+                        self.fetch(withRequest: request, decoder: self.decoder) { (result: Result<(CardDTO, URLResponse), SessionProviderError>) in
+                            switch result {
+                            case .success(let (dto, _)):
+                                cards.append(contentsOf: dto.cards)
+                                
+                                for card in dto.cards {
+                                    dispatchGroup.enter()
+                                    self.fetchImage(toCardUrl: card.imageUrl) { (data) in
+                                        card.imageData = data
+                                        dispatchGroup.leave()
+                                    }
                                 }
+                                dispatchGroup.leave()
+                            case .failure(let error):
+                                completion(.failure(error))
+                                dispatchGroup.leave()
                             }
-                            
-                            dispatchGroup.leave()
-                        case .failure(let error):
-                            completion(.failure(error))
-                            dispatchGroup.leave()
                         }
                     }
                 }

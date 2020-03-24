@@ -81,7 +81,7 @@ extension CardsGridView: ViewCode {
 
     func buildViewHierarchy() {
         self.addSubview(self.backgroundImageView)
-        self.backgroundImageView.addSubview(self.collectionView)
+        self.addSubview(collectionView)
     }
 
     func setupContraints() {
