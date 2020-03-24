@@ -66,6 +66,7 @@ enum SessionProviderError: Error {
     case unknownResponse
     case networkError(Error)
     case requestError(Int)
+    case requestBuilderError
     case serverError(Int)
     case unhandledResponse
     case decodeError
