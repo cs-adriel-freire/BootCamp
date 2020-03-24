@@ -23,7 +23,7 @@ class CardDetailsViewTest: XCTestCase {
         sut = CardDetailsView(viewModel: viewModel)
         sut.frame = UIScreen.main.bounds
         
-        superView = UIView(frame: UIScreen.main.bounds)
+        superView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 667))
         superView.addSubview(sut)
     }
     
