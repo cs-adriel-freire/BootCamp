@@ -38,7 +38,7 @@ final class CardDetailsView: UIView {
     
     private lazy var addFavoriteButton: UIButton = {
         let button = UIButton()
-        button.setTitle("add card to deck", for: .normal)
+        button.setTitle("add card to favorites", for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 16)
         
         button.backgroundColor = .clear
@@ -150,5 +150,6 @@ extension CardDetailsView: ViewCode {
        
     func setupAdditionalConfiguration() {
         cardsCollection.dataSource = collectionDataSource
+        addFavoriteButton.isHidden = true
     }
 }
