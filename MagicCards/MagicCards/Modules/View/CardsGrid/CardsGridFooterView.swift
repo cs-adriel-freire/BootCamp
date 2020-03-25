@@ -41,7 +41,7 @@ final class CardsGridFooterView: UIView {
     
     private let failedText: UILabel = {
         let view = UILabel(frame: .zero)
-        view.text = "Sorry, failed to get more Magic collections.\n Check your internet connection."
+        view.text = "Sorry, failed to get more Magic sets.\n Check your internet connection."
         view.textAlignment = .center
         view.textColor = .white
         view.numberOfLines = 2
