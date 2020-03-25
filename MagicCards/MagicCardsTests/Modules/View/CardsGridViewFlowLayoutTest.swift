@@ -52,10 +52,8 @@ final class CardsGridViewFlowLayoutTest: XCTestCase {
     }
     
     func testMarginForFrame() {
-        let frame = CGRect(x: 0, y: 0, width: 430, height: 900)
-        let dummyCollectionView: UICollectionView = UICollectionView(frame: frame, collectionViewLayout: sut)
-        dummyCollectionView.collectionViewLayout.invalidateLayout()
-        self.sut.collectionFrame = frame
+        let dummyCollectionView: UICollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 430, height: 900), collectionViewLayout: sut)
+        sut.invalidateLayout()
         XCTAssert(sut.minimumLineSpacing == 22)
         XCTAssert(sut.minimumInteritemSpacing == 22)
     }
