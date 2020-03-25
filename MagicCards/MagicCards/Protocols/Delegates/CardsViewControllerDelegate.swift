@@ -10,5 +10,5 @@ import Foundation
 
 protocol CardsViewControllerDelegate: AnyObject {
 
-    func showDetailsForCard(at indexPath: IndexPath)
+    func showDetails(forCard card: Card)
 }

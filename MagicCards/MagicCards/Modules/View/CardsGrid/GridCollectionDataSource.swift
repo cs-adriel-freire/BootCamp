@@ -31,32 +31,29 @@ final class GridCollectionDataSource: NSObject {
 extension GridCollectionDataSource: UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return viewModel.numberOfSections
+        viewModel.getAllHeaders().count
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.viewModel.numberOfItemsBySection[section]
+        let itens = viewModel.getAllItens()
+        return itens[section].count
     }
 
-    //swiftlint:disable line_length
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        //swiftlint:enable line_length
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
 
         let view: UICollectionReusableView
-        switch kind {
-        case UICollectionView.elementKindSectionHeader:
-            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                                   withReuseIdentifier: GridCollectionHeaderView.reuseIdentifier,
-                                                                                   for: indexPath) as? GridCollectionHeaderView else {
-                return UICollectionReusableView()
-            }
-
-            headerView.configure(with: self.viewModel.headerTitleBySection[indexPath.section])
-            view = headerView
-        default:
-            view = UICollectionReusableView()
+        guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                               withReuseIdentifier: GridCollectionHeaderView.reuseIdentifier,
+                                                                               for: indexPath) as? GridCollectionHeaderView else {
+                                                                                return UICollectionReusableView()
         }
-
+        if viewModel.checkIfSet(section: indexPath.section) {
+            headerView.configure(with: self.viewModel.getHeader(forSection: indexPath.section))
+        } else {
+            headerView.groupConfigure(with: self.viewModel.getHeader(forSection: indexPath.section))
+        }
+        view = headerView
         return view
     }
 
@@ -64,8 +61,9 @@ extension GridCollectionDataSource: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCell.reuseIdentifier, for: indexPath) as? CardCell else {
             return UICollectionViewCell()
         }
-
-        cell.configure(with: self.viewModel.viewModelBySection[indexPath.section][indexPath.row])
+        let card = viewModel.getItens(forSection: indexPath.section, row: indexPath.row)
+        let cardViewModel = CardCellViewModel(card: card)
+        cell.configure(with: cardViewModel)
 
         return cell
     }
