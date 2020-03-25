@@ -8,7 +8,6 @@
 
 protocol CardsProvider {
 
-    func fetchCards(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void)
     func fetchCards(withSet set: String, completion: @escaping (Result<[Card], Error>) -> Void)
     func fetchCardSets(completion: @escaping (Result<[CardSet], Error>) -> Void)
 }

@@ -18,6 +18,7 @@ final class CardsGridViewModelTest: XCTestCase {
     var abominationCard: Card!
     var abundanceCard: Card!
     var academyCard: Card!
+    var airElementalCard: Card!
 
     // MARK: - Methods
 
@@ -36,13 +37,14 @@ final class CardsGridViewModelTest: XCTestCase {
                                 name: "Academy Researchers",
                                 imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=132072&type=card",
                                 types: ["Creature"])
+        self.airElementalCard = Card(id: "2854f284-974b-5842-8748-7c300e825b6c", name: "Air Elemental", imageUrl: nil, types: ["Creature", "New"])
 
         let referenceDate = Date()
         let cardsBySet: [CardSet: [Card]] = [
             CardSet(id: "KTK", name: "Khans of Tarkir", releaseDate: Date(timeInterval: 10.0, since: referenceDate)):
                 [self.abominationCard],
             CardSet(id: "10E", name: "Tenth Edition", releaseDate: Date(timeInterval: 50.0, since: referenceDate)):
-                [self.abundanceCard, self.academyCard]
+                [self.abundanceCard, self.academyCard, self.airElementalCard]
         ]
 
         self.sut = CardsGridViewModel(cardsBySet: cardsBySet)
@@ -54,28 +56,45 @@ final class CardsGridViewModelTest: XCTestCase {
         self.abominationCard = nil
         self.abundanceCard = nil
         self.academyCard = nil
+        self.airElementalCard = nil
         self.sut = nil
     }
 
-    // MARK: Tests
+    // MARK: Tests  
 
     func testNumberOfSections() {
-        XCTAssert(self.sut.numberOfSections == 2)
+        XCTAssert(sut.getAllHeaders().count == 6)
     }
-
+    
     func testNumberOsItemsBySection() {
-        XCTAssert(self.sut.numberOfItemsBySection[0] == 2)
-        XCTAssert(self.sut.numberOfItemsBySection[1] == 1)
+        print(sut.getAllHeaders())
+        let itens = sut.getAllItens()
+        print(itens)
+        XCTAssert(itens[0].isEmpty)
+        XCTAssert(itens[1].count == 2)
+        XCTAssert(itens[2].count == 1)
+        XCTAssert(itens[3].count == 1)
+        XCTAssert(itens[4].isEmpty)
+        XCTAssert(itens[5].count == 1)
     }
 
     func testHeaderTitleBySection() {
-        XCTAssert(self.sut.headerTitleBySection[0] == "Tenth Edition")
-        XCTAssert(self.sut.headerTitleBySection[1] == "Khans of Tarkir")
+        XCTAssert(sut.getHeader(forSection: 0) == "Tenth Edition")
+        XCTAssert(sut.getHeader(forSection: 1) == "Creature")
+        XCTAssert(sut.getHeader(forSection: 2) == "Enchantment")
+        XCTAssert(sut.getHeader(forSection: 3) == "New")
+        XCTAssert(sut.getHeader(forSection: 4) == "Khans of Tarkir")
+        XCTAssert(sut.getHeader(forSection: 5) == "Creature")
+
     }
 
-    func testViewModelBySection() {
-        XCTAssert(self.sut.cellViewModelBySection[0][0] == CardCellViewModel(card: self.abundanceCard))
-        XCTAssert(self.sut.cellViewModelBySection[0][1] == CardCellViewModel(card: self.academyCard))
-        XCTAssert(self.sut.cellViewModelBySection[1][0] == CardCellViewModel(card: self.abominationCard))
+    func testItemForIndexPath() {
+
+        XCTAssert(sut.getItens(forSection: 1, row: 0) == academyCard)
+        XCTAssert(sut.getItens(forSection: 1, row: 1) == airElementalCard)
+        XCTAssert(sut.getItens(forSection: 2, row: 0) == abundanceCard)
+        XCTAssert(sut.getItens(forSection: 3, row: 0) == airElementalCard)
+        XCTAssert(sut.getItens(forSection: 5, row: 0) == abominationCard)
     }
+    
 }
