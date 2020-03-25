@@ -13,6 +13,7 @@ final class CardsViewController: UIViewController {
 
     // MARK: - Variables
     private let indicator = UIActivityIndicatorView(style: .whiteLarge)
+    private var firstTimeLoading = true
     var gotLastSet: Bool
 
     // MARK: View
@@ -40,10 +41,12 @@ final class CardsViewController: UIViewController {
 
     // MARK: - Methods
     private func setUpActivityIndicator() {
-        
-        indicator.center = view.center
-        self.view.addSubview(indicator)
-        indicator.startAnimating()
+        if firstTimeLoading {
+            firstTimeLoading = false
+            indicator.center = view.center
+            self.view.addSubview(indicator)
+            indicator.startAnimating()
+        }
         
     }
     
@@ -70,10 +73,6 @@ final class CardsViewController: UIViewController {
         super.viewDidLoad()
         self.getMoreCards()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-       setUpActivityIndicator()
-    }
 
     override func viewDidLayoutSubviews() {
         self.gridView.updateFrame()
@@ -81,6 +80,7 @@ final class CardsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        setUpActivityIndicator()
     }
 
     // MARK: Update data
