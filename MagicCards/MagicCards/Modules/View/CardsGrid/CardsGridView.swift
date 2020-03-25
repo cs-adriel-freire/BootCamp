@@ -86,7 +86,6 @@ final class CardsGridView: UIView {
         return view
     }()
     
-
     // MARK: - Methods
 
     // MARK: Initializers
@@ -135,7 +134,8 @@ final class CardsGridView: UIView {
             } else if state == .success {
                 self.errorView.isHidden = true
                 self.loadingView.isHidden = true
-                self.footerView.isHidden = true
+                self.footerView.setHidden(true)
+                self.footerView.state = .loading
             }
         }
     }

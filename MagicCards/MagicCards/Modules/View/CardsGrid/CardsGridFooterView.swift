@@ -31,22 +31,6 @@ final class CardsGridFooterView: UIView {
         }
     }
     
-    override var isHidden: Bool {
-        willSet(newValue) {
-            DispatchQueue.main.async {
-                if newValue {
-                    UIView.animate(withDuration: 0.3) {
-                        self.alpha = 0.0
-                    }
-                } else {
-                    UIView.animate(withDuration: 0.3) {
-                        self.alpha = 1.0
-                    }
-                }
-            }
-        }
-    }
-    
     // MARK: Subviews
     
     private let indicator: UIActivityIndicatorView = {
@@ -77,6 +61,26 @@ final class CardsGridFooterView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    public func setHidden(_ isHidden: Bool) {
+        DispatchQueue.main.async {
+            if isHidden {
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.alpha = 0.0
+                }) { (success) in
+                    if success {
+                        self.isHidden = true
+                    }
+                }
+            } else {
+                self.isHidden = false
+                UIView.animate(withDuration: 0.3) {
+                    self.alpha = 1.0
+                }
+            }
+        }
+    }
+    
 }
 
 // MARK: - ViewCode

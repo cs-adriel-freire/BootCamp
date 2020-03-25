@@ -39,6 +39,9 @@
 		5AA3DF2D242BED5100DFB51C /* CardsGridFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA3DF2C242BED5100DFB51C /* CardsGridFooterView.swift */; };
 		5AA3DF2F242BEDC600DFB51C /* CardsGridErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA3DF2E242BEDC600DFB51C /* CardsGridErrorView.swift */; };
 		5AA3DF31242BEE0B00DFB51C /* CardsGridLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA3DF30242BEE0B00DFB51C /* CardsGridLoadingView.swift */; };
+		5AA3DF35242BF48400DFB51C /* CardsGridLoadingViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA3DF32242BF48400DFB51C /* CardsGridLoadingViewTest.swift */; };
+		5AA3DF36242BF48400DFB51C /* CardsGridFooterViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA3DF33242BF48400DFB51C /* CardsGridFooterViewTest.swift */; };
+		5AA3DF37242BF48400DFB51C /* CardsGridErrorViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA3DF34242BF48400DFB51C /* CardsGridErrorViewTest.swift */; };
 		5AC398C9241C44C5006FCDE4 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC398C8241C44C5006FCDE4 /* ViewCode.swift */; };
 		5AC398CB241C44F8006FCDE4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC398CA241C44F8006FCDE4 /* Coordinator.swift */; };
 		5AD28BA1241C3D4D0072BBEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD28BA0241C3D4C0072BBEB /* AppDelegate.swift */; };
@@ -111,6 +114,9 @@
 		5AA3DF2C242BED5100DFB51C /* CardsGridFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridFooterView.swift; sourceTree = "<group>"; };
 		5AA3DF2E242BEDC600DFB51C /* CardsGridErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridErrorView.swift; sourceTree = "<group>"; };
 		5AA3DF30242BEE0B00DFB51C /* CardsGridLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridLoadingView.swift; sourceTree = "<group>"; };
+		5AA3DF32242BF48400DFB51C /* CardsGridLoadingViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsGridLoadingViewTest.swift; sourceTree = "<group>"; };
+		5AA3DF33242BF48400DFB51C /* CardsGridFooterViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsGridFooterViewTest.swift; sourceTree = "<group>"; };
+		5AA3DF34242BF48400DFB51C /* CardsGridErrorViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsGridErrorViewTest.swift; sourceTree = "<group>"; };
 		5AC398C8241C44C5006FCDE4 /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		5AC398CA241C44F8006FCDE4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		5AD28B9D241C3D4C0072BBEB /* MagicCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,6 +219,9 @@
 				FC215E1A2423C1F300262D9D /* CardDetailsView.swift */,
 				23E118F524201A3300CC6E61 /* CardGridCellTest.swift */,
 				23684CB7242286090081042C /* CardsGridViewTest.swift */,
+				5AA3DF34242BF48400DFB51C /* CardsGridErrorViewTest.swift */,
+				5AA3DF33242BF48400DFB51C /* CardsGridFooterViewTest.swift */,
+				5AA3DF32242BF48400DFB51C /* CardsGridLoadingViewTest.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -712,7 +721,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				23299FAB24254B1900B626EB /* CardDetailsCellTest.swift in Sources */,
+				5AA3DF36242BF48400DFB51C /* CardsGridFooterViewTest.swift in Sources */,
 				23684CB8242286090081042C /* CardsGridViewTest.swift in Sources */,
+				5AA3DF37242BF48400DFB51C /* CardsGridErrorViewTest.swift in Sources */,
+				5AA3DF35242BF48400DFB51C /* CardsGridLoadingViewTest.swift in Sources */,
 				FC215E1B2423C1F300262D9D /* CardDetailsView.swift in Sources */,
 				23E118F624201A3300CC6E61 /* CardGridCellTest.swift in Sources */,
 			);

@@ -144,12 +144,12 @@ extension CardsViewController: UIScrollViewDelegate {
         let height = scrollView.frame.height
         let contentSizeHeight = scrollView.contentSize.height
         let offset = scrollView.contentOffset.y
-        let reachedBottom = (offset + height >= contentSizeHeight - 10)
+        let reachedBottom = (offset + height >= contentSizeHeight - 5)
         
         if reachedBottom && contentSizeHeight != 0 && !self.gotLastSet {
-            self.gridView.footerView.isHidden = false
+            self.gridView.footerView.setHidden(false)
         } else {
-            self.gridView.footerView.isHidden = true
+            self.gridView.footerView.setHidden(true)
         }
     }
 }
