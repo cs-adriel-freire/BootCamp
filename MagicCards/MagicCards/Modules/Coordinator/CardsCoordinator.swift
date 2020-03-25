@@ -49,7 +49,7 @@ extension CardsCoordinator: Coordinator {
 extension CardsCoordinator: CardsViewControllerDelegate {
 
     func showDetails(forCard card: Card) {
-        let cardDetailsViewController = CardDetailsViewController(repository: self.repository, card: card)
+        let cardDetailsViewController = CardDetailsViewController(card: card)
         cardDetailsViewController.delegate = self
         self.rootController.pushViewController(cardDetailsViewController, animated: true)
     }

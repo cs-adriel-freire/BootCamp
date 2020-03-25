@@ -9,7 +9,6 @@
 import UIKit
 
 final class CardDetailsViewController: UIViewController {
-    typealias Repository = CardDetailsRepositoryProtocol
 
     // MARK: - Variables
 
@@ -27,7 +26,6 @@ final class CardDetailsViewController: UIViewController {
 
     // MARK: Data
 
-    let repository: Repository
     let card: Card
 
     // MARK: Delegate
@@ -38,9 +36,7 @@ final class CardDetailsViewController: UIViewController {
 
     // MARK: Initializers
 
-    init(repository: Repository, card: Card) {
-        self.repository = repository
-
+    init(card: Card) {
         self.card = card
         self.viewModel = CardDetailsViewModel(cards: [card])
         super.init(nibName: nil, bundle: nil)
