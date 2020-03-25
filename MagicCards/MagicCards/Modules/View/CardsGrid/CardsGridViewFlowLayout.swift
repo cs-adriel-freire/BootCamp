@@ -18,9 +18,7 @@ final class CardsGridViewFlowLayout: UICollectionViewFlowLayout {
 
     var collectionFrame: CGRect {
         didSet {
-            DispatchQueue.main.async {
-                self.invalidateLayout()
-            }
+            self.invalidateLayout()
         }
     }
 

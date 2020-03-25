@@ -86,8 +86,13 @@ final class CardsGridView: UIView {
 
     // MARK: Update
 
-    func updateFrame() {
+    private func updateFrame() {
         self.collectionFlowLayout.collectionFrame = self.collectionView.frame
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.updateFrame()
     }
 
     // MARK: Refresh
