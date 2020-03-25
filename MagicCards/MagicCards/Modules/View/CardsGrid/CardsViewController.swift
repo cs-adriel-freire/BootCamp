@@ -98,7 +98,7 @@ final class CardsViewController: UIViewController {
 
 // MARK: - UICollectionViewDelegate
 
-extension CardsViewController: UICollectionViewDelegate {
+extension CardsViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard !self.gotLastSet else {
@@ -113,6 +113,19 @@ extension CardsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let card = viewModel.getItens(forSection: indexPath.section, row: indexPath.row)
         self.delegate?.showDetails(forCard: card)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else {
+            return collectionView.contentInset
+        }
+        if collectionView.numberOfItems(inSection: section) == 0 {
+            var insets = flowLayout.sectionInset
+            insets.top = -50
+            return insets
+        }
+        return flowLayout.sectionInset
     }
 }
 
