@@ -5,6 +5,7 @@ target 'MagicCards' do
 
   pod 'SnapKit', '~> 5.0.0'
   pod 'SwiftLint'
+  pod "Kingfisher"
 
   target 'MagicCardsTests' do
     inherit! :search_paths

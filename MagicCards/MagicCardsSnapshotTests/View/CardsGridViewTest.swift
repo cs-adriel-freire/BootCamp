@@ -44,7 +44,6 @@ final class CardsGridViewTest: XCTestCase {
                                     name: "Abundance",
                                     imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130483&type=card",
                                     types: ["Enchantment"])
-        self.card.imageData = UIImage(named: "cardForTest")?.pngData()
 
         self.cardsBySet[CardSet(id: "10E",
                                 name: "Tenth Edition",
@@ -58,7 +57,6 @@ final class CardsGridViewTest: XCTestCase {
                                     name: "Abomination of Gudul",
                                     imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=386463&type=card",
                                     types: ["Creature"])
-        self.card.imageData = UIImage(named: "cardForTest")?.pngData()
 
         self.cardsBySet[CardSet(id: "KTK",
                                 name: "Khans of Tarkir, a long long long name, with append",

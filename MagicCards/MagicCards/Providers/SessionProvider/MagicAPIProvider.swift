@@ -29,12 +29,10 @@ final class MagicAPIProvider: SessionProvider {
     init() {
         let cardsRequestBuilder = SessionRequestBuilder(baseURL: URL(string: "https://api.magicthegathering.io/v1")!, path: "cards")
         let cardSetsRequestBuilder = SessionRequestBuilder(baseURL: URL(string: "https://api.magicthegathering.io/v1")!, path: "sets")
-        let imageRequestBuilder = SessionRequestBuilder(baseURL: URL(string: "https://gatherer.wizards.com/Handlers/Image.ashx")!, path: "")
 
         var requestBuilders: [String: SessionRequestBuilder] = [:]
         requestBuilders["cards"] = cardsRequestBuilder
         requestBuilders["sets"] = cardSetsRequestBuilder
-        requestBuilders["images"] = imageRequestBuilder
 
         let decoder: JSONDecoder = {
             let decoder = JSONDecoder()
@@ -47,49 +45,6 @@ final class MagicAPIProvider: SessionProvider {
         self.urlSession = URLSession.shared
         self.requestBuilders = requestBuilders
         self.decoder = decoder
-    }
-
-    // MARK: Image fetch
-
-    public func fetchImage(forCard card: Card, completion: @escaping (Data?) -> Void) {
-        self.fetchImage(toCardUrl: card.imageUrl) { data in
-            if let data = data {
-                completion(data)
-            } else {
-                guard let requestBuilder = self.requestBuilders["images"] else {
-                    completion(nil)
-                    return
-                }
-
-                let params = [URLQueryItem(name: "name", value: card.name), URLQueryItem(name: "type", value: "card")]
-                let request = requestBuilder.request(withParams: params)
-
-                let task = self.urlSession.dataTask(with: request) { (data, _, _) in
-                    guard let data = data else {
-                        completion(nil)
-                        return
-                    }
-                    completion(data)
-                }
-                task.resume()
-            }
-        }
-    }
-
-    public func fetchImage(toCardUrl urlString: String?, completion: @escaping (Data?) -> Void) {
-        guard let urlString = urlString, let url = URL(string: urlString) else {
-            completion(nil)
-            return
-        }
-        let request = URLRequest(url: url)
-        let task = urlSession.dataTask(with: request) { (data, _, _) in
-            guard let data = data else {
-                completion(nil)
-                return
-            }
-            completion(data)
-        }
-        task.resume()
     }
 
     // MARK: Helpers
@@ -124,14 +79,6 @@ extension MagicAPIProvider: CardsProvider {
             case .success(let (dto, response)):
                 cards.append(contentsOf: dto.cards)
                 
-                for card in dto.cards {
-                    dispatchGroup.enter()
-                    self.fetchImage(forCard: card) { (data) in
-                        card.imageData = data
-                        dispatchGroup.leave()
-                    }
-                }
-                
                 let pages = self.pages(forResponse: response)
                 
                 if pages >= 2 {
@@ -143,19 +90,10 @@ extension MagicAPIProvider: CardsProvider {
                             switch result {
                             case .success(let (dto, _)):
                                 cards.append(contentsOf: dto.cards)
-                                
-                                for card in dto.cards {
-                                    dispatchGroup.enter()
-                                    self.fetchImage(toCardUrl: card.imageUrl) { (data) in
-                                        card.imageData = data
-                                        dispatchGroup.leave()
-                                    }
-                                }
-                                dispatchGroup.leave()
                             case .failure(let error):
                                 completion(.failure(error))
-                                dispatchGroup.leave()
                             }
+                            dispatchGroup.leave()
                         }
                     }
                 }

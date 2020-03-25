@@ -40,7 +40,6 @@ final class CardDetailsCellTest: XCTestCase {
                         name: "Abundance",
                         imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130483&type=card",
                         types: ["Enchantment"])
-        card.imageData = UIImage(named: "cardForTest")!.pngData()
         self.sut.configure(with: CardCellViewModel(card: card))
 
         expect(self.sut) == snapshot("CardDetailsCell_withImage")

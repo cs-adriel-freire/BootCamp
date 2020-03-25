@@ -37,7 +37,7 @@ class CardDetailsViewTest: XCTestCase {
     }
 
     func testLookAndFeelWithoutImage() {
-        let viewModel = CardDetailsViewModel(cards: [Card(id: "001", name: "Test Card", imageUrl: nil, imageData: nil, types: [])])
+        let viewModel = CardDetailsViewModel(cards: [Card(id: "001", name: "Test Card", imageUrl: nil, types: [])])
         sut = CardDetailsView(viewModel: viewModel)
         sut.frame = UIScreen.main.bounds
 
@@ -45,7 +45,6 @@ class CardDetailsViewTest: XCTestCase {
     }
     
     private func setInitialCard() -> Card {
-        let image = UIImage(named: "cardForTest")
-        return Card(id: "001", name: "Test Card", imageUrl: nil, imageData: image?.pngData(), types: [])
+        return Card(id: "001", name: "Test Card", imageUrl: nil, types: [])
     }
 }

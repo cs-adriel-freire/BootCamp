@@ -6,6 +6,7 @@
 //  Copyright © 2020 Concrete. All rights reserved.
 //
 
+import Kingfisher
 import SnapKit
 import UIKit
 
@@ -32,6 +33,10 @@ final class CardDetailsCell: UICollectionViewCell {
         return view
     }()
 
+    // MARK: Download task
+
+    var downloadTask: DownloadTask?
+
     // MARK: - Methods
 
     // MARK: Initializers
@@ -39,6 +44,7 @@ final class CardDetailsCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupView()
+        self.downloadTask = nil
     }
 
     required init?(coder: NSCoder) {
@@ -48,8 +54,20 @@ final class CardDetailsCell: UICollectionViewCell {
     // MARK: Configuration
 
     func configure(with viewModel: CardCellViewModel) {
-        self.imageView.image = viewModel.image
-        self.nameLabel.text = viewModel.name
+        self.downloadTask = self.imageView.kf.setImage(with: viewModel.imageUrl, placeholder: UIImage(named: "cardPlaceholder")) { result in
+            if case .failure(_) = result {
+                self.imageView.image = UIImage(named: "emptyCard")
+                self.nameLabel.text = viewModel.name
+            } else {
+                self.nameLabel.text = nil
+            }
+        }
+    }
+
+    override func prepareForReuse() {
+        self.downloadTask?.cancel()
+        self.imageView.image = nil
+        self.nameLabel.text = nil
     }
 }
 
