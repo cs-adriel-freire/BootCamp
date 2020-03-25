@@ -122,7 +122,7 @@ extension CardsViewController: UICollectionViewDelegateFlowLayout {
         }
         if collectionView.numberOfItems(inSection: section) == 0 {
             var insets = flowLayout.sectionInset
-            insets.top = -50
+            insets.top -= 50
             return insets
         }
         return flowLayout.sectionInset
