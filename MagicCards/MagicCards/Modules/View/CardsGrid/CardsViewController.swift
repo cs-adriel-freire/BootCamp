@@ -73,10 +73,6 @@ final class CardsViewController: UIViewController {
         super.viewDidLoad()
         self.getMoreCards()
     }
-
-    override func viewDidLayoutSubviews() {
-        self.gridView.updateFrame()
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
