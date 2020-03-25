@@ -43,10 +43,14 @@ final class GridCollectionHeaderView: UICollectionReusableView {
     // MARK: Configure
 
     func configure(with title: String) {
-        self.titleLabel.text = title
+        titleLabel.text = title
+        titleLabel.font = UIFont.systemFont(ofSize: 36.0, weight: .bold)
+        titleLabel.numberOfLines = 2
+        titleLabel.textColor = .white
     }
     
     func groupConfigure(with title: String) {
+        titleLabel.text = title
         configure(with: title)
         titleLabel.font = .boldSystemFont(ofSize: 16)
         titleLabel.textColor = .gray
