@@ -19,13 +19,7 @@ final class GridCollectionHeaderView: UICollectionReusableView {
 
     // MARK: Subviews
 
-    private lazy var titleLabel: UILabel = {
-        let view = UILabel()
-        view.font = UIFont.systemFont(ofSize: 36.0, weight: .bold)
-        view.numberOfLines = 2
-        view.textColor = .white
-        return view
-    }()
+    private let titleLabel = UILabel()
 
     // MARK: - Methods
 
