@@ -12,10 +12,8 @@ import Foundation
 
 final class CardsRepositoryDummy: CardDetailsRepositoryProtocol, CardsRepositoryProtocol {
 
+    func reset() { }
     func getCard(fromSet setIndex: Int, withIndex cardIndex: Int, completion: @escaping (Result<Card, Error>) -> Void) { }
 
     func getCards(untilSet setIndex: Int, completion: @escaping (Result<[CardSet: [Card]], Error>) -> Void) { }
-
-    func getCards(untilSet setIndex: Int, withName: String, completion: @escaping (Result<[CardSet: [Card]], Error>) -> Void) { }
-
 }

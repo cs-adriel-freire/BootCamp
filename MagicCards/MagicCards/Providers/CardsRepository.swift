@@ -14,25 +14,19 @@ final class CardsRepository {
 
     private var cardSets: [CardSet]
     private var cards: [CardSet: [Card]]
-//    private var favoriteCards: [CardSet: [Card]]
-    private var favoriteCards: [Card]   // TODO: Remove this temporary solution
 
     // MARK: Providers
 
     private let cardsProvider: CardsProvider
-    private let storageProvider: StorageProvider
 
     // MARK: - Methods
 
     // MARK: Initializers
 
-    init(cardsProvider: CardsProvider = MagicAPIProvider(), storageProvider: StorageProvider = CardsStorageProvider(onError: { })) {
+    init(cardsProvider: CardsProvider = MagicAPIProvider()) {
         self.cardsProvider = cardsProvider
-        self.storageProvider = storageProvider
         self.cardSets = []
         self.cards = [:]
-//        self.favoriteCards = [:]
-        self.favoriteCards = []
     }
 
     // MARK: Helpers
@@ -102,6 +96,11 @@ final class CardsRepository {
 
 extension CardsRepository: CardsRepositoryProtocol {
 
+    func reset() {
+        self.cardSets = []
+        self.cards = [:]
+    }
+
     func getCards(untilSet setIndex: Int, completion: @escaping (Result<[CardSet: [Card]], Error>) -> Void) {
 
         self.getCardSet(withIndex: setIndex) { result in
@@ -128,47 +127,6 @@ extension CardsRepository: CardsRepositoryProtocol {
             }
         }
     }
-
-    func getCards(untilSet setIndex: Int, withName: String, completion: @escaping (Result<[CardSet: [Card]], Error>) -> Void) {
-        //
-    }
-}
-
-// MARK: - FavoriteCardsRepositoryProtocol
-
-extension CardsRepository: FavoriteCardsRepositoryProtocol {
-
-    // MARK: Get methods
-
-    func getFavoriteCards() -> [Card] {
-        if self.favoriteCards.isEmpty {
-           self.favoriteCards = self.storageProvider.fetch()
-        }
-
-        return self.favoriteCards
-    }
-
-//    func getFavoriteCards(untilSet setIndex: Int) -> [CardSet: [Card]] {
-//        //
-//    }
-
-    func getFavoriteCards(untilSet setIndex: Int, withName: String) -> [CardSet: [Card]] {
-        return [:]
-    }
-
-    // MARK: Favorite methods
-
-    func addCardToFavorie(_ card: Card) {
-        self.favoriteCards.append(card)
-        self.storageProvider.save(objects: [card])
-    }
-
-    func removeCardFromFavorite(_ card: Card) {
-        self.favoriteCards = self.favoriteCards.filter { favoriteCard -> Bool in
-            favoriteCard == card
-        }
-        self.storageProvider.delete(objects: [card])
-    }
 }
 
 // MARK: - CardDetailsRepositoryProtocol
@@ -191,23 +149,6 @@ extension CardsRepository: CardDetailsRepositoryProtocol {
                 completion(.failure(error))
             }
         }
-    }
-}
-
-// MARK: - FavoriteCardDetailsRepositoryProtocol
-
-extension CardsRepository: FavoriteCardDetailsRepositoryProtocol {
-
-    func getCard(withIndex cardIndex: Int, completion: @escaping (Result<Card, Error>) -> Void) {
-
-        let favoriteCards = self.getFavoriteCards()
-
-        guard cardIndex < favoriteCards.count else {
-            completion(.failure(CardsRepositoryError.cardNotFound))
-            return
-        }
-
-        completion(.success(favoriteCards[cardIndex]))
     }
 }
 

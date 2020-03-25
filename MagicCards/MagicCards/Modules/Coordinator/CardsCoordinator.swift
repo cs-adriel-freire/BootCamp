@@ -26,7 +26,7 @@ final class CardsCoordinator {
 
     // MARK: Initializers
 
-    init(navigationController: UINavigationController, repository: Repository) {
+    init(navigationController: UINavigationController = UINavigationController(), repository: Repository = CardsRepository()) {
         self.rootController = navigationController
         self.repository = repository
         self.childCoordinators = []
