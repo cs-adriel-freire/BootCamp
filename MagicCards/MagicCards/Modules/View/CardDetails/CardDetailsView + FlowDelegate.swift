@@ -7,19 +7,21 @@
 //
 
 import UIKit
+
+private let cardWidth: CGFloat = 190
+private let cardHeight: CGFloat = 264
+
 extension CardDetailsView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.width * (190/320)
-        return CGSize(width: width, height: width * 1.3)
+        return CGSize(width: cardWidth, height: cardHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
-        let itemWidth = collectionView.frame.width * (190/320)
-        let itemHeight = itemWidth * 1.3
-        let inset = (collectionView.frame.height - itemHeight) / 2
+        let horizontalInset = (collectionView.frame.width - cardWidth) / 2
+        let verticalInset = (collectionView.frame.height - cardHeight) / 2
 
-        return UIEdgeInsets(top: inset, left: 0, bottom: inset, right: 0)
+        return UIEdgeInsets(top: verticalInset, left: horizontalInset, bottom: verticalInset, right: horizontalInset)
     }
 }

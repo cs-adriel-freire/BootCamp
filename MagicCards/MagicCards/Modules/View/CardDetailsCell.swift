@@ -21,7 +21,7 @@ final class CardDetailsCell: UICollectionViewCell {
 
     private lazy var imageView: UIImageView = {
         let view = UIImageView()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .black
         return view
     }()
 
@@ -68,7 +68,7 @@ extension CardDetailsCell: ViewCode {
         }
 
         self.nameLabel.snp.makeConstraints { maker in
-            maker.top.equalToSuperview().inset(18)
+            maker.top.equalToSuperview().inset(17)
             maker.centerX.equalToSuperview()
             maker.width.equalToSuperview().multipliedBy(0.8)
         }

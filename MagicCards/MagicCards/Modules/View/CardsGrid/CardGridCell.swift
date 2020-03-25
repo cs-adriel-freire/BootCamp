@@ -21,7 +21,7 @@ final class CardGridCell: UICollectionViewCell {
 
     private lazy var imageView: UIImageView = {
         let view = UIImageView()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .black
         return view
     }()
 
