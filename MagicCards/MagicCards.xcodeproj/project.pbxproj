@@ -38,6 +38,7 @@
 		5A13F07D241D31CA00276862 /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A13F07C241D31CA00276862 /* CardSet.swift */; };
 		5AA3DF2D242BED5100DFB51C /* CardsGridFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA3DF2C242BED5100DFB51C /* CardsGridFooterView.swift */; };
 		5AA3DF2F242BEDC600DFB51C /* CardsGridErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA3DF2E242BEDC600DFB51C /* CardsGridErrorView.swift */; };
+		5AA3DF31242BEE0B00DFB51C /* CardsGridLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA3DF30242BEE0B00DFB51C /* CardsGridLoadingView.swift */; };
 		5AC398C9241C44C5006FCDE4 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC398C8241C44C5006FCDE4 /* ViewCode.swift */; };
 		5AC398CB241C44F8006FCDE4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC398CA241C44F8006FCDE4 /* Coordinator.swift */; };
 		5AD28BA1241C3D4D0072BBEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD28BA0241C3D4C0072BBEB /* AppDelegate.swift */; };
@@ -109,6 +110,7 @@
 		5A6E8FF6241C42B400C5EC53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AA3DF2C242BED5100DFB51C /* CardsGridFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridFooterView.swift; sourceTree = "<group>"; };
 		5AA3DF2E242BEDC600DFB51C /* CardsGridErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridErrorView.swift; sourceTree = "<group>"; };
+		5AA3DF30242BEE0B00DFB51C /* CardsGridLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGridLoadingView.swift; sourceTree = "<group>"; };
 		5AC398C8241C44C5006FCDE4 /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		5AC398CA241C44F8006FCDE4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		5AD28B9D241C3D4C0072BBEB /* MagicCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +182,7 @@
 				23684CBD2422B3650081042C /* GridCollectionHeaderView.swift */,
 				5AA3DF2C242BED5100DFB51C /* CardsGridFooterView.swift */,
 				5AA3DF2E242BEDC600DFB51C /* CardsGridErrorView.swift */,
+				5AA3DF30242BEE0B00DFB51C /* CardsGridLoadingView.swift */,
 			);
 			path = CardsGrid;
 			sourceTree = "<group>";
@@ -744,6 +747,7 @@
 				5A13F07D241D31CA00276862 /* CardSet.swift in Sources */,
 				23684CB224219B290081042C /* CardsGridViewModel.swift in Sources */,
 				5AC398C9241C44C5006FCDE4 /* ViewCode.swift in Sources */,
+				5AA3DF31242BEE0B00DFB51C /* CardsGridLoadingView.swift in Sources */,
 				23684CBB2422B2640081042C /* GridCollectionDataSource.swift in Sources */,
 				FC215E162423C1C700262D9D /* CardDetailsCollectionDataSource.swift in Sources */,
 				23684CBE2422B3650081042C /* GridCollectionHeaderView.swift in Sources */,
