@@ -19,7 +19,7 @@ final class CardDetailsCollectionDataSource: NSObject, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCell.reuseIdentifier, for: indexPath) as? CardCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardDetailsCell.reuseIdentifier, for: indexPath) as? CardDetailsCell else {
             return UICollectionViewCell()
         }
         let cardCellViewModel = CardCellViewModel(card: cards[indexPath.row])

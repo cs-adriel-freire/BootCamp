@@ -40,7 +40,7 @@ final class CardDetailsView: UIView {
         let layout = UICollectionViewFlowLayout()
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.delegate = self
-        collection.register(CardCell.self, forCellWithReuseIdentifier: CardCell.reuseIdentifier)
+        collection.register(CardDetailsCell.self, forCellWithReuseIdentifier: CardDetailsCell.reuseIdentifier)
         collection.backgroundColor = .clear
         
         return collection

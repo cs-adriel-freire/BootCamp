@@ -12,7 +12,8 @@ struct CardCellViewModel {
 
     // MARK: - Variables
 
-    let image: UIImage
+    let image: UIImage?
+    let name: String?
 
     // MARK: - Methods
 
@@ -20,9 +21,11 @@ struct CardCellViewModel {
 
     init(card: Card) {
         if let data = card.imageData {
-            self.image = UIImage(data: data) ?? UIImage()
+            self.image = UIImage(data: data)
+            self.name = nil
         } else {
-            self.image = UIImage()
+            self.image = UIImage(named: "emptyCard")
+            self.name = card.name
         }
     }
 }
