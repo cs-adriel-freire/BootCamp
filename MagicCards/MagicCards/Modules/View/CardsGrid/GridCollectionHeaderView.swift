@@ -19,13 +19,7 @@ final class GridCollectionHeaderView: UICollectionReusableView {
 
     // MARK: Subviews
 
-    private lazy var titleLabel: UILabel = {
-        let view = UILabel()
-        view.font = UIFont.systemFont(ofSize: 36.0, weight: .bold)
-        view.numberOfLines = 2
-        view.textColor = .white
-        return view
-    }()
+    private let titleLabel = UILabel()
 
     // MARK: - Methods
 
@@ -43,11 +37,14 @@ final class GridCollectionHeaderView: UICollectionReusableView {
     // MARK: Configure
 
     func configure(with title: String) {
-        self.titleLabel.text = title
+        titleLabel.text = title
+        titleLabel.font = UIFont.systemFont(ofSize: 36.0, weight: .bold)
+        titleLabel.numberOfLines = 2
+        titleLabel.textColor = .white
     }
     
     func groupConfigure(with title: String) {
-        configure(with: title)
+        titleLabel.text = title
         titleLabel.font = .boldSystemFont(ofSize: 16)
         titleLabel.textColor = .gray
     }
