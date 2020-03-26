@@ -18,7 +18,7 @@ final class CardsViewController: UIViewController {
 
     // MARK: View
 
-    private lazy var gridView = CardsGridView(viewModel: self.viewModel, collectionDelegate: self)
+    private lazy var gridView = CardsGridView(viewModel: self.viewModel)
 
     // MARK: ViewModel
 
@@ -96,30 +96,14 @@ final class CardsViewController: UIViewController {
     }
 }
 
-// MARK: - UICollectionViewDelegate
-
-extension CardsViewController: UICollectionViewDelegate {
-
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard !self.gotLastSet else {
-            return
-        }
-
-        if indexPath == IndexPath(item: self.viewModel.lastSectionCount-1, section: self.viewModel.nextSectionIndex-1) {
-            self.getMoreCards()
-        }
-    }
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let card = viewModel.getItens(forSection: indexPath.section, row: indexPath.row)
-        self.delegate?.showDetails(forCard: card)
-    }
-}
-
 // MARK: - CardsGridViewDelegate
 
 extension CardsViewController: CardsGridViewDelegate {
-
+    
+    func showDetails(forCard card: Card) {
+        self.delegate?.showDetails(forCard: card)
+    }
+    
     func refresh() {
         self.cardsRepository.reset()
         self.viewModel = CardsGridViewModel(cardsBySet: [:])

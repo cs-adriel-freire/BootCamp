@@ -9,4 +9,5 @@
 protocol CardsGridViewDelegate: AnyObject {
 
     func refresh()
+    func showDetails(forCard card: Card)
 }
