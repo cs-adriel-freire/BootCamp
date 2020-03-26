@@ -31,6 +31,9 @@ final class CardsGridView: UIView {
     // MARK: CollectionView
     
     private let gridCollectionDataSource: GridCollectionDataSource
+    // swiftlint:disable weak_delegate
+    private let errorViewDelegate: CardsGridErrorViewDelegate?
+    // swiftlint:enable weak_delegate
 
     // MARK: Subviews
 
@@ -63,13 +66,34 @@ final class CardsGridView: UIView {
         self.collectionView.refreshControl = view
         return view
     }()
-
+    
+    let footerView: CardsGridFooterView = {
+        let view = CardsGridFooterView()
+        view.isHidden = true
+        return view
+    }()
+    
+    private lazy var errorView: CardsGridErrorView = {
+        let view = CardsGridErrorView(delegate: self.errorViewDelegate)
+        view.isHidden = true
+        return view
+    }()
+    
+    private lazy var loadingView: CardsGridLoadingView = {
+        let view = CardsGridLoadingView()
+        view.isHidden = true
+        return view
+    }()
+    
     // MARK: - Methods
 
     // MARK: Initializers
 
-    init(frame: CGRect = .zero, viewModel: CardsGridViewModel) {
+    init(frame: CGRect = .zero,
+         viewModel: CardsGridViewModel,
+         errorViewDelegate: CardsGridErrorViewDelegate? = nil) {
         self.viewModel = viewModel
+        self.errorViewDelegate = errorViewDelegate
         self.gridCollectionDataSource = GridCollectionDataSource(viewModel: self.viewModel)
         super.init(frame: frame)
 
@@ -79,6 +103,27 @@ final class CardsGridView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func setState(_ state: CardsViewController.State) {
+        DispatchQueue.main.async {
+            if state == .error && self.viewModel.numberOfItemsBySection.isEmpty {
+                self.errorView.isHidden = false
+                self.loadingView.isHidden = true
+            } else if state == .error && !self.viewModel.numberOfItemsBySection.isEmpty {
+                self.footerView.state = .error
+            } else if state == .loading && self.viewModel.numberOfItemsBySection.isEmpty {
+                self.loadingView.isHidden = false
+                self.errorView.isHidden = true
+            } else if state == .loading && !self.viewModel.numberOfItemsBySection.isEmpty {
+                self.footerView.state = .loading
+            } else if state == .success {
+                self.errorView.isHidden = true
+                self.loadingView.isHidden = true
+                self.footerView.setHidden(true)
+                self.footerView.state = .loading
+            }
+        }
+    }
 
     // MARK: Refresh
 
@@ -86,6 +131,7 @@ final class CardsGridView: UIView {
         self.collectionView.refreshControl?.endRefreshing()
         self.delegate?.refresh()
     }
+    
 }
 
 // MARK: - ViewCode
@@ -94,17 +140,34 @@ extension CardsGridView: ViewCode {
 
     func buildViewHierarchy() {
         self.addSubview(self.backgroundImageView)
-        self.addSubview(collectionView)
+        self.addSubview(self.footerView)
+        self.addSubview(self.collectionView)
+        self.addSubview(self.loadingView)
+        self.addSubview(self.errorView)
         self.collectionView.addSubview(self.refreshControl)
     }
 
     func setupContraints() {
         self.backgroundImageView.snp.makeConstraints { maker in
-            maker.top.bottom.leading.trailing.equalToSuperview()
+            maker.edges.equalToSuperview()
         }
 
         self.collectionView.snp.makeConstraints { maker in
-            maker.top.bottom.leading.trailing.equalToSuperview()
+            maker.edges.equalToSuperview()
+        }
+        
+        self.footerView.snp.makeConstraints { (maker) in
+            maker.left.right.equalTo(self.collectionView)
+            maker.bottom.equalTo(self.collectionView)
+            maker.height.equalTo(60)
+        }
+        
+        self.loadingView.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview()
+        }
+        
+        self.errorView.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview()
         }
     }
 
@@ -142,6 +205,16 @@ extension CardsGridView: UICollectionViewDelegateFlowLayout {
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 16.0
     }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        if self.viewModel.checkIfSet(section: section) {
+            return UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
+        } else {
+            return UIEdgeInsets(top: 4, left: 0, bottom: 16, right: 0)
+        }
+    }
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -157,6 +230,24 @@ extension CardsGridView: UICollectionViewDelegateFlowLayout {
         }
         let maximumLabelSize: CGSize = CGSize(width: collectionView.frame.width, height: .greatestFiniteMagnitude)
         let expectedLabelSize: CGSize = label.sizeThatFits(maximumLabelSize)
-        return CGSize(width: collectionView.frame.width, height: expectedLabelSize.height + 8)
+        return CGSize(width: collectionView.frame.width, height: expectedLabelSize.height)
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+
+extension CardsGridView: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let height = scrollView.frame.height
+        let contentSizeHeight = scrollView.contentSize.height
+        let offset = scrollView.contentOffset.y
+        let reachedBottom = (offset + height >= contentSizeHeight - 10)
+        
+        if reachedBottom && contentSizeHeight != 0 {
+            self.delegate?.reachedBottom()
+        } else {
+            self.footerView.setHidden(true)
+        }
     }
 }
