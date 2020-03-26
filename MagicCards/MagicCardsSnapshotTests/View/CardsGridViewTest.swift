@@ -22,7 +22,7 @@ final class CardsGridViewTest: XCTestCase {
     var sut: CardsGridView!
 
     // MARK: Helpers
-
+    
     var viewModel: CardsGridViewModel!
     var referenceDate: Date!
     var card: Card!
@@ -47,7 +47,7 @@ final class CardsGridViewTest: XCTestCase {
         self.card.imageData = UIImage(named: "cardForTest")?.pngData()
 
         self.cardsBySet[CardSet(id: "10E",
-                                name: "Tenth Edition",
+                                name: "Theros Beyond Death",
                                 releaseDate: Date(timeInterval: 50.0, since: self.referenceDate))] = [self.card, self.card, self.card]
 
         self.viewModel = CardsGridViewModel(cardsBySet: self.cardsBySet)

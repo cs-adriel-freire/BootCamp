@@ -62,6 +62,7 @@ final class CardsGridFooterView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // swiftlint:disable multiple_closures_with_trailing_closure
     public func setHidden(_ isHidden: Bool) {
         DispatchQueue.main.async {
             if isHidden {
@@ -80,6 +81,7 @@ final class CardsGridFooterView: UIView {
             }
         }
     }
+    // swiftlint:enable multiple_closures_with_trailing_closure
     
 }
 

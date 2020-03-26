@@ -113,4 +113,3 @@ protocol CardsGridErrorViewDelegate: AnyObject {
     
     func retryFetchAction()
 }
-
