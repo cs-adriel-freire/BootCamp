@@ -14,9 +14,10 @@ final class CardsCoordinatorTest: XCTestCase {
 
     // MARK: - Variables
 
-    var sut: CardsCoordinator!
-    var navigationController: UINavigationController!
-    var cardsRepositoryDummy: CardsRepositoryDummy!
+    private var sut: CardsCoordinator!
+    private var navigationController: UINavigationController!
+    private var cardsRepositoryDummy: CardsRepositoryDummy!
+    private var imageFetcher: ImageFetcherDummy!
 
     // MARK: - Methods
 
@@ -24,7 +25,8 @@ final class CardsCoordinatorTest: XCTestCase {
 
     override func setUp() {
         self.navigationController = UINavigationController()
-        self.sut = CardsCoordinator(navigationController: self.navigationController, repository: CardsRepositoryDummy())
+        self.imageFetcher = ImageFetcherDummy()
+        self.sut = CardsCoordinator(navigationController: self.navigationController, repository: CardsRepositoryDummy(), imageFetcher: self.imageFetcher)
     }
 
     // MARK: Tear down
@@ -32,6 +34,7 @@ final class CardsCoordinatorTest: XCTestCase {
     override func tearDown() {
         self.sut = nil
         self.navigationController = nil
+        self.imageFetcher = nil
     }
 
     // MARK: Tests

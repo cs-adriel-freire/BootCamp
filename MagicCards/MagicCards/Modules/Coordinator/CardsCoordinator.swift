@@ -22,13 +22,20 @@ final class CardsCoordinator {
 
     let repository: Repository
 
+    // MARK: Image fetcher
+
+    private var imageFetcher: ImageFetcher
+
     // MARK: - Methods
 
     // MARK: Initializers
 
-    init(navigationController: UINavigationController = UINavigationController(), repository: Repository = CardsRepository()) {
+    init(navigationController: UINavigationController = UINavigationController(),
+         repository: Repository = CardsRepository(),
+         imageFetcher: ImageFetcher = KFImageFetcher()) {
         self.rootController = navigationController
         self.repository = repository
+        self.imageFetcher = imageFetcher
         self.childCoordinators = []
     }
 }
@@ -38,7 +45,7 @@ final class CardsCoordinator {
 extension CardsCoordinator: Coordinator {
 
     func start() {
-        let cardsViewController = CardsViewController(repository: self.repository)
+        let cardsViewController = CardsViewController(repository: self.repository, imageFetcher: self.imageFetcher)
         cardsViewController.delegate = self
         self.rootController.pushViewController(cardsViewController, animated: true)
     }
@@ -49,7 +56,7 @@ extension CardsCoordinator: Coordinator {
 extension CardsCoordinator: CardsViewControllerDelegate {
 
     func showDetails(forCard card: Card) {
-        let cardDetailsViewController = CardDetailsViewController(card: card)
+        let cardDetailsViewController = CardDetailsViewController(card: card, imageFetcher: self.imageFetcher)
         cardDetailsViewController.delegate = self
         self.rootController.pushViewController(cardDetailsViewController, animated: true)
     }

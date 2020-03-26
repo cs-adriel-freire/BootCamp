@@ -17,13 +17,15 @@ final class CardDetailsCellTest: XCTestCase {
 
     // MARK: - Variables
 
-    var sut: CardDetailsCell!
+    private var sut: CardDetailsCell!
+    private var imageFetcher: ImageFetcherStub!
 
     // MARK: - Methods
 
     // MARK: Set up
 
     override func setUp() {
+        self.imageFetcher = ImageFetcherStub()
         self.sut = CardDetailsCell(frame: CGRect(x: 0, y: 0, width: 160, height: 264))
     }
 
@@ -31,6 +33,7 @@ final class CardDetailsCellTest: XCTestCase {
 
     override func tearDown() {
         self.sut = nil
+        self.imageFetcher = nil
     }
 
     // MARK: Tests
@@ -40,16 +43,18 @@ final class CardDetailsCellTest: XCTestCase {
                         name: "Abundance",
                         imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130483&type=card",
                         types: ["Enchantment"])
-        self.sut.configure(with: CardCellViewModel(card: card))
+        self.sut.configure(with: CardCellViewModel(card: card), imageFetcher: self.imageFetcher)
 
         expect(self.sut) == snapshot("CardDetailsCell_withImage")
     }
 
     func testLookAndFeelWithoutImage() {
+        self.imageFetcher.shouldReturnError = true
         self.sut.configure(with: CardCellViewModel(card: Card(id: "1669af17-d287-5094-b005-4b143441442f",
                                                               name: "Abundance",
                                                               imageUrl: nil,
-                                                              types: ["Enchantment"])))
+                                                              types: ["Enchantment"])),
+                           imageFetcher: self.imageFetcher)
 
         expect(self.sut) == snapshot("CardDetailsCell_withoutImage")
     }

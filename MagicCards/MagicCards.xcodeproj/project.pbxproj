@@ -24,6 +24,12 @@
 		23684CBB2422B2640081042C /* GridCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23684CBA2422B2640081042C /* GridCollectionDataSource.swift */; };
 		23684CBE2422B3650081042C /* GridCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23684CBD2422B3650081042C /* GridCollectionHeaderView.swift */; };
 		23778D422422B54400AFCB36 /* CardsGridViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23778D412422B54400AFCB36 /* CardsGridViewFlowLayout.swift */; };
+		239BF994242CE31400D3706E /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239BF993242CE31400D3706E /* ImageFetcher.swift */; };
+		239BF996242CE3A800D3706E /* KFImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239BF995242CE3A800D3706E /* KFImageFetcher.swift */; };
+		239BF998242CE5B900D3706E /* OperationTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239BF997242CE5B900D3706E /* OperationTask.swift */; };
+		239BF99A242CE5E800D3706E /* DownloadTask+OperationTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239BF999242CE5E800D3706E /* DownloadTask+OperationTask.swift */; };
+		239BF99D242CEA6B00D3706E /* ImageFetcherStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239BF99B242CEA6B00D3706E /* ImageFetcherStub.swift */; };
+		239BF9A2242CF59C00D3706E /* ImageFetcherDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239BF9A1242CF59C00D3706E /* ImageFetcherDummy.swift */; };
 		23BFC1112423C5F100024368 /* CardsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BFC1102423C5F100024368 /* CardsRepository.swift */; };
 		23BFC1132423C64200024368 /* CardsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BFC1122423C64200024368 /* CardsProvider.swift */; };
 		23BFC1192423D8F300024368 /* CardsRepositoryDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BFC1182423D8F300024368 /* CardsRepositoryDummy.swift */; };
@@ -98,6 +104,12 @@
 		23684CBA2422B2640081042C /* GridCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionDataSource.swift; sourceTree = "<group>"; };
 		23684CBD2422B3650081042C /* GridCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionHeaderView.swift; sourceTree = "<group>"; };
 		23778D412422B54400AFCB36 /* CardsGridViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsGridViewFlowLayout.swift; sourceTree = "<group>"; };
+		239BF993242CE31400D3706E /* ImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcher.swift; sourceTree = "<group>"; };
+		239BF995242CE3A800D3706E /* KFImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFImageFetcher.swift; sourceTree = "<group>"; };
+		239BF997242CE5B900D3706E /* OperationTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationTask.swift; sourceTree = "<group>"; };
+		239BF999242CE5E800D3706E /* DownloadTask+OperationTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DownloadTask+OperationTask.swift"; sourceTree = "<group>"; };
+		239BF99B242CEA6B00D3706E /* ImageFetcherStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcherStub.swift; sourceTree = "<group>"; };
+		239BF9A1242CF59C00D3706E /* ImageFetcherDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcherDummy.swift; sourceTree = "<group>"; };
 		23BFC1102423C5F100024368 /* CardsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsRepository.swift; sourceTree = "<group>"; };
 		23BFC1122423C64200024368 /* CardsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsProvider.swift; sourceTree = "<group>"; };
 		23BFC1182423D8F300024368 /* CardsRepositoryDummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsRepositoryDummy.swift; sourceTree = "<group>"; };
@@ -280,6 +292,7 @@
 		5A6E8FF3241C42B400C5EC53 /* MagicCardsSnapshotTests */ = {
 			isa = PBXGroup;
 			children = (
+				239BF99B242CEA6B00D3706E /* ImageFetcherStub.swift */,
 				5A6E8FFC241C42C100C5EC53 /* Application */,
 				23E118F424201A0F00CC6E61 /* View */,
 			);
@@ -319,12 +332,13 @@
 		5AD28B9F241C3D4C0072BBEB /* MagicCards */ = {
 			isa = PBXGroup;
 			children = (
+				239BF999242CE5E800D3706E /* DownloadTask+OperationTask.swift */,
 				5AD28BC7241C40D80072BBEB /* Application */,
+				5AD28BAB241C3D520072BBEB /* LaunchScreen.storyboard */,
 				5AD28BC2241C3E980072BBEB /* Modules */,
 				5AD28BC9241C41660072BBEB /* Protocols */,
 				5AEAB8962422B77E00084472 /* Providers */,
 				5AD28BA9241C3D520072BBEB /* Assets.xcassets */,
-				5AD28BAB241C3D520072BBEB /* LaunchScreen.storyboard */,
 			);
 			path = MagicCards;
 			sourceTree = "<group>";
@@ -332,6 +346,7 @@
 		5AD28BB6241C3D530072BBEB /* MagicCardsTests */ = {
 			isa = PBXGroup;
 			children = (
+				239BF9A1242CF59C00D3706E /* ImageFetcherDummy.swift */,
 				5AD28BC8241C41090072BBEB /* Application */,
 				5A13F07E241FDEB000276862 /* Modules */,
 				5AEAB8A52423194B00084472 /* Providers */,
@@ -408,6 +423,8 @@
 			children = (
 				23BFC1122423C64200024368 /* CardsProvider.swift */,
 				5AC398CA241C44F8006FCDE4 /* Coordinator.swift */,
+				239BF993242CE31400D3706E /* ImageFetcher.swift */,
+				239BF997242CE5B900D3706E /* OperationTask.swift */,
 				5AEAB89C2422B86300084472 /* SessionProvider.swift */,
 				5AC398C8241C44C5006FCDE4 /* ViewCode.swift */,
 				231564CD242939BD00920643 /* Delegates */,
@@ -420,6 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				23BFC1102423C5F100024368 /* CardsRepository.swift */,
+				239BF995242CE3A800D3706E /* KFImageFetcher.swift */,
 				5AEAB89F2422B93200084472 /* SessionProvider */,
 			);
 			path = Providers;
@@ -723,6 +741,7 @@
 				23299FAB24254B1900B626EB /* CardDetailsCellTest.swift in Sources */,
 				5AA3DF36242BF48400DFB51C /* CardsGridFooterViewTest.swift in Sources */,
 				23684CB8242286090081042C /* CardsGridViewTest.swift in Sources */,
+				239BF99D242CEA6B00D3706E /* ImageFetcherStub.swift in Sources */,
 				5AA3DF37242BF48400DFB51C /* CardsGridErrorViewTest.swift in Sources */,
 				5AA3DF35242BF48400DFB51C /* CardsGridLoadingViewTest.swift in Sources */,
 				FC215E1B2423C1F300262D9D /* CardDetailsView.swift in Sources */,
@@ -737,6 +756,7 @@
 				23E118E4241FF99A00CC6E61 /* CardsCoordinator.swift in Sources */,
 				23BFC1132423C64200024368 /* CardsProvider.swift in Sources */,
 				23778D422422B54400AFCB36 /* CardsGridViewFlowLayout.swift in Sources */,
+				239BF994242CE31400D3706E /* ImageFetcher.swift in Sources */,
 				23299FA324253DFF00B626EB /* CardGridCell.swift in Sources */,
 				5AEAB89D2422B86300084472 /* SessionProvider.swift in Sources */,
 				5AA3DF2F242BEDC600DFB51C /* CardsGridErrorView.swift in Sources */,
@@ -758,9 +778,11 @@
 				5AEAB89B2422B7EF00084472 /* CardSetDTO.swift in Sources */,
 				5A13F07D241D31CA00276862 /* CardSet.swift in Sources */,
 				23684CB224219B290081042C /* CardsGridViewModel.swift in Sources */,
+				239BF99A242CE5E800D3706E /* DownloadTask+OperationTask.swift in Sources */,
 				5AC398C9241C44C5006FCDE4 /* ViewCode.swift in Sources */,
 				5AA3DF31242BEE0B00DFB51C /* CardsGridLoadingView.swift in Sources */,
 				23684CBB2422B2640081042C /* GridCollectionDataSource.swift in Sources */,
+				239BF998242CE5B900D3706E /* OperationTask.swift in Sources */,
 				FC215E162423C1C700262D9D /* CardDetailsCollectionDataSource.swift in Sources */,
 				23684CBE2422B3650081042C /* GridCollectionHeaderView.swift in Sources */,
 				5AA3DF2D242BED5100DFB51C /* CardsGridFooterView.swift in Sources */,
@@ -770,6 +792,7 @@
 				5AC398CB241C44F8006FCDE4 /* Coordinator.swift in Sources */,
 				FC215E142423C1C700262D9D /* CardDetailsViewDelegate.swift in Sources */,
 				5A13F07B241D31B000276862 /* Card.swift in Sources */,
+				239BF996242CE3A800D3706E /* KFImageFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -783,6 +806,7 @@
 				23E118EB2420065900CC6E61 /* CardsCoordinatorTest.swift in Sources */,
 				23BFC1192423D8F300024368 /* CardsRepositoryDummy.swift in Sources */,
 				23684CB624225FAC0081042C /* CardsGridViewModelTest.swift in Sources */,
+				239BF9A2242CF59C00D3706E /* ImageFetcherDummy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

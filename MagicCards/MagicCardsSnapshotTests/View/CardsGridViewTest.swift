@@ -19,14 +19,15 @@ final class CardsGridViewTest: XCTestCase {
 
     // MARK: SUT
 
-    var sut: CardsGridView!
+    private var sut: CardsGridView!
 
     // MARK: Helpers
 
-    var viewModel: CardsGridViewModel!
-    var referenceDate: Date!
-    var card: Card!
-    var cardsBySet: [CardSet: [Card]]!
+    private var viewModel: CardsGridViewModel!
+    private var referenceDate: Date!
+    private var card: Card!
+    private var cardsBySet: [CardSet: [Card]]!
+    private var imageFetcher: ImageFetcherStub!
 
     // MARK: - Methods
 
@@ -36,7 +37,8 @@ final class CardsGridViewTest: XCTestCase {
         self.cardsBySet = [:]
         self.referenceDate = Date()
         self.setupInitialViewModel()
-        self.sut = CardsGridView(frame: CGRect(x: 0, y: 0, width: 375, height: 667), viewModel: self.viewModel)
+        self.imageFetcher = ImageFetcherStub()
+        self.sut = CardsGridView(frame: CGRect(x: 0, y: 0, width: 375, height: 667), viewModel: self.viewModel, imageFetcher: self.imageFetcher)
     }
 
     private func setupInitialViewModel() {
@@ -74,6 +76,7 @@ final class CardsGridViewTest: XCTestCase {
         self.cardsBySet = nil
         self.viewModel = nil
         self.sut = nil
+        self.imageFetcher = nil
     }
 
     // MARK: Tests

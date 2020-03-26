@@ -33,9 +33,9 @@ final class CardDetailsCell: UICollectionViewCell {
         return view
     }()
 
-    // MARK: Download task
+    // MARK: Operation task
 
-    var downloadTask: DownloadTask?
+    private var operationTask: OperationTask?
 
     // MARK: - Methods
 
@@ -44,7 +44,7 @@ final class CardDetailsCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupView()
-        self.downloadTask = nil
+        self.operationTask = nil
     }
 
     required init?(coder: NSCoder) {
@@ -53,9 +53,11 @@ final class CardDetailsCell: UICollectionViewCell {
 
     // MARK: Configuration
 
-    func configure(with viewModel: CardCellViewModel) {
-        self.downloadTask = self.imageView.kf.setImage(with: viewModel.imageUrl, placeholder: UIImage(named: "cardPlaceholder")) { result in
-            if case .failure(_) = result {
+    func configure(with viewModel: CardCellViewModel, imageFetcher: ImageFetcher) {
+        self.operationTask = imageFetcher.fetchImage(for: self.imageView,
+                                                     withUrl: viewModel.imageUrl,
+                                                     placeholder: UIImage(named: "cardPlaceholder")) { error in
+            if error != nil {
                 self.imageView.image = UIImage(named: "emptyCard")
                 self.nameLabel.text = viewModel.name
             } else {
@@ -65,7 +67,7 @@ final class CardDetailsCell: UICollectionViewCell {
     }
 
     override func prepareForReuse() {
-        self.downloadTask?.cancel()
+        self.operationTask?.cancel()
         self.imageView.image = nil
         self.nameLabel.text = nil
     }

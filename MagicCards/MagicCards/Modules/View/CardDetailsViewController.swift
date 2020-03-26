@@ -14,7 +14,7 @@ final class CardDetailsViewController: UIViewController {
 
     // MARK: View
 
-    private lazy var detailsView = CardDetailsView(viewModel: self.viewModel)
+    private lazy var detailsView = CardDetailsView(viewModel: self.viewModel, imageFetcher: self.imageFetcher)
 
     // MARK: ViewModel
 
@@ -32,13 +32,18 @@ final class CardDetailsViewController: UIViewController {
 
     weak var delegate: CardDetailsViewControllerDelegate?
 
+    // MARK: Image fetcher
+
+    private var imageFetcher: ImageFetcher
+
     // MARK: - Methods
 
     // MARK: Initializers
 
-    init(card: Card) {
+    init(card: Card, imageFetcher: ImageFetcher) {
         self.card = card
         self.viewModel = CardDetailsViewModel(cards: [card])
+        self.imageFetcher = imageFetcher
         super.init(nibName: nil, bundle: nil)
     }
 

@@ -8,10 +8,24 @@
 
 import UIKit
 final class CardDetailsCollectionDataSource: NSObject, UICollectionViewDataSource {
+
+    // MARK: - Variables
+
+    // MARK: Data
+
     var cards: [Card]
-    
-    init(cards: [Card]) {
+
+    // MARK: Image fetcher
+
+    private var imageFetcher: ImageFetcher
+
+    // MARK: - Methods
+
+    // MARK: Initializers
+
+    init(cards: [Card], imageFetcher: ImageFetcher) {
         self.cards = cards
+        self.imageFetcher = imageFetcher
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -23,7 +37,7 @@ final class CardDetailsCollectionDataSource: NSObject, UICollectionViewDataSourc
             return UICollectionViewCell()
         }
         let cardCellViewModel = CardCellViewModel(card: cards[indexPath.row])
-        cell.configure(with: cardCellViewModel)
+        cell.configure(with: cardCellViewModel, imageFetcher: self.imageFetcher)
         cell.backgroundColor = .green
         return cell
     }

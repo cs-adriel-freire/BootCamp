@@ -93,12 +93,13 @@ final class CardsGridView: UIView {
     init(frame: CGRect = .zero,
          viewModel: CardsGridViewModel,
          collectionDelegate: UICollectionViewDelegate? = nil,
-         errorViewDelegate: CardsGridErrorViewDelegate? = nil) {
+         errorViewDelegate: CardsGridErrorViewDelegate? = nil,
+         imageFetcher: ImageFetcher) {
         self.viewModel = viewModel
         self.collectionViewDelegate = collectionDelegate
         self.errorViewDelegate = errorViewDelegate
         self.collectionFlowLayout = CardsGridViewFlowLayout()
-        self.gridCollectionDataSource = GridCollectionDataSource(viewModel: self.viewModel)
+        self.gridCollectionDataSource = GridCollectionDataSource(viewModel: self.viewModel, imageFetcher: imageFetcher)
         super.init(frame: frame)
 
         self.setupView()

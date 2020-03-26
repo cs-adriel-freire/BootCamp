@@ -16,12 +16,17 @@ final class GridCollectionDataSource: NSObject {
 
     var viewModel: CardsGridViewModel
 
+    // MARK: Image fetcher
+
+    private var imageFetcher: ImageFetcher
+
     // MARK: - Methods
 
     // MARK: Initializers
 
-    init(viewModel: CardsGridViewModel) {
+    init(viewModel: CardsGridViewModel, imageFetcher: ImageFetcher) {
         self.viewModel = viewModel
+        self.imageFetcher = imageFetcher
         super.init()
     }
 }
@@ -63,7 +68,7 @@ extension GridCollectionDataSource: UICollectionViewDataSource {
         }
         let card = viewModel.getItens(forSection: indexPath.section, row: indexPath.row)
         let cardViewModel = CardCellViewModel(card: card)
-        cell.configure(with: cardViewModel)
+        cell.configure(with: cardViewModel, imageFetcher: self.imageFetcher)
 
         return cell
     }

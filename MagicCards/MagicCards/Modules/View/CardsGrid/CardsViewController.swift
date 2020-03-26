@@ -28,7 +28,7 @@ final class CardsViewController: UIViewController {
 
     // MARK: View
 
-    private lazy var gridView = CardsGridView(viewModel: self.viewModel, collectionDelegate: self, errorViewDelegate: self)
+    private lazy var gridView = CardsGridView(viewModel: self.viewModel, collectionDelegate: self, errorViewDelegate: self, imageFetcher: self.imageFetcher)
 
     // MARK: ViewModel
 
@@ -46,12 +46,17 @@ final class CardsViewController: UIViewController {
 
     weak var delegate: CardsViewControllerDelegate?
 
+    // MARK: Image fetcher
+
+    private var imageFetcher: ImageFetcher
+
     // MARK: - Methods
     
     // MARK: Initializers
 
-    init(repository: Repository) {
+    init(repository: Repository, imageFetcher: ImageFetcher) {
         self.cardsRepository = repository
+        self.imageFetcher = imageFetcher
         self.gotLastSet = false
         super.init(nibName: nil, bundle: nil)
     }

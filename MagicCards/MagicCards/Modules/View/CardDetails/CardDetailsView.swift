@@ -48,13 +48,9 @@ final class CardDetailsView: UIView {
     
     // MARK: - Initializers
     
-    convenience init(viewModel: CardDetailsViewModel) {
-        self.init(frame: .zero, viewModel: viewModel)
-    }
-    
-    init(frame: CGRect, viewModel: CardDetailsViewModel) {
+    init(frame: CGRect = .zero, viewModel: CardDetailsViewModel, imageFetcher: ImageFetcher) {
         self.viewModel = viewModel
-        self.collectionDataSource = CardDetailsCollectionDataSource(cards: viewModel.cards)
+        self.collectionDataSource = CardDetailsCollectionDataSource(cards: viewModel.cards, imageFetcher: imageFetcher)
         super.init(frame: frame)
         setupView()
     }
