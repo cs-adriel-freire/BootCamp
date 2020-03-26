@@ -48,7 +48,7 @@ final class CardsGridViewTest: XCTestCase {
                                     types: ["Enchantment"])
 
         self.cardsBySet[CardSet(id: "10E",
-                                name: "Tenth Edition",
+                                name: "Theros Beyond Death",
                                 releaseDate: Date(timeInterval: 50.0, since: self.referenceDate))] = [self.card, self.card, self.card]
 
         self.viewModel = CardsGridViewModel(cardsBySet: self.cardsBySet)

@@ -45,7 +45,7 @@ final class GridCollectionHeaderView: UICollectionReusableView {
     
     func groupConfigure(with title: String) {
         titleLabel.text = title
-        titleLabel.font = .boldSystemFont(ofSize: 16)
+        titleLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .bold)
         titleLabel.textColor = .gray
     }
 
@@ -63,9 +63,7 @@ extension GridCollectionHeaderView: ViewCode {
 
     func setupContraints() {
         self.titleLabel.snp.makeConstraints { maker in
-            maker.leading.trailing.equalToSuperview().inset(16)
-            maker.top.greaterThanOrEqualToSuperview().inset(8)
-            maker.bottom.equalToSuperview().inset(8)
+            maker.edges.equalToSuperview()
         }
     }
 

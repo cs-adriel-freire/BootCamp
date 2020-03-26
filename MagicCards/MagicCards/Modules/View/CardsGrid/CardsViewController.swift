@@ -25,10 +25,11 @@ final class CardsViewController: UIViewController {
             self.gridView.setState(state)
         }
     }
+    private var isMakingRequest: Bool = false
 
     // MARK: View
 
-    private lazy var gridView = CardsGridView(viewModel: self.viewModel, collectionDelegate: self, errorViewDelegate: self, imageFetcher: self.imageFetcher)
+    private lazy var gridView = CardsGridView(viewModel: self.viewModel, errorViewDelegate: self, imageFetcher: self.imageFetcher)
 
     // MARK: ViewModel
 
@@ -84,46 +85,45 @@ final class CardsViewController: UIViewController {
     // MARK: Update data
 
     private func getMoreCards() {
-        self.state = .loading
-        self.cardsRepository.getCards(untilSet: self.viewModel.nextSectionIndex) { result in
-            switch result {
-            case let .success(cardsBySet):
-                self.viewModel = CardsGridViewModel(cardsBySet: cardsBySet)
-                self.state = .success
-            case let .failure(error):
-                if let cardsRepositoryError = error as? CardsRepositoryError, cardsRepositoryError == CardsRepositoryError.setNotFound {
-                    self.gotLastSet = true
+        if !self.isMakingRequest {
+            self.isMakingRequest = true
+            self.state = .loading
+            self.cardsRepository.getCards(untilSet: self.viewModel.nextSectionIndex) { result in
+                switch result {
+                case let .success(cardsBySet):
+                    self.viewModel = CardsGridViewModel(cardsBySet: cardsBySet)
+                    self.isMakingRequest = false
+                    self.state = .success
+                case let .failure(error):
+                    if let cardsRepositoryError = error as? CardsRepositoryError, cardsRepositoryError == CardsRepositoryError.setNotFound {
+                        self.gotLastSet = true
+                    }
+                    self.isMakingRequest = false
+                    self.state = .error
                 }
-                self.state = .error
             }
         }
-    }
-}
-
-// MARK: - UICollectionViewDelegate
-
-extension CardsViewController: UICollectionViewDelegate {
-
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard !self.gotLastSet else {
-            return
-        }
-
-        if indexPath == IndexPath(item: self.viewModel.lastSectionCount-1, section: self.viewModel.nextSectionIndex-1) {
-            self.getMoreCards()
-        }
-    }
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let card = viewModel.getItens(forSection: indexPath.section, row: indexPath.row)
-        self.delegate?.showDetails(forCard: card)
+        
     }
 }
 
 // MARK: - CardsGridViewDelegate
 
 extension CardsViewController: CardsGridViewDelegate {
-
+    
+    func reachedBottom() {
+        if !self.gotLastSet {
+            self.getMoreCards()
+            self.gridView.footerView.setHidden(false)
+        } else {
+            self.gridView.footerView.setHidden(true)
+        }
+    }
+    
+    func showDetails(forCard card: Card) {
+        self.delegate?.showDetails(forCard: card)
+    }
+    
     func refresh() {
         self.cardsRepository.reset()
         self.viewModel = CardsGridViewModel(cardsBySet: [:])
@@ -139,22 +139,4 @@ extension CardsViewController: CardsGridErrorViewDelegate {
         self.getMoreCards()
     }
 
-}
-
-// MARK: - UIScrollViewDelegate
-
-extension CardsViewController: UIScrollViewDelegate {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let height = scrollView.frame.height
-        let contentSizeHeight = scrollView.contentSize.height
-        let offset = scrollView.contentOffset.y
-        let reachedBottom = (offset + height >= contentSizeHeight - 5)
-        
-        if reachedBottom && contentSizeHeight != 0 && !self.gotLastSet {
-            self.gridView.footerView.setHidden(false)
-        } else {
-            self.gridView.footerView.setHidden(true)
-        }
-    }
 }

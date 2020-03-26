@@ -28,14 +28,12 @@ final class CardsGridView: UIView {
 
     weak var delegate: CardsGridViewDelegate?
 
-    // MARK: CollectionVIew
-
-    var collectionFlowLayout: CardsGridViewFlowLayout
+    // MARK: CollectionView
+    
     private let gridCollectionDataSource: GridCollectionDataSource
-    //swiftlint:disable weak_delegate
-    private let collectionViewDelegate: UICollectionViewDelegate?
+    // swiftlint:disable weak_delegate
     private let errorViewDelegate: CardsGridErrorViewDelegate?
-    //swiftlint:enable weak_delegate
+    // swiftlint:enable weak_delegate
 
     // MARK: Subviews
 
@@ -46,15 +44,16 @@ final class CardsGridView: UIView {
     }()
 
     private lazy var collectionView: UICollectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: self.collectionFlowLayout)
+        let flowLayout = UICollectionViewFlowLayout()
+        let view = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         view.register(CardGridCell.self, forCellWithReuseIdentifier: CardGridCell.reuseIdentifier)
         view.register(GridCollectionHeaderView.self,
                       forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                       withReuseIdentifier: GridCollectionHeaderView.reuseIdentifier)
         view.dataSource = self.gridCollectionDataSource
-        view.delegate = self.collectionViewDelegate
+        view.delegate = self
+        view.contentInset = UIEdgeInsets(top: 16, left: 16, bottom: 60, right: 16)
         view.backgroundColor = .clear
-        view.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
         return view
     }()
 
@@ -92,13 +91,10 @@ final class CardsGridView: UIView {
 
     init(frame: CGRect = .zero,
          viewModel: CardsGridViewModel,
-         collectionDelegate: UICollectionViewDelegate? = nil,
          errorViewDelegate: CardsGridErrorViewDelegate? = nil,
          imageFetcher: ImageFetcher) {
         self.viewModel = viewModel
-        self.collectionViewDelegate = collectionDelegate
         self.errorViewDelegate = errorViewDelegate
-        self.collectionFlowLayout = CardsGridViewFlowLayout()
         self.gridCollectionDataSource = GridCollectionDataSource(viewModel: self.viewModel, imageFetcher: imageFetcher)
         super.init(frame: frame)
 
@@ -107,17 +103,6 @@ final class CardsGridView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    // MARK: Update
-
-    private func updateFrame() {
-        self.collectionFlowLayout.invalidateLayout()
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.updateFrame()
     }
     
     func setState(_ state: CardsViewController.State) {
@@ -147,6 +132,7 @@ final class CardsGridView: UIView {
         self.collectionView.refreshControl?.endRefreshing()
         self.delegate?.refresh()
     }
+    
 }
 
 // MARK: - ViewCode
@@ -188,5 +174,81 @@ extension CardsGridView: ViewCode {
 
     func setupAdditionalConfiguration() {
         //
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+ 
+extension CardsGridView: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let card = viewModel.getItens(forSection: indexPath.section, row: indexPath.row)
+        self.delegate?.showDetails(forCard: card)
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+
+extension CardsGridView: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 85.0, height: 118.0)
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 16.0
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 16.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        if self.viewModel.checkIfSet(section: section) {
+            return UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
+        } else {
+            return UIEdgeInsets(top: 4, left: 0, bottom: 16, right: 0)
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        referenceSizeForHeaderInSection section: Int) -> CGSize {
+        let label = UILabel()
+        label.text = self.viewModel.getHeader(forSection: section)
+        if self.viewModel.checkIfSet(section: section) {
+            label.font = UIFont.systemFont(ofSize: 36, weight: .black)
+            label.numberOfLines = 2
+        } else {
+            label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+            label.numberOfLines = 1
+        }
+        let maximumLabelSize: CGSize = CGSize(width: collectionView.frame.width, height: .greatestFiniteMagnitude)
+        let expectedLabelSize: CGSize = label.sizeThatFits(maximumLabelSize)
+        return CGSize(width: collectionView.frame.width, height: expectedLabelSize.height)
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+
+extension CardsGridView: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let height = scrollView.frame.height
+        let contentSizeHeight = scrollView.contentSize.height
+        let offset = scrollView.contentOffset.y
+        let reachedBottom = (offset + height >= contentSizeHeight - 10)
+        
+        if reachedBottom && contentSizeHeight != 0 {
+            self.delegate?.reachedBottom()
+        } else {
+            self.footerView.setHidden(true)
+        }
     }
 }
