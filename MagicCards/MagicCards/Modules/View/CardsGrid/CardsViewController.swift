@@ -10,24 +10,31 @@ import UIKit
 
 final class CardsViewController: UIViewController {
     typealias Repository = CardsRepositoryProtocol & CardDetailsRepositoryProtocol
+    
+    enum State {
+        case initial
+        case error
+        case loading
+        case success
+    }
 
     // MARK: - Variables
-    private let indicator = UIActivityIndicatorView(style: .whiteLarge)
-    private var firstTimeLoading = true
-    var gotLastSet: Bool
+    private var gotLastSet: Bool
+    private var state: State = .initial {
+        didSet {
+            self.gridView.setState(state)
+        }
+    }
 
     // MARK: View
 
-    private lazy var gridView = CardsGridView(viewModel: self.viewModel, collectionDelegate: self)
+    private lazy var gridView = CardsGridView(viewModel: self.viewModel, collectionDelegate: self, errorViewDelegate: self)
 
     // MARK: ViewModel
 
     private var viewModel = CardsGridViewModel(cardsBySet: [:]) {
         didSet {
             self.gridView.viewModel = self.viewModel
-            DispatchQueue.main.async {
-                self.indicator.stopAnimating()
-            }
         }
     }
 
@@ -40,15 +47,6 @@ final class CardsViewController: UIViewController {
     weak var delegate: CardsViewControllerDelegate?
 
     // MARK: - Methods
-    private func setUpActivityIndicator() {
-        if firstTimeLoading {
-            firstTimeLoading = false
-            indicator.center = view.center
-            self.view.addSubview(indicator)
-            indicator.startAnimating()
-        }
-        
-    }
     
     // MARK: Initializers
 
@@ -76,21 +74,22 @@ final class CardsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        setUpActivityIndicator()
     }
 
     // MARK: Update data
 
     private func getMoreCards() {
+        self.state = .loading
         self.cardsRepository.getCards(untilSet: self.viewModel.nextSectionIndex) { result in
             switch result {
             case let .success(cardsBySet):
                 self.viewModel = CardsGridViewModel(cardsBySet: cardsBySet)
+                self.state = .success
             case let .failure(error):
                 if let cardsRepositoryError = error as? CardsRepositoryError, cardsRepositoryError == CardsRepositoryError.setNotFound {
                     self.gotLastSet = true
                 }
-                print(error)
+                self.state = .error
             }
         }
     }
@@ -124,5 +123,33 @@ extension CardsViewController: CardsGridViewDelegate {
         self.cardsRepository.reset()
         self.viewModel = CardsGridViewModel(cardsBySet: [:])
         self.getMoreCards()
+    }
+}
+
+// MARK: - CardsGridErrorViewDelegate
+
+extension CardsViewController: CardsGridErrorViewDelegate {
+    
+    func retryFetchAction() {
+        self.getMoreCards()
+    }
+
+}
+
+// MARK: - UIScrollViewDelegate
+
+extension CardsViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let height = scrollView.frame.height
+        let contentSizeHeight = scrollView.contentSize.height
+        let offset = scrollView.contentOffset.y
+        let reachedBottom = (offset + height >= contentSizeHeight - 5)
+        
+        if reachedBottom && contentSizeHeight != 0 && !self.gotLastSet {
+            self.gridView.footerView.setHidden(false)
+        } else {
+            self.gridView.footerView.setHidden(true)
+        }
     }
 }

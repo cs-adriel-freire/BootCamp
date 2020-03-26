@@ -15,16 +15,11 @@ import XCTest
 
 class CardDetailsViewTest: XCTestCase {
     private var sut: CardDetailsView!
-    private var superView: UIView!
     
     override func setUp() {
         super.setUp()
         let viewModel = CardDetailsViewModel(cards: [setInitialCard()])
-        sut = CardDetailsView(viewModel: viewModel)
-        sut.frame = UIScreen.main.bounds
-        
-        superView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 667))
-        superView.addSubview(sut)
+        sut = CardDetailsView(frame: CGRect(x: 0, y: 0, width: 375, height: 667), viewModel: viewModel)
     }
     
     override func tearDown() {
@@ -37,9 +32,8 @@ class CardDetailsViewTest: XCTestCase {
     }
 
     func testLookAndFeelWithoutImage() {
-        let viewModel = CardDetailsViewModel(cards: [Card(id: "001", name: "Test Card", imageUrl: nil, types: [])])
-        sut = CardDetailsView(viewModel: viewModel)
-        sut.frame = UIScreen.main.bounds
+        let viewModel = CardDetailsViewModel(cards: [Card(id: "001", name: "Test Card", imageUrl: nil, imageData: nil, types: [])])
+        sut = CardDetailsView(frame: CGRect(x: 0, y: 0, width: 375, height: 667), viewModel: viewModel)
 
         expect(self.sut).to( haveValidSnapshot(named: "CardDetailsView_withoutImage") )
     }

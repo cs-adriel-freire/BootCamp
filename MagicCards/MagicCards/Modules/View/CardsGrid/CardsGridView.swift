@@ -34,6 +34,7 @@ final class CardsGridView: UIView {
     private let gridCollectionDataSource: GridCollectionDataSource
     //swiftlint:disable weak_delegate
     private let collectionViewDelegate: UICollectionViewDelegate?
+    private let errorViewDelegate: CardsGridErrorViewDelegate?
     //swiftlint:enable weak_delegate
 
     // MARK: Subviews
@@ -53,6 +54,7 @@ final class CardsGridView: UIView {
         view.dataSource = self.gridCollectionDataSource
         view.delegate = self.collectionViewDelegate
         view.backgroundColor = .clear
+        view.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
         return view
     }()
 
@@ -65,14 +67,36 @@ final class CardsGridView: UIView {
         self.collectionView.refreshControl = view
         return view
     }()
-
+    
+    let footerView: CardsGridFooterView = {
+        let view = CardsGridFooterView()
+        view.isHidden = true
+        return view
+    }()
+    
+    private lazy var errorView: CardsGridErrorView = {
+        let view = CardsGridErrorView(delegate: self.errorViewDelegate)
+        view.isHidden = true
+        return view
+    }()
+    
+    private lazy var loadingView: CardsGridLoadingView = {
+        let view = CardsGridLoadingView()
+        view.isHidden = true
+        return view
+    }()
+    
     // MARK: - Methods
 
     // MARK: Initializers
 
-    init(frame: CGRect = .zero, viewModel: CardsGridViewModel, collectionDelegate: UICollectionViewDelegate? = nil) {
+    init(frame: CGRect = .zero,
+         viewModel: CardsGridViewModel,
+         collectionDelegate: UICollectionViewDelegate? = nil,
+         errorViewDelegate: CardsGridErrorViewDelegate? = nil) {
         self.viewModel = viewModel
         self.collectionViewDelegate = collectionDelegate
+        self.errorViewDelegate = errorViewDelegate
         self.collectionFlowLayout = CardsGridViewFlowLayout()
         self.gridCollectionDataSource = GridCollectionDataSource(viewModel: self.viewModel)
         super.init(frame: frame)
@@ -87,12 +111,33 @@ final class CardsGridView: UIView {
     // MARK: Update
 
     private func updateFrame() {
-        self.collectionFlowLayout.collectionFrame = self.collectionView.frame
+        self.collectionFlowLayout.invalidateLayout()
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
         self.updateFrame()
+    }
+    
+    func setState(_ state: CardsViewController.State) {
+        DispatchQueue.main.async {
+            if state == .error && self.viewModel.numberOfItemsBySection.isEmpty {
+                self.errorView.isHidden = false
+                self.loadingView.isHidden = true
+            } else if state == .error && !self.viewModel.numberOfItemsBySection.isEmpty {
+                self.footerView.state = .error
+            } else if state == .loading && self.viewModel.numberOfItemsBySection.isEmpty {
+                self.loadingView.isHidden = false
+                self.errorView.isHidden = true
+            } else if state == .loading && !self.viewModel.numberOfItemsBySection.isEmpty {
+                self.footerView.state = .loading
+            } else if state == .success {
+                self.errorView.isHidden = true
+                self.loadingView.isHidden = true
+                self.footerView.setHidden(true)
+                self.footerView.state = .loading
+            }
+        }
     }
 
     // MARK: Refresh
@@ -109,17 +154,34 @@ extension CardsGridView: ViewCode {
 
     func buildViewHierarchy() {
         self.addSubview(self.backgroundImageView)
-        self.addSubview(collectionView)
+        self.addSubview(self.footerView)
+        self.addSubview(self.collectionView)
+        self.addSubview(self.loadingView)
+        self.addSubview(self.errorView)
         self.collectionView.addSubview(self.refreshControl)
     }
 
     func setupContraints() {
         self.backgroundImageView.snp.makeConstraints { maker in
-            maker.top.bottom.leading.trailing.equalToSuperview()
+            maker.edges.equalToSuperview()
         }
 
         self.collectionView.snp.makeConstraints { maker in
-            maker.top.bottom.leading.trailing.equalToSuperview()
+            maker.edges.equalToSuperview()
+        }
+        
+        self.footerView.snp.makeConstraints { (maker) in
+            maker.left.right.equalTo(self.collectionView)
+            maker.bottom.equalTo(self.collectionView)
+            maker.height.equalTo(60)
+        }
+        
+        self.loadingView.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview()
+        }
+        
+        self.errorView.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview()
         }
     }
 
