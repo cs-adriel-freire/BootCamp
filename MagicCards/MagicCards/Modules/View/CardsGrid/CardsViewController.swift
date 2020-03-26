@@ -14,6 +14,7 @@ final class CardsViewController: UIViewController {
     // MARK: - Variables
     private let indicator = UIActivityIndicatorView(style: .whiteLarge)
     private var firstTimeLoading = true
+    private var isMakingResquest = false
     var gotLastSet: Bool
 
     // MARK: View
@@ -82,16 +83,21 @@ final class CardsViewController: UIViewController {
     // MARK: Update data
 
     private func getMoreCards() {
-        self.cardsRepository.getCards(untilSet: self.viewModel.nextSectionIndex) { result in
-            switch result {
-            case let .success(cardsBySet):
-                self.viewModel = CardsGridViewModel(cardsBySet: cardsBySet)
-            case let .failure(error):
-                if let cardsRepositoryError = error as? CardsRepositoryError, cardsRepositoryError == CardsRepositoryError.setNotFound {
-                    self.gotLastSet = true
+        if !isMakingResquest {
+            isMakingResquest = true
+            self.cardsRepository.getCards(untilSet: self.viewModel.nextSectionIndex) { result in
+                switch result {
+                case let .success(cardsBySet):
+                    self.viewModel = CardsGridViewModel(cardsBySet: cardsBySet)
+                case let .failure(error):
+                    if let cardsRepositoryError = error as? CardsRepositoryError, cardsRepositoryError == CardsRepositoryError.setNotFound {
+                        self.gotLastSet = true
+                    }
+                    print(error)
                 }
-                print(error)
+                self.isMakingResquest = false
             }
+            
         }
     }
 }
@@ -123,6 +129,5 @@ extension CardsViewController: CardsGridViewDelegate {
     func refresh() {
         self.cardsRepository.reset()
         self.viewModel = CardsGridViewModel(cardsBySet: [:])
-        self.getMoreCards()
-    }
+        self.getMoreCards()    }
 }
